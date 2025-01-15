@@ -11,6 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 /* FOOTER */
 
 footer{
@@ -28,4 +29,11 @@ footer{
   position: relative;
   bottom: 0px;
   text-align: center;
+}
+
+.loader{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
