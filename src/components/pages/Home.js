@@ -70,10 +70,7 @@ const Home = () => {
         </ul>
       </section>
 
-      {/* Footer Section */}
-      <footer>
-        <p>© 2025 Satyakiran | All Rights Reserved</p>
-      </footer>
+  
     </div>
   );
 };
