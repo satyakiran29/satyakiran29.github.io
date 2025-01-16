@@ -21,6 +21,27 @@ import lgRotate from 'lightgallery/plugins/rotate';
 const images = [
     { src: "/gallery/1.jpg", alt: "1" }, 
     { src: "/gallery/2.jpg", alt: "2" },
+  { src: "https://server.skdev29.workers.dev/1:/3.jpg", alt: "3" },
+  { src: "https://server.skdev29.workers.dev/1:/4.jpg", alt: "4" },
+  { src: "https://server.skdev29.workers.dev/1:/5.jpg", alt: "5" },
+  { src: "https://server.skdev29.workers.dev/1:/6.jpg", alt: "6" },
+  { src: "https://server.skdev29.workers.dev/1:/7.jpg", alt: "7" },
+  { src: "https://server.skdev29.workers.dev/1:/8.jpg", alt: "8" },
+  { src: "https://server.skdev29.workers.dev/1:/9.jpg", alt: "9" },
+  { src: "https://server.skdev29.workers.dev/1:/10.jpg", alt: "10" },
+  { src: "https://server.skdev29.workers.dev/1:/11.jpg", alt: "11" },
+  { src: "https://server.skdev29.workers.dev/1:/12.jpg", alt: "12" },
+  { src: "https://server.skdev29.workers.dev/1:/13.jpg", alt: "13" },
+  { src: "https://server.skdev29.workers.dev/1:/14.jpg", alt: "14" },
+  { src: "https://server.skdev29.workers.dev/1:/15.jpg", alt: "15" },
+  { src: "https://server.skdev29.workers.dev/1:/16.jpg", alt: "16" },
+  { src: "https://server.skdev29.workers.dev/1:/17.jpg", alt: "17" },
+  { src: "https://server.skdev29.workers.dev/1:/18.jpg", alt: "18" },
+  { src: "https://server.skdev29.workers.dev/1:/19.jpg", alt: "19" },
+  { src: "https://server.skdev29.workers.dev/1:/20.jpg", alt: "20" },
+  { src: "https://server.skdev29.workers.dev/1:/21.jpg", alt: "21" },
+  { src: "https://server.skdev29.workers.dev/1:/22.jpg", alt: "22" }
+
 ]
 
 export function Gallery() {
