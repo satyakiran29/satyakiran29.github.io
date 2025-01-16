@@ -19,8 +19,8 @@ import lgShare from 'lightgallery/plugins/share';
 import lgRotate from 'lightgallery/plugins/rotate';
 
 const images = [
-    { src: "/1.jpg", alt: "1" }, 
-    { src: "https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-1170x780.jpg", alt: "2" },
+    { src: "/gallery/1.jpg", alt: "1" }, 
+    { src: "/gallery/2.jpg", alt: "2" },
 ]
 
 export function Gallery() {
