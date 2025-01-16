@@ -7,8 +7,8 @@ const Nav = () => {
       <nav>
         <div className="header_logo">
           <img src={logo} alt="Logo" />
-          <a href="status" aria-label="Status">
-            👨‍💻
+          <a href="Gallery" aria-label="Gallery">
+          🖼️
           </a>
         </div>
         <div className="header_links">
