@@ -47,11 +47,21 @@ const TestimonyCard = ({ title, description, tags, image }) => (
 
 const App = () => {
   const projects = [
+
+    {
+      title: "SatyaKiran Portfolio",
+      description:
+        "A personal portfolio website built using ReactJs and CSS. The website showcases my projects, skills, and contact information.",
+      tags: ["Website","ReactJs", "Css", "UI/UX"],
+      image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/Portfolio.png",
+      projectLink: "https://satyakiran.vercel.app/",
+      githubLink: "https://github.com/satyakiran29/satyakiran29.github.io",
+    },
     {
       title: "Aniset - Kwgt Widgets & Klwp",
       description:
         "Transform your Android Home Screen with Aniset - Anime KWGT Widgets & KLWP! Elevate your device customization to a whole new level with anime-inspired widgets and themes.",
-      tags: ["Kotlin", "JSON", "Firebase", "UI/UX"],
+      tags: ["Android App","Kotlin", "JSON", "Firebase", "UI/UX"],
       image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
       projectLink: "https://example.com/",
       githubLink: "https://example.com/",
