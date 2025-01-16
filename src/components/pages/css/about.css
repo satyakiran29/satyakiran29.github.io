@@ -1,0 +1,88 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a202c;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container */
+  .c_container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    animation: fadeInDown .8s;
+  }
+  
+  /* Project Card */
+  .card {
+    background-color: #2d3748;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-align: center;
+    border: 2px solid #00796b;
+    animation: fadeInDown .8s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card Image */
+  .card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    
+  }
+  
+  /* Card Title */
+  .card h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Card Description */
+  .card p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+
+  
+
+  
+  /* Links */
+  .links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .link-button {
+    background-color: #3182ce;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .link-button:hover {
+    background-color: #63b3ed;
+    transform: scale(1.05);
+  }
+
+
