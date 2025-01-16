@@ -42,7 +42,15 @@ const App = () => {
       projectLink: "https://example.com/",
       githubLink: "https://example.com/", 
     },
-  
+    {
+      title: "Aniset - Kwgt Widgets & Klwp",
+      description:
+        "Transform Your Android Home Screen with Aniset - Anime Kwgt Widgets & Klwp! Elevate your device customization to a whole new level with Aniset - Anime Kwgt & Klwp Widgets! This collection of stunning KWGT and KLWP widgets brings the vibrant and dynamic world of anime to your Android home screen. Immerse yourself in the captivating aesthetics of your favorite anime characters and themes, making your device a true anime wonderland.",
+      tags: ["Kotlin", "Json", "Firebase","Ui/Ux"],
+      image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw", // Replace with your image URL
+      projectLink: "https://example.com/",
+      githubLink: "https://example.com/", 
+    },
   ];
 
 return (
