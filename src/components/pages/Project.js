@@ -1,9 +1,8 @@
 import React from "react";
-import "./css/project.css"; 
+import "./css/project.css";
+
 const ProjectCard = ({ title, description, tags, image, projectLink, githubLink }) => (
-  
   <div className="card">
-    {/* Projects */}
     <img src={image} alt={title} className="card-image" />
     <h2>{title}</h2>
     <p>{description}</p>
@@ -31,36 +30,74 @@ const ProjectCard = ({ title, description, tags, image, projectLink, githubLink 
   </div>
 );
 
+const TestimonyCard = ({ title, description, tags, image }) => (
+  <div className="card testimony">
+    <img src={image} alt={title} className="card-image" />
+    <h2>{title}</h2>
+    <p>{description}</p>
+    <div className="tags">
+      {tags.map((tag, index) => (
+        <span key={index} className="tag">
+          {tag}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 const App = () => {
   const projects = [
     {
       title: "Aniset - Kwgt Widgets & Klwp",
       description:
-        "Transform Your Android Home Screen with Aniset - Anime Kwgt Widgets & Klwp! Elevate your device customization to a whole new level with Aniset - Anime Kwgt & Klwp Widgets! This collection of stunning KWGT and KLWP widgets brings the vibrant and dynamic world of anime to your Android home screen. Immerse yourself in the captivating aesthetics of your favorite anime characters and themes, making your device a true anime wonderland.",
-      tags: ["Kotlin", "Json", "Firebase","Ui/Ux"],
-      image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw", // Replace with your image URL
+        "Transform your Android Home Screen with Aniset - Anime KWGT Widgets & KLWP! Elevate your device customization to a whole new level with anime-inspired widgets and themes.",
+      tags: ["Kotlin", "JSON", "Firebase", "UI/UX"],
+      image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
       projectLink: "https://example.com/",
-      githubLink: "https://example.com/", 
-    },
-    {
-      title: "Aniset - Kwgt Widgets & Klwp",
-      description:
-        "Transform Your Android Home Screen with Aniset - Anime Kwgt Widgets & Klwp! Elevate your device customization to a whole new level with Aniset - Anime Kwgt & Klwp Widgets! This collection of stunning KWGT and KLWP widgets brings the vibrant and dynamic world of anime to your Android home screen. Immerse yourself in the captivating aesthetics of your favorite anime characters and themes, making your device a true anime wonderland.",
-      tags: ["Kotlin", "Json", "Firebase","Ui/Ux"],
-      image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw", // Replace with your image URL
-      projectLink: "https://example.com/",
-      githubLink: "https://example.com/", 
+      githubLink: "https://example.com/",
     },
   ];
 
-return (
-    
-    <div className="container">
+  const testimonies = [
+    {
+      title: "선배야쿠자",
+      description:
+        "This widget is best in Play Store and it's a game-changer! It's sleek, customizable, and makes app discovery and management a breeze. The developer support for this widget is top-notch. Any questions or issues I had were quickly resolved, and he is very responsive and helpful. It's clear that he is dedicated to providing a great user experience. Great job!",
+      tags: ["User Feedback", "5 Star","Aniset User"],
+      image: "https://play-lh.googleusercontent.com/a-/ALV-UjWBZULZPa2XhPg5AoC28foZVYMFp3etyrbSyXyYM-uVwjJJtude=s32-rw",
+    },
+    {
+      title: "Gaurav Kumar",
+      description:
+        "Using it since one year and really like it's widgets. And developer thank you for your efforts.",
+        tags: ["User Feedback", "5 Star","Aniset User"],
+      image: "https://play-lh.googleusercontent.com/a-/ALV-UjVsxs5270RailQPpjfZGkr57R_3HBL4ywgw0JT5Dd_hHyq2yuvd=s32-rw",
+    },
+  ];
+
+  return (
+    <>
+      <center>
+        <h1>Projects</h1>
+        <p>My projects make use of a vast variety of the latest technology tools.</p>
+      </center>
+      <div className="container">
         {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+          <ProjectCard key={index} {...project} />
         ))}
-    </div>
-);
+      </div>
+
+      <center>
+        <h1>Testimonies</h1>
+        <p>Here's what people are saying about my work.</p>
+      </center>
+      <div className="container">
+        {testimonies.map((testimony, index) => (
+          <TestimonyCard key={index} {...testimony} />
+        ))}
+      </div>
+    </>
+  );
 };
 
 export default App;
