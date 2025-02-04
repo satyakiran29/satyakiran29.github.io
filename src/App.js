@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Project from "./components/pages/Project";
-import Footer from "./components/Footer";
 import { Gallery } from "./components/Gallery"
 import "./components/pages/css/gallery.css"
 import Nav from "./components/nav"; // Import the Nav component
@@ -40,10 +39,9 @@ function App() {
               <Route path="/About" element={<About />} />
               <Route path="/Project" element={<Project />} />
               <Route path="/Gallery" element={<Gallery />} />
-               
             </Routes>
           </Router>
-          <Footer />
+         
         </div>
       )}
     </>
