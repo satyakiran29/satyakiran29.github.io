@@ -20,7 +20,6 @@ import lgRotate from 'lightgallery/plugins/rotate';
 
 const images = [
     { src: "/gallery/1.jpg", alt: "1" }, 
-    { src: "/gallery/2.jpg", alt: "2" },
   { src: "https://server.skdev29.workers.dev/1:/3.jpg", alt: "3" },
   { src: "https://server.skdev29.workers.dev/1:/4.jpg", alt: "4" },
   { src: "https://server.skdev29.workers.dev/1:/5.jpg", alt: "5" },
@@ -66,6 +65,14 @@ export function Gallery() {
 
 
             </LightGallery>
+
+            <footer>
+      <h4>Developed by Satyakiran</h4>
+      <h4>Copyright &copy; 2025 Satyakiran</h4>
+  
+    </footer>
         </div>
+
+        
     );
 }
