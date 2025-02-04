@@ -3,32 +3,32 @@ import { FaBlog, FaSteam, FaInstagram, FaGlobe } from "react-icons/fa";
 import "././pages/css/bio.css"; // Import the CSS file
 const ProfileCard = () => {
   return (
-    <div className="container">
-      <div className="card">
+    <div className="b_container">
+      <div className="b_card">
         <img
           src="https://bio-satyakiran.vercel.app/_next/image?url=%2Fp.png&w=96&q=75"
           alt="Profile"
           className="profile-pic"
         />
-        <h2 className="name">Satyakiran</h2>
-        <p className="title">Gamer & Web Developer</p>
+        <h2 className="b_name">Satyakiran</h2>
+        <p className="b_title">Gamer & Web Developer</p>
 
-        <div className="info-buttons">
-          <button className="info-button">Website</button>
-          <button className="info-button">psatyakiran1@gmail.com</button>
+        <div className="b_info-buttons">
+          <button className="b_info-button">Website</button>
+          <button className="b_info-button">psatyakiran1@gmail.com</button>
         </div>
 
-        <div className="social-links">
-          <a href="https://example.com/blog" className="social-button">
+        <div className="b_social-links">
+          <a href="https://example.com/blog" className="b_social-button">
             <FaBlog /> Blog
           </a>
-          <a href="https://steamcommunity.com/id/skdev29/" className="social-button">
+          <a href="https://steamcommunity.com/id/skdev29/" className="b_social-button">
             <FaSteam /> Steam
           </a>
-          <a href="https://www.instagram.com/skdev29/" className="social-button">
+          <a href="https://www.instagram.com/skdev29/" className="b_social-button">
             <FaInstagram /> Instagram (Public)
           </a>
-          <a href="https://www.instagram.com/satyakiran29/" className="social-button">
+          <a href="https://www.instagram.com/satyakiran29/" className="b_social-button">
             <FaInstagram /> Instagram
           </a>
         </div>

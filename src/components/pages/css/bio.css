@@ -1,5 +1,5 @@
 /* Background */
-.container {
+.b_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,7 +8,7 @@
     overflow: hidden;
   }
   
-  .container::before {
+  .b_container::before {
     content: '';
     position: fixed;
     top: 0;
@@ -23,7 +23,7 @@
   
   
   /* Profile Card */
-  .card {
+  .b_card {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 20px;
@@ -44,27 +44,27 @@
   }
   
   /* Name & Title */
-  .name {
+  .b_name {
     color: white;
     font-size: 22px;
     font-weight: bold;
     margin-top: 10px;
   }
   
-  .title {
+  .b_title {
     color: rgba(255, 255, 255, 0.7);
     font-size: 14px;
   }
   
   /* Info Buttons */
-  .info-buttons {
+  .b_info-buttons {
     display: flex;
     justify-content: center;
     gap: 10px;
     margin-top: 15px;
   }
   
-  .info-button {
+  .b_info-button {
     background: rgba(255, 255, 255, 0.2);
     padding: 10px 15px;
     border-radius: 20px;
@@ -74,16 +74,16 @@
     font-size: 14px;
   }
   
-  .info-button:hover {
+  .b_info-button:hover {
     background: rgba(255, 255, 255, 0.3);
   }
   
   /* Social Links */
-  .social-links {
+  .b_social-links {
     margin-top: 20px;
   }
   
-  .social-button {
+  .b_social-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +97,7 @@
     gap: 10px;
   }
   
-  .social-button:hover {
+  .b_social-button:hover {
     background: rgba(255, 255, 255, 0.25);
   }
   
