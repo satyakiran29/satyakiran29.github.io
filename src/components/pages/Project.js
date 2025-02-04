@@ -106,11 +106,7 @@ const App = () => {
           <TestimonyCard key={index} {...testimony} />
         ))}
       </div>
-      <footer>
-      <h4>Developed by Satyakiran</h4>
-      <h4>Copyright &copy; 2025 Satyakiran</h4>
-  
-    </footer>
+   
     </>
   );
 };
