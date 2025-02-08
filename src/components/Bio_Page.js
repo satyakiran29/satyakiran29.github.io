@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBlog, FaSteam, FaInstagram, FaGlobe } from "react-icons/fa";
+import {  FaSteam, FaInstagram,  FaTelegram } from "react-icons/fa";
 import "././pages/css/bio.css"; // Import the CSS file
 const ProfileCard = () => {
   return (
@@ -17,10 +17,10 @@ const ProfileCard = () => {
           <a href="https://satyakiran.vercel.app" className="b_info-button">Website</a>
           <a href="mailto:psatyakiran1@gmail.com" className="b_info-button">psatyakiran1@gmail.com</a>
         </div>
-
+        
         <div className="b_social-links">
-          <a href="https://example.com/blog" className="b_social-button">
-            <FaBlog /> Blog
+          <a href="https://www.t.me/skdev1/" className="b_social-button">
+            <FaTelegram /> Telegram
           </a>
           <a href="https://steamcommunity.com/id/skdev29/" className="b_social-button">
             <FaSteam /> Steam
@@ -31,6 +31,7 @@ const ProfileCard = () => {
           <a href="https://www.instagram.com/satyakiran29/" className="b_social-button">
             <FaInstagram /> Instagram
           </a>
+        
         </div>
       </div>
     </div>
