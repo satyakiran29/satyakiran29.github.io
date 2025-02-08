@@ -22,7 +22,7 @@ const Gallery = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/images')
+    fetch('https://satyakiranapi.vercel.app/api/images')
       .then(response => response.json())
       .then(data => setImages(data))
       .catch(error => console.error('Error fetching images:', error));
