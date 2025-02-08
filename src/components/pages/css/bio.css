@@ -15,7 +15,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("https://i.pinimg.com/originals/f5/f2/74/f5f27448c036af645c27467c789ad759.gif") center/cover no-repeat;
+    background: url("../../../../public/images/ezgif-7ec4b8a6b3b115.gif") center/cover no-repeat;
     filter: blur(5px); 
     z-index: -1;
   }
