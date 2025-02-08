@@ -14,8 +14,8 @@ const ProfileCard = () => {
         <p className="b_title">Gamer & Web Developer</p>
 
         <div className="b_info-buttons">
-          <button className="b_info-button">Website</button>
-          <button className="b_info-button">psatyakiran1@gmail.com</button>
+          <a href="https://satyakiran.vercel.app" className="b_info-button">Website</a>
+          <a href="mailto:psatyakiran1@gmail.com" className="b_info-button">psatyakiran1@gmail.com</a>
         </div>
 
         <div className="b_social-links">
