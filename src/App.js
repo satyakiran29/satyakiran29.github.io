@@ -4,7 +4,7 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Project from "./components/pages/Project";
 import Bio from "./components/Bio_Page";
-import { Gallery } from "./components/Gallery";
+import Gallery from "./components/Gallery";
 import "./components/pages/css/gallery.css";
 import Footer from "./components/Footer";
 import Nav from "./components/nav";
