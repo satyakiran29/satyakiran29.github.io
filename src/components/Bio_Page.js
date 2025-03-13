@@ -6,7 +6,7 @@ const ProfileCard = () => {
     <div className="b_container">
       <div className="b_card">
         <img
-          src="https://bio-satyakiran.vercel.app/_next/image?url=%2Fp.png&w=96&q=75"
+          src="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg"
           alt="Profile"
           className="profile-pic"
         />
