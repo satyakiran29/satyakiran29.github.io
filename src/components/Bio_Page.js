@@ -1,5 +1,5 @@
 import React from "react";
-import {  FaSteam, FaInstagram,  FaTelegram } from "react-icons/fa";
+import {  FaSteam, FaInstagram,  FaTelegram,FaDiscord } from "react-icons/fa";
 import "././pages/css/bio.css"; // Import the CSS file
 const ProfileCard = () => {
   return (
