@@ -19,6 +19,9 @@ const ProfileCard = () => {
         </div>
         
         <div className="b_social-links">
+       <a href="https://discord.com/users/skdev29" className="b_social-button">
+          <FaDiscord /> Discord
+          </a>
           <a href="https://www.t.me/skdev1/" className="b_social-button">
             <FaTelegram /> Telegram
           </a>
@@ -26,10 +29,13 @@ const ProfileCard = () => {
             <FaSteam /> Steam
           </a>
           <a href="https://www.instagram.com/skdev29/" className="b_social-button">
-            <FaInstagram /> Instagram (Public)
+            <FaInstagram /> Instagram (Creative)
           </a>
           <a href="https://www.instagram.com/satyakiran29/" className="b_social-button">
-            <FaInstagram /> Instagram
+            <FaInstagram /> Instagram(Personal)
+          </a>
+          <a href="https://myanimelist.net/profile/satyakiran29" className="b_social-button">
+            MyAnimeList
           </a>
         
         </div>
