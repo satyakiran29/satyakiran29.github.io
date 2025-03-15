@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "../components/Navbar.css";
+import "../nav/Navbar.css";
 import { HamburgetMenuClose, HamburgetMenuOpen } from "./Icons";
-import logo from "./pages/imgs/1.gif";
+import logo from "../nav/imgs/1.gif";
 function NavBar() {
   const [click, setClick] = useState(false);
 

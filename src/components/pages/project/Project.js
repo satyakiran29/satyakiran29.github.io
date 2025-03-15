@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/project.css";
+import "../project/project.css";
 
 const ProjectCard = ({ title, description, tags, image, projectLink, githubLink }) => (
   <div className="card">

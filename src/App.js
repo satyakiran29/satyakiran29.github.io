@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import Home from "./components/pages/Home";
-import About from "./components/pages/About";
-import Project from "./components/pages/Project";
-import Bio from "./components/Bio_Page";
-import Gallery from "./components/Gallery";
-import "./components/pages/css/gallery.css";
-import Footer from "./components/Footer";
-import Nav from "./components/nav";
+import Home from "./components/pages/home/Home";
+import About from "./components/pages/about/About";
+import Project from "./components/pages/project/Project";
+import Bio from "./components/pages/bio/Bio";
+import Gallery from "./components/pages/gallery/Gallery";
+import "./components/pages/gallery/gallery.css";
+import Footer from "./components/src/footer/Footer";
+import Nav from "./components/src/nav/nav";
 import HashLoader from "react-spinners/HashLoader";
 
 function App() {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./css/about.css";
+import "../about/about.css";
 
 const CetificateCard = ({ title, description, date, image, certificatelink }) => (
   <div className="card">

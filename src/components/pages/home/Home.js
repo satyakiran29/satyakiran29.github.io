@@ -1,7 +1,7 @@
 import React from "react";
-import "./css/home.css"; // Assuming your CSS file is in the same directory
+import "../home/home.css"; // Assuming your CSS file is in the same directory
 import { FaGithub, FaYoutube, FaInstagram } from "react-icons/fa"; // Use the icons from react-icons
-import p1 from  "../pages/imgs/2.gif"
+import p1 from  "../../src/nav/imgs/2.gif";
 const Home = () => {
   return (
     <div>
