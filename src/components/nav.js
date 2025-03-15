@@ -1,32 +1,92 @@
-import React from "react";
-import logo from "./pages/imgs/1.gif"; // Update with the correct path to your logo file
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "../components/Navbar.css";
+import { HamburgetMenuClose, HamburgetMenuOpen } from "./Icons";
+import logo from "./pages/imgs/1.gif";
+function NavBar() {
+  const [click, setClick] = useState(false);
 
-const Nav = () => {
+  const handleClick = () => setClick(!click);
   return (
-    <header>
-      <nav>
-        <div className="header_logo">
-          <img src={logo} alt="Logo" />
-          <a href="Gallery" aria-label="Gallery">
-          🖼️
-          </a>
-        </div>
-        <div className="header_links">
-          <ul className="nav_links">
-            <li className="nav_link">
-              <a href="/">Home</a>
+    <>
+      <nav className="navbar">
+        <div className="nav-container">
+          <NavLink exact to="/" className="navbar-logo">
+            <img src={logo} alt="Logo" className="logo-img"  />
+          </NavLink>
+
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Home
+              </NavLink>
             </li>
-            <li className="nav_link">
-              <a href="project">Projects</a>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/Projects"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Projects
+              </NavLink>
             </li>
-            <li className="nav_link">
-              <a href="About">About</a>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/gallery"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Gallery
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/about"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                About
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/bio"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Contact Us
+              </NavLink>
             </li>
           </ul>
+          <div className="nav-icon" onClick={handleClick}>
+            {click ? (
+              <span className="icon">
+                <HamburgetMenuOpen />{" "}
+              </span>
+            ) : (
+              <span className="icon">
+                <HamburgetMenuClose />
+              </span>
+            )}
+          </div>
         </div>
       </nav>
-    </header>
+    </>
   );
-};
+}
 
-export default Nav;
+export default NavBar;
