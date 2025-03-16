@@ -9,39 +9,7 @@ const Home = () => {
       <section className="main">
         <img src={p1} alt="Profile" />
         <span>Satyakiran</span>
-        <p>Programmer • Web Developer • Linux User</p>
-        <ul>
-          <li>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://bit.ly/satyakiran29_github"
-              aria-label="GitHub"
-            >
-              <FaGithub size={30} /> 
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://bit.ly/GojoMain"
-              aria-label="YouTube"
-            >
-              <FaYoutube size={30} /> 
-            </a>
-          </li>
-          <li>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://bit.ly/skdev_instagram"
-              aria-label="Instagram"
-            >
-              <FaInstagram size={30} />
-            </a>
-          </li>
-        </ul>
+        <p>Programmer • Web Developer •   Gamer</p>
       </section>
     </div>
     
