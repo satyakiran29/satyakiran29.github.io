@@ -66,6 +66,15 @@ const App = () => {
       projectLink: "https://example.com/",
       githubLink: "https://example.com/",
     },
+    {
+      title: "Aniset - WebSite",
+      description:
+        "To Showcase About Aniset Android App and it's widgets website",
+        tags: ["Website","ReactJs", "Css", "UI/UX"],
+      image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/aniset_web.png",
+      projectLink: "https://aniset.vercel.app/",
+      githubLink: "https://github.com/satyakiran29/Aniset_Web",
+    },
   ];
 
   const testimonies = [
