@@ -75,6 +75,15 @@ const App = () => {
       projectLink: "https://aniset.vercel.app/",
       githubLink: "https://github.com/satyakiran29/Aniset_Web",
     },
+    {
+      title: "Student Results Management System",
+      description:
+        "A web application for managing student results, built using ReactJs and NodeJs. The application allows teachers to input and manage student results efficiently.",
+      tags: ["Website","CSS", "HTML", "PHP","MySQL"],
+      image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/student.png",
+      projectLink: "https://web.skdev.rf.gd/",
+      githubLink: "",
+    }
   ];
 
   const testimonies = [
