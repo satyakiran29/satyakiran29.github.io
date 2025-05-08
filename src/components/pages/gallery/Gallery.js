@@ -9,32 +9,23 @@ import 'lightgallery/css/lg-fullscreen.css';
 import 'lightgallery/css/lg-share.css';
 import 'lightgallery/css/lg-rotate.css';
 
+
 // import plugins if you need
 import lgThumbnail from 'lightgallery/plugins/thumbnail';
 import lgZoom from 'lightgallery/plugins/zoom';
-import lgAutoplay from 'lightgallery/plugins/autoplay';
+import lgAutoplay from 'lightgallery/plugins/autoplay'
 import lgFullscreen from 'lightgallery/plugins/fullscreen';
 import lgShare from 'lightgallery/plugins/share';
 import lgRotate from 'lightgallery/plugins/rotate';
 import { useEffect, useState } from 'react';
-
 const Gallery = () => {
   const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      fetch('https://satyakiranapi.vercel.app/api/images')
-        .then(response => response.json())
-        .then(data => {
-          setImages(data);
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error('Error fetching images:', error);
-          setLoading(false);
-        });
-    }, 5000); // 5 seconds delay
+    fetch('https://satyakiranapi.vercel.app/api/images')
+      .then(response => response.json())
+      .then(data => setImages(data))
+      .catch(error => console.error('Error fetching images:', error));
   }, []);
 
   const onInit = () => {
@@ -43,23 +34,17 @@ const Gallery = () => {
 
   return (
     <div className="App">
-      {loading ? (
-        <div className="loading-spinner">
-          {/* Replace this with your preferred loading animation */}
-        </div>
-      ) : (
-        <LightGallery
-          onInit={onInit}
-          speed={500}
-          plugins={[lgThumbnail, lgZoom, lgAutoplay, lgFullscreen, lgRotate, lgShare]}
-        >
-          {images.map((image, index) => (
-            <a href={image.src} key={index}>
-              <img alt={image.alt} src={image.src} />
-            </a>
-          ))}
-        </LightGallery>
-      )}
+      <LightGallery
+        onInit={onInit}
+        speed={500}
+        plugins={[lgThumbnail, lgZoom, lgAutoplay, lgFullscreen, lgRotate, lgShare]}
+      >
+        {images.map((image, index) => (
+          <a href={image.src} key={index}>
+            <img alt={image.alt} src={image.src} />
+          </a>
+        ))}
+      </LightGallery>
     </div>
   );
 };
