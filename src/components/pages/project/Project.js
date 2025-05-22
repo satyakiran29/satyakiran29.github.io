@@ -82,7 +82,7 @@ const App = () => {
       tags: ["Website","CSS", "HTML", "PHP","MySQL"],
       image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/student.png",
       projectLink: "https://web.skdev.rf.gd/",
-      githubLink: "",
+      githubLink: "https://github.com/satyakiran29/Student_mangement_system",
     }
   ];
 
