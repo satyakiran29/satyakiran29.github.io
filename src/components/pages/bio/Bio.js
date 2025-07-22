@@ -1,6 +1,6 @@
 import React from "react";
-import {  FaSteam, FaInstagram,  FaTelegram,FaDiscord } from "react-icons/fa";
 import "../bio/bio.css"; // Import the CSS file
+import { FaSteam, FaInstagram, FaTelegram, FaDiscord, FaLinkedin } from "react-icons/fa";
 const ProfileCard = () => {
   return (
     <div className="b_container">
@@ -17,17 +17,22 @@ const ProfileCard = () => {
           <a href="https://satyakiran.vercel.app" className="b_info-button">Website</a>
           <a href="mailto:psatyakiran1@gmail.com" className="b_info-button">psatyakiran1@gmail.com</a>
         </div>
-        
+       
         <div className="b_social-links">
-       <a href="https://discord.com/users/skdev29" className="b_social-button">
-          <FaDiscord /> Discord
+           <a href="https://www.linkedin.com/in/satyakiran29/" className="b_social-button">
+            <FaLinkedin /> Linkedin
           </a>
+          <a href="https://discord.com/users/skdev29" className="b_social-button">
+            <FaDiscord /> Discord
+          </a>
+        
           <a href="https://www.t.me/skdev1/" className="b_social-button">
             <FaTelegram /> Telegram
           </a>
           <a href="https://steamcommunity.com/id/skdev29/" className="b_social-button">
             <FaSteam /> Steam
           </a>
+         
           <a href="https://www.instagram.com/skdev29/" className="b_social-button">
             <FaInstagram /> Instagram (Creative)
           </a>
@@ -37,7 +42,6 @@ const ProfileCard = () => {
           <a href="https://myanimelist.net/profile/satyakiran29" className="b_social-button">
             MyAnimeList
           </a>
-        
         </div>
       </div>
     </div>
