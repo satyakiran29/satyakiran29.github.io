@@ -124,3 +124,40 @@ body {
   display: block; 
   border: 2px solid #00796b;
 }
+
+/* Category Filter Styles */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.category-btn {
+  background: linear-gradient(90deg, #2b6cb0 0%, #3182ce 100%);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(49, 130, 206, 0.08);
+}
+
+.category-btn:hover {
+  background: linear-gradient(90deg, #4299e1 0%, #63b3ed 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(49, 130, 206, 0.15);
+}
+
+.category-btn.active {
+  background: linear-gradient(90deg, #e53e3e 0%, #dd6b20 100%);
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 4px 16px rgba(229, 62, 62, 0.18);
+  transform: scale(1.08);
+}

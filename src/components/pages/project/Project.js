@@ -47,7 +47,6 @@ const TestimonyCard = ({ title, description, tags, image }) => (
 
 const App = () => {
   const projects = [
-
     {
       title: "SatyaKiran Portfolio",
       description:
@@ -56,6 +55,7 @@ const App = () => {
       image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/Portfolio.png",
       projectLink: "https://satyakiran.vercel.app/",
       githubLink: "https://github.com/satyakiran29/satyakiran29.github.io",
+      category: "Web",
     },
     {
       title: "Aniset - Kwgt Widgets & Klwp",
@@ -65,15 +65,17 @@ const App = () => {
       image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
       projectLink: "https://example.com/",
       githubLink: "https://example.com/",
+      category: "Mobile",
     },
     {
       title: "Aniset - WebSite",
       description:
         "To Showcase About Aniset Android App and it's widgets website",
-        tags: ["Website","ReactJs", "Css", "UI/UX"],
+      tags: ["Website","ReactJs", "Css", "UI/UX"],
       image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/aniset_web.png",
       projectLink: "https://aniset.vercel.app/",
       githubLink: "https://github.com/satyakiran29/Aniset_Web",
+      category: "Web",
     },
     {
       title: "Student Results Management System",
@@ -83,8 +85,20 @@ const App = () => {
       image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/student.png",
       projectLink: "https://web.skdev.rf.gd/",
       githubLink: "https://github.com/satyakiran29/Student_mangement_system",
+      category: "Web",
     }
   ];
+
+  // Generate unique categories
+  const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
+
+  // State for selected category
+  const [selectedCategory, setSelectedCategory] = React.useState("All");
+
+  // Filter projects by category
+  const filteredProjects = selectedCategory === "All"
+    ? projects
+    : projects.filter(p => p.category === selectedCategory);
 
   const testimonies = [
     {
@@ -108,9 +122,21 @@ const App = () => {
       <center>
         <h1>Projects</h1>
         <p>My projects make use of a vast variety of the latest technology tools.</p>
+        {/* Category Filter Buttons */}
+        <div className="category-filter">
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`category-btn${selectedCategory === category ? ' active' : ''}`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
       </center>
       <div className="container">
-        {projects.map((project, index) => (
+        {filteredProjects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
       </div>
