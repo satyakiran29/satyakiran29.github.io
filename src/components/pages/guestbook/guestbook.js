@@ -9,7 +9,7 @@ const GuestBook = () => {
     // Fetch existing guest entries
     const fetchGuests = async () => {
         try {
-            const res = await axios.get('http://web.skdev.rf.gd/gbdb/get_guests.php');
+            const res = await axios.get('https://web.skdev.rf.gd/gbdb/get_guests.php');
             setGuests(res.data);
         } catch (error) {
             console.error("Error fetching guests:", error);
@@ -45,7 +45,7 @@ const GuestBook = () => {
         if (!validateForm()) return;
 
         try {
-            await axios.post('http://web.skdev.rf.gd/gbdb/add_guest.php', form);
+            await axios.post('https://web.skdev.rf.gd/gbdb/add_guest.php', form);
             setForm({ name: '', message: '' });
             fetchGuests();
         } catch (error) {
