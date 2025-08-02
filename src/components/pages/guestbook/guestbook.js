@@ -1,21 +1,16 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const PROXY_URL = 'https://satykiran.vercel.app/api/proxy';
-
 const GuestBook = () => {
     const [guests, setGuests] = useState([]);
     const [form, setForm] = useState({ name: '', message: '' });
     const [errors, setErrors] = useState({});
 
+    // Fetch existing guest entries
     const fetchGuests = async () => {
         try {
-            const res = await axios.get(PROXY_URL, {
-                params: {
-                    url: 'https://web.skdev.rf.gd/gbdb/get_guests.php'
-                }
-            });
-            setGuests(JSON.parse(res.data));
+            const res = await axios.get('https://corsproxy.io/https://web.skdev.rf.gd/gbdb/get_guests.php');
+            setGuests(res.data);
         } catch (error) {
             console.error("Error fetching guests:", error);
         }
@@ -25,6 +20,7 @@ const GuestBook = () => {
         fetchGuests();
     }, []);
 
+    // Validate input fields
     const validateForm = () => {
         const tempErrors = {};
         if (!form.name.trim()) {
@@ -43,25 +39,17 @@ const GuestBook = () => {
         return Object.keys(tempErrors).length === 0;
     };
 
+    // Submit form
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!validateForm()) return;
 
         try {
-            await axios.post(
-                `${PROXY_URL}?url=https://web.skdev.rf.gd/gbdb/add_guest.php`,
-                new URLSearchParams(form),
-                {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                }
-            );
+            await axios.post('https://corsproxy.io/https://web.skdev.rf.gd/gbdb/add_guest.php', form);
             setForm({ name: '', message: '' });
             fetchGuests();
         } catch (error) {
-            alert("Submission failed. Check internet.");
-            console.error("Submission error:", error);
+            alert("Submission failed. Check  internet.");
         }
     };
 
