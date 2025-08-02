@@ -1,9 +1,15 @@
 import React from "react";
-import "../home/home.css"; // Assuming your CSS file is in the same directory
-import { FaGithub, FaYoutube, FaInstagram } from "react-icons/fa"; // Use the icons from react-icons
+import "../home/home.css";
+import { FaGithub, FaYoutube, FaInstagram } from "react-icons/fa";
 import p1 from  "../../src/nav/imgs/2.gif";
 import { Analytics } from '@vercel/analytics/react';
+
 const Home = () => {
+  // Handler for chat button click
+  const handleChatClick = () => {
+    alert("Chat feature coming soon!");
+  };
+
   return (
     <div>
       <Analytics />
@@ -12,9 +18,11 @@ const Home = () => {
         <img src={p1} alt="Profile" />
         <span>Satyakiran</span>
         <p>Programmer • Web Developer •   Gamer</p>
+        <button className="chat-btn" onClick={handleChatClick}>
+          Guestbook
+        </button>
       </section>
     </div>
-    
   );
 };
 
