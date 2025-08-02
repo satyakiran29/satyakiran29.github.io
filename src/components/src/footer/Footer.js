@@ -37,7 +37,7 @@ function Footer() {
             <SocialIconLink href='' target='_blank' aria-label='Twitter'>
               <FaTwitter />
             </SocialIconLink>
-            <SocialIconLink href='https://in.linkedin.com/in/satyakiran-pampana-50ba43209' target='_blank' aria-label='LinkedIn'>
+            <SocialIconLink href='https://in.linkedin.com/in/satyakiran29' target='_blank' aria-label='LinkedIn'>
               <FaLinkedin />
             </SocialIconLink>
           </SocialIcons>
