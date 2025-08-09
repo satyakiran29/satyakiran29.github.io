@@ -9,7 +9,7 @@ import "./components/pages/gallery/gallery.css";
 import Footer from "./components/src/footer/Footer";
 import Nav from "./components/src/nav/nav";
 import HashLoader from "react-spinners/HashLoader";
-import GuestBook from "./components/pages/guestbook/guestbook";
+
 function App() {
   const [Loading, SetLoading] = useState(true);
 
@@ -61,7 +61,7 @@ function AppContent() {
         <Route path="/Project" element={<Project />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/Bio" element={<Bio />} />
-       <Route path="/guestbook" element={<GuestBook />} />
+       
       </Routes>
       {shouldShowFooter && <Footer />} {/* Conditionally render Footer */}
     </div>
