@@ -60,7 +60,7 @@ const App = () => {
     <>
       <center>
         <h1>Certificates</h1>
-        <p>My projects make use of a vast variety of the latest technology tools.</p>
+        <p></p>
       </center>
       <div className="c_container">
         {certificates.map((certificate) => (
