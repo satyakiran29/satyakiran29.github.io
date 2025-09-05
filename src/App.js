@@ -9,6 +9,7 @@ import "./components/pages/gallery/gallery.css";
 import Footer from "./components/src/footer/Footer";
 import Nav from "./components/src/nav/nav";
 import HashLoader from "react-spinners/HashLoader";
+import ExternalRedirect from './components/pages/ExternalRedirect';
 
 function App() {
   const [Loading, SetLoading] = useState(true);
@@ -61,6 +62,11 @@ function AppContent() {
         <Route path="/Project" element={<Project />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/Bio" element={<Bio />} />
+        <Route
+          path="/Blog"
+          element={<ExternalRedirect to="https://satyakiran-blog.vercel.app/" />}
+        />
+  
        
       </Routes>
       {shouldShowFooter && <Footer />} {/* Conditionally render Footer */}
