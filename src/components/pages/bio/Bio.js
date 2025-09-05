@@ -15,6 +15,7 @@ const ProfileCard = () => {
 
         <div className="b_info-buttons">
           <a href="https://satyakiran.vercel.app" className="b_info-button">Website</a>
+          <a href="https://satyakiran-blog.vercel.app" className="b_info-button">Blog Website</a>
           <a href="mailto:psatyakiran1@gmail.com" className="b_info-button">psatyakiran1@gmail.com</a>
         </div>
        
