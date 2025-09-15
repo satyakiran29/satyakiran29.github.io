@@ -1,76 +1,87 @@
-#  Satyakiran-Portfolio
+# 🌐 Satyakiran Portfolio
 
-Website link - [https://satyakiran.vercel.app/](https://satyakiran.vercel.app/).
+<p align="center">
+  <a href="https://satyakiran.vercel.app/" target="_blank">
+    <img src="https://vercel.com/satyakiran29/satyakiran29-github-io/badge" alt="Vercel Deployment Status">
+  </a>
+  <a href="https://github.com/satyakiran29/satyakiran29.github.io/blob/main/LICENSE" target="_blank">
+    <img src="https://img.shields.io/github/license/satyakiran29/satyakiran29.github.io?style=flat-square" alt="License">
+  </a>
+  <img src="https://img.shields.io/github/last-commit/satyakiran29/satyakiran29.github.io?style=flat-square" alt="Last Commit">
+  <img src="https://img.shields.io/github/repo-size/satyakiran29/satyakiran29.github.io?style=flat-square" alt="Repo Size">
+</p>
 
+A personal portfolio website built with **React.js** and deployed on **Vercel**.  
+This project showcases my work, skills, and provides easy ways to connect with me.
 
-Bio page link - [https://satyakiran.vercel.app/bio](https://satyakiran.vercel.app/bio).
-# Getting Started with Create React App
+🔗 **Live Website:** [https://satyakiran.vercel.app/](https://satyakiran.vercel.app/)  
+🔗 **Bio Page:** [https://satyakiran.vercel.app/bio](https://satyakiran.vercel.app/bio)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## 📑 Table of Contents
+- [Introduction](#-introduction)
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Dependencies](#-dependencies)
+- [Configuration](#-configuration)
+- [Deployment](#-deployment)
+- [Troubleshooting](#-troubleshooting)
+- [Contributors](#-contributors)
+- [License](#-license)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Introduction
+This project is a responsive portfolio website that highlights my personal projects, experience, and provides direct contact links.  
+It is optimized for both desktop and mobile, with SEO-friendly configurations and custom icons.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ✨ Features
+- Responsive design (mobile-first)
+- About section and bio page
+- SEO support with `manifest.json` and `robots.txt`
+- Deployed on **Vercel** for fast performance
+- Built using **React.js** and **Create React App**
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Installation
 
-### `npm run build`
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/satyakiran29/satyakiran29.github.io.git](https://github.com/satyakiran29/satyakiran29.github.io.git)
+    cd satyakiran29.github.io
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ▶️ Usage
 
-### `npm run eject`
+-   **Run the development server:**
+    ```bash
+    npm start
+    ```
+    Visit `http://localhost:3000` in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+-   **Run tests:**
+    ```bash
+    npm test
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   **Build for production:**
+    ```bash
+    npm run build
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📂 Project Structure
