@@ -90,16 +90,5 @@ Understood. Here is the full and final README.md, now including a professional s
 This version is complete and ready to use.
 Markdown
 
-# 🌐 Satyakiran Portfolio
-
-<p align="center">
-  <a href="https://satyakiran.vercel.app/" target="_blank">
-    <img src="https://vercel.com/satyakiran29/satyakiran29-github-io/badge" alt="Vercel Deployment Status">
-  </a>
-  <a href="https://github.com/satyakiran29/satyakiran29.github.io/blob/main/LICENSE" target="_blank">
-    <img src="https://img.shields.io/github/license/satyakiran29/satyakiran29.github.io?style=flat-square" alt="License">
-  </a>
-  <img src="https://img.shields.io/github/last-commit/satyakiran29/satyakiran29.github.io?style=flat-square" alt="Last Commit">
-  <img src="https://img.shields.io/github/repo-size/satyakiran29/satyakiran29.github.io?style=flat-square" alt="Repo Size">   ```   ```
-
+# 🌐 by
 ## 📂 Project Structure
