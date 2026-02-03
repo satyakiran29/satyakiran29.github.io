@@ -1,6 +1,5 @@
 import React from "react";
 import "../home/home.css";
-import { FaGithub, FaYoutube, FaInstagram } from "react-icons/fa";
 import p1 from  "../../src/nav/imgs/2.gif";
 import { Analytics } from '@vercel/analytics/react';
 
