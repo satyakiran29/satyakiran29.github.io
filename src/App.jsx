@@ -5,6 +5,7 @@ import About from "./components/pages/about/About";
 import Project from "./components/pages/project/Project";
 import Bio from "./components/pages/bio/Bio";
 import Gallery from "./components/pages/gallery/Gallery";
+import Contact from "./components/pages/contact/Contact";
 import "./components/pages/gallery/gallery.css";
 import Footer from "./components/src/footer/Footer";
 import Nav from "./components/src/nav/nav";
@@ -47,8 +48,8 @@ function AppContent() {
   const location = useLocation();
 
   // routes where the Nav and Footer should NOT be displayed
-  const hideNavRoutes = ["/bio"]; 
-  const hideFooterRoutes = ["/bio"]; 
+  const hideNavRoutes = ["/bio"];
+  const hideFooterRoutes = ["/bio"];
   // Check if the current route is in the hideNavRoutes array
   const shouldShowNav = !hideNavRoutes.includes(location.pathname);
   const shouldShowFooter = !hideFooterRoutes.includes(location.pathname);
@@ -62,12 +63,13 @@ function AppContent() {
         <Route path="/Project" element={<Project />} />
         <Route path="/Gallery" element={<Gallery />} />
         <Route path="/Bio" element={<Bio />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="/Blog"
           element={<ExternalRedirect to="https://satyakiran-blog.vercel.app/" />}
         />
-  
-       
+
+
       </Routes>
       {shouldShowFooter && <Footer />} {/* Conditionally render Footer */}
     </div>

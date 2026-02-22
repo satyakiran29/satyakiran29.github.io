@@ -1,14 +1,10 @@
 import React from "react";
 import "../home/home.css";
-import p1 from  "../../src/nav/imgs/2.gif";
+import p1 from "../../src/nav/imgs/2.gif";
 import { Analytics } from '@vercel/analytics/react';
+import Skills from "./Skills";
 
 const Home = () => {
-  // Handler for chat button click
-  const handleChatClick = () => {
-    alert("Chat feature coming soon!");
-  };
-
   return (
     <div>
       <Analytics />
@@ -16,11 +12,14 @@ const Home = () => {
       <section className="main">
         <img src={p1} alt="Profile" />
         <span>Satyakiran</span>
-        <p>Programmer • Web Developer •   Gamer</p>
-        <button className="chat-btn" onClick={handleChatClick}>
-          Guestbook
-        </button>
+        <p>Programmer • Web Developer • Gamer</p>
+        <a href="/resume.pdf" download className="resume-btn">
+          Download Resume
+        </a>
       </section>
+
+      {/* Skills Section */}
+      <Skills />
     </div>
   );
 };

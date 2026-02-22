@@ -1,128 +1,248 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1a202c;
-    color: white;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Container */
-  .container {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    animation: fadeInDown .8s;
-  }
-  
-  /* Project Card */
-  .card {
-    background-color: #2d3748;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    text-align: center;
-    animation: fadeInDown .8s;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Card Image */
-  .card-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    
-  }
-  
-  /* Card Title */
-  .card h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Card Description */
-  .card p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 15px;
-  }
-  
-  /* Tags */
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 15px;
-    justify-content: center;
-  }
-  
-  .tag {
-    background-color: #e53e3e;
-    color: white;
-    font-size: 12px;
-    padding: 5px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-  }
-  
-  /* Links */
-  .links {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-  }
-  
-  .link-button {
-    background-color: #3182ce;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
-  }
-  
-  .link-button:hover {
-    background-color: #63b3ed;
-    transform: scale(1.05);
-  }
-
-/* Testimonies Specific Styles */
-.card.testimony {
-  border: 2px solid #00796b;
+  font-family: Arial, sans-serif;
+  background-color: #1a202c;
+  color: white;
+  margin: 0;
+  padding: 0;
 }
 
-.card.testimony:hover {
-  border-color: #004d40;
+/* Container */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  animation: fadeInDown 0.8s;
 }
 
-.testimony h2 {
-  color: #00796b;
+/* Project Wrapper */
+.project-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: rgba(33, 34, 43, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.testimony .tags .tag {
-  background-color: #ffebee;
-  color: #b71c1c;
+.project-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
 }
-.card.testimony .card-image {
-  width: 80px; 
-  height: 80px; 
+
+/* Image Container */
+.project-image-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(127, 90, 240, 0.1);
+  transition: background 0.3s ease;
+}
+
+.project-wrapper:hover .project-image-container::after {
+  background: transparent;
+}
+
+.project-image {
+  width: 100%;
+  height: 220px;
   object-fit: cover;
-  border-radius: 50%; 
-  margin: 15px auto; 
-  display: block; 
-  border: 2px solid #00796b;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-wrapper:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* Content Container */
+.project-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-overline {
+  color: #7f5af0;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.project-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fffffe;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.project-description-box {
+  flex-grow: 1;
+  margin-bottom: 20px;
+}
+
+.project-description-box p {
+  color: #a6a8b8;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.project-tag {
+  color: #94a1b2;
+  font-size: 12px;
+  font-family: monospace;
+  background: rgba(127, 90, 240, 0.15);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Links */
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+
+.project-icon {
+  font-size: 22px;
+  color: #fffffe;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.project-icon:hover {
+  color: #7f5af0;
+  transform: translateY(-3px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 20px;
+  }
+}
+
+/* Testimonies Redesign - Glassmorphism & Grid */
+.testimonies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+  padding-bottom: 50px;
+}
+
+.testimony-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a1b2;
+  margin-top: -10px;
+}
+
+.testimony-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  text-align: left;
+  background: rgba(33, 34, 43, 0.85);
+  /* Same as project cards */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Outline to define the box */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  /* Add depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimony-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.testimony-quote-icon {
+  font-size: 32px;
+  color: rgba(127, 90, 240, 0.4);
+  margin-bottom: 20px;
+}
+
+.testimony-stars {
+  color: #ffd700;
+  font-size: 16px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 4px;
+}
+
+.testimony-body {
+  flex-grow: 1;
+  /* Pushes the footer to the bottom */
+}
+
+.testimony-body p {
+  color: #a6a8b8;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.testimony-footer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: auto;
+  /* Pin to bottom if card height varies */
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  /* subtle divider */
+}
+
+.testimony-image {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #7f5af0;
+  box-shadow: 0 4px 15px rgba(127, 90, 240, 0.2);
+}
+
+.testimony-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fffffe;
+  margin: 0;
 }
 
 /* Category Filter Styles */
@@ -132,6 +252,14 @@ body {
   justify-content: center;
   gap: 12px;
   margin-bottom: 24px;
+}
+
+@media (max-width: 480px) {
+  .category-filter {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .category-btn {
@@ -160,4 +288,44 @@ body {
   font-weight: bold;
   box-shadow: 0 4px 16px rgba(229, 62, 62, 0.18);
   transform: scale(1.08);
+}
+
+/* Search Bar Styles */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: rgba(33, 34, 43, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 25px;
+  padding: 10px 20px;
+  max-width: 400px;
+  margin: 0 auto 30px auto;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.search-container:hover,
+.search-container:focus-within {
+  border-color: rgba(127, 90, 240, 0.5);
+  box-shadow: 0 0 15px rgba(127, 90, 240, 0.2);
+}
+
+.search-icon {
+  color: #94a1b2;
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  color: #fffffe;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #94a1b2;
 }

@@ -1,8 +1,7 @@
-
-
 .lg-react-element {
     column-count: 3;
-    column-gap: 10px;
+    column-gap: 15px;
+    padding: 20px;
 }
 
 img {
@@ -10,10 +9,24 @@ img {
     display: block;
     padding: 5px 0px;
     border-radius: 20px;
-    transition: transform 0.2s;
+    transition: transform 0.2s, filter 0.2s;
 }
 
 img:hover {
-    filter: opacity(.9);
-    transform: scale(1.01);
+    filter: brightness(0.9);
+    transform: scale(1.02);
+}
+
+/* Responsive Gallery Layout */
+@media (max-width: 1024px) {
+    .lg-react-element {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .lg-react-element {
+        column-count: 1;
+        padding: 10px;
+    }
 }

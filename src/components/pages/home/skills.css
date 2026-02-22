@@ -1,0 +1,121 @@
+.skills-section {
+    padding: 100px 20px 60px 20px;
+    background-color: #16161a;
+    /* Matches site theme */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInUp .8s;
+}
+
+.skills-section center {
+    margin-bottom: 40px;
+}
+
+.skills-section h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #fffffe;
+}
+
+.skills-section p {
+    color: #94a1b2;
+    font-size: 16px;
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.skills-category {
+    background: #21222b;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.category-title {
+    color: #fffffe;
+    font-size: 20px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #7f5af0;
+    border-radius: 2px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: #16161a;
+    border-radius: 12px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    cursor: default;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(127, 90, 240, 0.2);
+    background: #282a36;
+    border-color: rgba(127, 90, 240, 0.5);
+}
+
+.skill-icon {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-name {
+    color: #a6a8b8;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.skill-card:hover .skill-name {
+    color: #fffffe;
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-category {
+        padding: 20px;
+    }
+}

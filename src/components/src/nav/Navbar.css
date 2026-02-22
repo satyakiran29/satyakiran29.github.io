@@ -1,5 +1,5 @@
 .navbar {
-  background-color:  #16161a;
+  background-color: #16161a;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -12,7 +12,8 @@
 
 .nav-container {
   display: flex;
-  justify-content: space-between; /* Changed from center to space-between */
+  justify-content: space-between;
+  /* Changed from center to space-between */
   align-items: center;
   width: 100%;
   height: 80px;
@@ -21,7 +22,7 @@
 }
 
 .nav-logo {
-  color:  #40ff66;
+  color: #40ff66;
   margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
@@ -78,7 +79,7 @@
 }
 
 .nav-item .active {
-  color:  #40ff66;
+  color: #40ff66;
   border: 1px solid #40ff66;
 }
 
@@ -113,10 +114,12 @@
     transition: all 0.5s ease;
     z-index: 1;
   }
+
   .nav-item .active {
-    color:  #40ff66;
+    color: #40ff66;
     border: none;
   }
+
   .nav-links {
     padding: 1.5rem;
     width: 100%;
@@ -145,8 +148,10 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  margin-left: 20px; /* 20px margin on the left */
-  text-decoration: none; /* Removes underline from links */
+  margin-left: 20px;
+  /* 20px margin on the left */
+  text-decoration: none;
+  /* Removes underline from links */
 }
 
 .logo-img {
@@ -159,5 +164,6 @@
 }
 
 .logo-img:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
+  transform: scale(1.1);
+  /* Slight zoom effect on hover */
 }
