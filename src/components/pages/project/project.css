@@ -1,13 +1,4 @@
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #1a202c;
-  color: white;
-  margin: 0;
-  padding: 0;
-}
-
-/* Container */
+/* General Styles - Removing duplicated body styles to inherit from index.css */
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -15,26 +6,27 @@ body {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
-  animation: fadeInDown 0.8s;
+  animation: fadeInDown var(--transition-slow);
 }
 
-/* Project Wrapper */
+/* Project Wrapper - Glassmorphism Card */
 .project-wrapper {
   display: flex;
   flex-direction: column;
-  background: rgba(33, 34, 43, 0.85);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
 }
 
 .project-wrapper:hover {
   transform: translateY(-5px);
-  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 50px rgba(127, 90, 240, 0.2);
+  border-color: rgba(127, 90, 240, 0.4);
 }
 
 /* Image Container */
@@ -42,7 +34,7 @@ body {
   width: 100%;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .project-image-container::after {
@@ -52,8 +44,9 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(127, 90, 240, 0.1);
-  transition: background 0.3s ease;
+  background: rgba(10, 10, 11, 0.2);
+  /* Slight darkening */
+  transition: background var(--transition-normal);
 }
 
 .project-wrapper:hover .project-image-container::after {
@@ -65,11 +58,12 @@ body {
   height: 220px;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .project-wrapper:hover .project-image {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  /* Stronger scale for modern look */
 }
 
 /* Content Container */
@@ -80,19 +74,11 @@ body {
   flex-grow: 1;
 }
 
-.project-overline {
-  color: #7f5af0;
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
 .project-title {
   font-size: 24px;
   font-weight: bold;
-  color: #fffffe;
+  font-family: var(--font-heading);
+  color: var(--text-main);
   margin-top: 0;
   margin-bottom: 15px;
 }
@@ -103,7 +89,7 @@ body {
 }
 
 .project-description-box p {
-  color: #a6a8b8;
+  color: var(--text-muted);
   font-size: 15px;
   line-height: 1.6;
   margin: 0;
@@ -118,29 +104,38 @@ body {
 }
 
 .project-tag {
-  color: #94a1b2;
+  color: var(--accent-primary);
   font-size: 12px;
-  font-family: monospace;
-  background: rgba(127, 90, 240, 0.15);
+  font-family: var(--font-body);
+  font-weight: 500;
+  background: rgba(127, 90, 240, 0.1);
+  border: 1px solid rgba(127, 90, 240, 0.2);
   padding: 4px 10px;
   border-radius: 4px;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.project-tag:hover {
+  background: rgba(127, 90, 240, 0.2);
+  color: var(--text-main);
 }
 
 /* Links */
 .project-links {
   display: flex;
   gap: 15px;
+  margin-top: auto;
 }
 
 .project-icon {
   font-size: 22px;
-  color: #fffffe;
-  transition: color 0.2s ease, transform 0.2s ease;
+  color: var(--text-muted);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
 .project-icon:hover {
-  color: #7f5af0;
-  transform: translateY(-3px);
+  color: var(--accent-primary);
+  transform: translateY(-3px) scale(1.1);
 }
 
 /* Mobile Responsiveness */
@@ -156,6 +151,9 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   margin-top: 40px;
+  padding: 20px;
+  max-width: 1200px;
+  margin-inline: auto;
   padding-bottom: 50px;
 }
 
@@ -163,8 +161,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #94a1b2;
-  margin-top: -10px;
+  color: var(--text-muted);
+  margin-top: 10px;
 }
 
 .testimony-card {
@@ -175,21 +173,19 @@ body {
   padding: 30px;
   box-sizing: border-box;
   text-align: left;
-  background: rgba(33, 34, 43, 0.85);
-  /* Same as project cards */
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  /* Outline to define the box */
-  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  /* Add depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .testimony-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 15px 40px rgba(127, 90, 240, 0.2);
+  border-color: rgba(127, 90, 240, 0.4);
 }
 
 .testimony-quote-icon {
@@ -200,6 +196,7 @@ body {
 
 .testimony-stars {
   color: #ffd700;
+  /* Keeping gold for stars */
   font-size: 16px;
   margin-bottom: 15px;
   display: flex;
@@ -208,14 +205,14 @@ body {
 
 .testimony-body {
   flex-grow: 1;
-  /* Pushes the footer to the bottom */
 }
 
 .testimony-body p {
-  color: #a6a8b8;
+  color: var(--text-muted);
   font-size: 15px;
   line-height: 1.6;
   margin-bottom: 25px;
+  font-style: italic;
 }
 
 .testimony-footer {
@@ -223,10 +220,8 @@ body {
   align-items: center;
   gap: 15px;
   margin-top: auto;
-  /* Pin to bottom if card height varies */
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  /* subtle divider */
+  border-top: 1px solid var(--glass-border);
 }
 
 .testimony-image {
@@ -234,14 +229,15 @@ body {
   height: 45px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid #7f5af0;
+  border: 2px solid var(--accent-primary);
   box-shadow: 0 4px 15px rgba(127, 90, 240, 0.2);
 }
 
 .testimony-title {
   font-size: 16px;
   font-weight: 600;
-  color: #fffffe;
+  font-family: var(--font-heading);
+  color: var(--text-main);
   margin: 0;
 }
 
@@ -263,46 +259,49 @@ body {
 }
 
 .category-btn {
-  background: linear-gradient(90deg, #2b6cb0 0%, #3182ce 100%);
-  color: #fff;
-  border: none;
+  background: var(--glass-bg);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 10px 22px;
+  font-family: var(--font-heading);
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  transition: all var(--transition-fast);
   outline: none;
-  box-shadow: 0 2px 8px rgba(49, 130, 206, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .category-btn:hover {
-  background: linear-gradient(90deg, #4299e1 0%, #63b3ed 100%);
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 4px 16px rgba(49, 130, 206, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(127, 90, 240, 0.2);
+  border-color: rgba(127, 90, 240, 0.4);
 }
 
 .category-btn.active {
-  background: linear-gradient(90deg, #e53e3e 0%, #dd6b20 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: var(--bg-primary);
   font-weight: bold;
-  box-shadow: 0 4px 16px rgba(229, 62, 62, 0.18);
-  transform: scale(1.08);
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(127, 90, 240, 0.3);
+  transform: scale(1.05);
 }
 
 /* Search Bar Styles */
 .search-container {
   display: flex;
   align-items: center;
-  background: rgba(33, 34, 43, 0.85);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
   border-radius: 25px;
   padding: 10px 20px;
   max-width: 400px;
   margin: 0 auto 30px auto;
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: box-shadow var(--transition-normal), border-color var(--transition-normal);
 }
 
 .search-container:hover,
@@ -312,7 +311,7 @@ body {
 }
 
 .search-icon {
-  color: #94a1b2;
+  color: var(--text-muted);
   font-size: 18px;
   margin-right: 12px;
 }
@@ -320,12 +319,13 @@ body {
 .search-input {
   background: transparent;
   border: none;
-  color: #fffffe;
+  font-family: var(--font-body);
+  color: var(--text-main);
   font-size: 16px;
   width: 100%;
   outline: none;
 }
 
 .search-input::placeholder {
-  color: #94a1b2;
+  color: var(--text-muted);
 }

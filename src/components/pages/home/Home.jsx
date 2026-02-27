@@ -6,16 +6,35 @@ import Skills from "./Skills";
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-wrapper">
       <Analytics />
-      {/* Main Section */}
-      <section className="main">
-        <img src={p1} alt="Profile" />
-        <span>Satyakiran</span>
-        <p>Programmer • Web Developer • Gamer</p>
-        <a href="/resume.pdf" download className="resume-btn">
-          Download Resume
-        </a>
+
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <div className="hero-image-container">
+            <img src={p1} alt="Profile" className="hero-img" />
+            <div className="glow-ring"></div>
+          </div>
+          <h1 className="hero-title">
+            Hi, I'm <span className="gradient-text">Satyakiran</span>
+          </h1>
+          <p className="hero-subtitle">
+            <span className="typewriter">Programmer • Web Developer • Gamer</span>
+          </p>
+          <div className="hero-actions">
+            <a href="/resume.pdf" download className="btn-primary">
+              Download Resume
+            </a>
+            <a href="#projects" className="btn-secondary">
+              View Work
+            </a>
+          </div>
+        </div>
+
+        {/* Background decorative elements */}
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
       </section>
 
       {/* Skills Section */}

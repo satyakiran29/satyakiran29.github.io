@@ -1,64 +1,85 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom"; // Need this for the `/bio` route
 import "../nav/Navbar.css";
 import { HamburgetMenuClose, HamburgetMenuOpen } from "./Icons";
-import logo from "../nav/imgs/1.gif";
+
 function NavBar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+
+  const smoothScroll = (e, targetId) => {
+    e.preventDefault();
+    if (window.location.pathname !== '/') {
+      // If we're not on the home page (e.g., on /bio), redirect first
+      window.location.href = `/#${targetId}`;
+      return;
+    }
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80, // Offset for the fixed navbar
+        behavior: "smooth"
+      });
+    }
+    setClick(false);
+  };
+
   return (
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="navbar-logo">
-            <img src={logo} alt="Logo" className="logo-img" />
-          </NavLink>
+          <a href="/#home" className="navbar-logo" onClick={(e) => smoothScroll(e, 'home')}>
+            <span className="logo-bracket">&lt;</span>
+            <span className="logo-name">satyakiran</span>
+            <span className="logo-bracket">/&gt;</span>
+          </a>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <NavLink
-                exact
-                to="/"
-                activeClassName="active"
+              <a
+                href="/#home"
                 className="nav-links"
-                onClick={handleClick}
+                onClick={(e) => smoothScroll(e, 'home')}
               >
                 Home
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
-              <NavLink
-                exact
-                to="/Project"
-                activeClassName="active"
+              <a
+                href="/#projects"
                 className="nav-links"
-                onClick={handleClick}
+                onClick={(e) => smoothScroll(e, 'projects')}
               >
                 Projects
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
-              <NavLink
-                exact
-                to="/about"
-                activeClassName="active"
+              <a
+                href="/#about"
                 className="nav-links"
-                onClick={handleClick}
+                onClick={(e) => smoothScroll(e, 'about')}
               >
                 About
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
-              <NavLink
-                exact
-                to="/contact"
-                activeClassName="active"
+              <a
+                href="/#contact"
                 className="nav-links"
-                onClick={handleClick}
+                onClick={(e) => smoothScroll(e, 'contact')}
               >
                 Contact Us
-              </NavLink>
+              </a>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/bio"
+                className="nav-links"
+                onClick={() => setClick(false)}
+              >
+                Bio
+              </Link>
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>

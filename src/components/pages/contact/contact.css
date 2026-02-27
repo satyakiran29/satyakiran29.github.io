@@ -7,38 +7,42 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 100px 20px;
-    animation: fadeInUp .8s;
+    animation: fadeInUp var(--transition-slow);
 }
 
 .contact-title {
     font-size: clamp(40px, 5vw, 60px);
     font-weight: 700;
-    color: #cbd5e1;
+    font-family: var(--font-heading);
+    color: var(--text-main);
     margin-bottom: 20px;
 }
 
 .contact-desc {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 50px;
 }
 
 .contact-btn {
-    color: #64ffda;
+    color: var(--accent-primary);
     background-color: transparent;
-    border: 1px solid #64ffda;
+    border: 1px solid var(--accent-primary);
     border-radius: 4px;
     padding: 1.25rem 1.75rem;
     font-size: 16px;
-    font-family: monospace;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.5px;
     text-decoration: none;
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .contact-btn:hover {
-    background-color: rgba(100, 255, 218, 0.1);
-    transform: translateY(-2px);
+    background-color: rgba(127, 90, 240, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(127, 90, 240, 0.2);
 }
 
 @media (max-width: 480px) {

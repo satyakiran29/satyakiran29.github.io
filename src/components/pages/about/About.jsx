@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from "react";
-import HashLoader from "react-spinners/HashLoader";
+import LoaderComponent from "../../loader/Loader";
 import "../about/about.css";
 
-const CetificateCard = ({ title, description, date, image, certificatelink }) => (
-  <div className="card">
-    <img src={image} alt={title} className="card-image" onError={(e) => (e.target.src = "path/to/fallback-image.png")} />
+// Import local certificates
+import cert1 from "../../../data/Certificate/Full-Stack Web Dev Bootcamp_ HTML, CSS, JS, PHP, & WordPress.pdf";
+import cert2 from "../../../data/Certificate/Full-Stack Web Development Mastery_ From HTML to React (1).pdf";
+import cert3 from "../../../data/Certificate/Mastering the Linux.pdf";
+import cert4 from "../../../data/Certificate/Next-Level Git with Expert Version Control and GitHub Techniques.pdf";
+import cert5 from "../../../data/Certificate/React & .NET API Bootcamp_ Next.js, Redux, and Advanced Hooks.pdf";
+import { FaCertificate } from "react-icons/fa";
+
+const CetificateCard = ({ title, description, date, certificatelink }) => (
+  <div className="card certificate-card">
+    <div className="certificate-icon-container">
+      <FaCertificate className="certificate-icon" />
+    </div>
     <h2>{title}</h2>
     <h5>
       <b>Issued By</b> {description}
@@ -96,43 +106,38 @@ const App = () => {
   const staticCertificates = [
     {
       id: "stat-1",
-      title: "The Joy of Computing Using Python",
-      description: "NPTEL (IIT Madras)",
-      date: "Online",
-      image: "https://placehold.co/600x400?text=Joy+of+Computing+Python",
-      certificatelink: "#"
+      title: "Full-Stack Web Dev Bootcamp",
+      description: "HTML, CSS, JS, PHP, & WordPress",
+      date: "2024",
+      certificatelink: cert1
     },
     {
       id: "stat-2",
       title: "Full-Stack Web Development Mastery",
-      description: "L&T EduTech",
-      date: "Online",
-      image: "https://placehold.co/600x400?text=Full-Stack+Web+Dev",
-      certificatelink: "#"
+      description: "From HTML to React",
+      date: "2024",
+      certificatelink: cert2
     },
     {
       id: "stat-3",
-      title: "Next-Level Git with Expert Version Control",
-      description: "L&T EduTech",
-      date: "Online",
-      image: "https://placehold.co/600x400?text=Next-Level+Git",
-      certificatelink: "#"
+      title: "Mastering the Linux",
+      description: "Certification",
+      date: "2024",
+      certificatelink: cert3
     },
     {
       id: "stat-4",
-      title: "Mastering the Linux",
-      description: "L&T EduTech",
-      date: "Online",
-      image: "https://placehold.co/600x400?text=Linux+Mastery",
-      certificatelink: "#"
+      title: "Next-Level Git",
+      description: "Expert Version Control and GitHub Techniques",
+      date: "2024",
+      certificatelink: cert4
     },
     {
       id: "stat-5",
-      title: "Object Oriented Programming in Java",
-      description: "Coursera",
-      date: "Online",
-      image: "https://placehold.co/600x400?text=Java+OOP",
-      certificatelink: "#"
+      title: "React & .NET API Bootcamp",
+      description: "Next.js, Redux, and Advanced Hooks",
+      date: "2024",
+      certificatelink: cert5
     }
   ];
 
@@ -159,12 +164,7 @@ const App = () => {
   if (loading) {
     return (
       <div className="loader" style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <HashLoader
-          color={"#38761d"}
-          loading={true}
-          size={80}
-          aria-label="Loading Spinner"
-        />
+        <LoaderComponent />
       </div>
     );
   }

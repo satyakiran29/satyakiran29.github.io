@@ -4,13 +4,12 @@ import Home from "./components/pages/home/Home";
 import About from "./components/pages/about/About";
 import Project from "./components/pages/project/Project";
 import Bio from "./components/pages/bio/Bio";
-import Gallery from "./components/pages/gallery/Gallery";
 import Contact from "./components/pages/contact/Contact";
-import "./components/pages/gallery/gallery.css";
 import Footer from "./components/src/footer/Footer";
 import Nav from "./components/src/nav/nav";
-import HashLoader from "react-spinners/HashLoader";
+import LoaderComponent from "./components/loader/Loader";
 import ExternalRedirect from './components/pages/ExternalRedirect';
+import NotFound from "./components/pages/notfound/NotFound";
 
 function App() {
   const [Loading, SetLoading] = useState(true);
@@ -19,21 +18,13 @@ function App() {
     SetLoading(true);
     setTimeout(() => {
       SetLoading(false);
-    }, 1900);
+    }, 3500); // Increased timeout to let the loader animation finish
   }, []);
 
   return (
     <>
       {Loading ? (
-        <div className="loader">
-          <HashLoader
-            color={"#38761d"}
-            loading={true}
-            size={100}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
-        </div>
+        <LoaderComponent />
       ) : (
         <Router>
           <AppContent />
@@ -48,8 +39,8 @@ function AppContent() {
   const location = useLocation();
 
   // routes where the Nav and Footer should NOT be displayed
-  const hideNavRoutes = ["/bio"];
-  const hideFooterRoutes = ["/bio"];
+  const hideNavRoutes = ["/bio", "/Bio"];
+  const hideFooterRoutes = ["/bio", "/Bio"];
   // Check if the current route is in the hideNavRoutes array
   const shouldShowNav = !hideNavRoutes.includes(location.pathname);
   const shouldShowFooter = !hideFooterRoutes.includes(location.pathname);
@@ -58,18 +49,25 @@ function AppContent() {
     <div>
       {shouldShowNav && <Nav />} {/* Conditionally render Nav */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Project" element={<Project />} />
-        <Route path="/Gallery" element={<Gallery />} />
+        <Route
+          path="/"
+          element={
+            <div className="one-page-container">
+              <section id="home"><Home /></section>
+              <section id="about"><About /></section>
+              <section id="projects"><Project /></section>
+              <section id="contact"><Contact /></section>
+            </div>
+          }
+        />
         <Route path="/Bio" element={<Bio />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/bio" element={<Bio />} />
         <Route
           path="/Blog"
           element={<ExternalRedirect to="https://satyakiran-blog.vercel.app/" />}
         />
-
-
+        {/* Catch-all 404 Route */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {shouldShowFooter && <Footer />} {/* Conditionally render Footer */}
     </div>

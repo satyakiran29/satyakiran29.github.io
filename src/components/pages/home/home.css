@@ -1,227 +1,252 @@
-*,
-*::before,
-*::after {
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: #16161a;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-}
-
-/* Nav Bar */
-
-header nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px 40px;
-    animation: fadeInDown .8s;
-}
-
-header nav .header_links ul {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-
-header nav .header_links ul li,
-section.main ul li {
-    list-style-type: none;
-}
-
-header nav .header_links ul li a {
-    outline: none;
-    text-decoration: none;
-    color: #a6a8b8;
-    padding: 5px 12px;
-    transition: 0.3s all;
-    font-size: 15px;
-}
-
-header nav .header_links ul li a:hover {
-    color: white;
-}
-
-header nav .header_logo img {
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    object-fit: cover;
-    border: 5px solid #3b3d4e93;
-    cursor: pointer;
-}
-
-/* Responsive nav bar */
-
-@media only screen and (max-width: 630px) {
-    header nav {
-        display: flex;
-        flex-direction: column;
-    }
-
-    header nav .header_logo {
-        margin-bottom: 20px;
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    header nav .header_links ul {
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-}
-
-/* Main */
-
-section.main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 70vh;
-    animation: fadeInUp .8s;
-}
-
-section.main img {
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-    object-fit: cover;
-    border: 10px solid #21222b93;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-section.main span {
-    color: #fffffe;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-section.main p {
-    position: relative;
-    top: 50%;
-    border-right: 2px solid rgba(255, 255, 255, .75);
-    white-space: nowrap;
+/* Home Page Layout */
+.home-wrapper {
+    width: 100%;
     overflow: hidden;
-    color: #94a1b2;
-    font-size: 13px;
-    animation: typewriter 4s steps(44) 1s 1 normal both, blinkTextCursor 530ms steps(44) infinite normal;
+    position: relative;
 }
 
-section.main ul {
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
+    position: relative;
+    padding: 100px 5% 50px;
     text-align: center;
+    z-index: 10;
 }
 
-section.main ul li a {
-    color: #a6a8b8;
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Profile Image */
+.hero-image-container {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 30px auto;
     display: flex;
-    text-decoration: none;
-    margin: 20px 5px;
-    font-size: 25px;
-    padding: 5px;
-    transition: 0.2s all;
+    justify-content: center;
+    align-items: center;
 }
 
-section.main ul li a:hover {
-    transition: 0.2s all;
-    color: #fff;
+.hero-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    border: 4px solid var(--bg-tertiary);
+    transition: transform var(--transition-normal);
 }
 
-.resume-btn {
+.hero-image-container:hover .hero-img {
+    transform: scale(1.05);
+}
+
+.glow-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
+    animation: spin 4s linear infinite;
+    z-index: 1;
+    filter: blur(10px);
+    opacity: 0.7;
+}
+
+/* Typography */
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-family: var(--font-body);
+    height: 30px;
+    /* fixed height for typing animation */
+}
+
+/* Base Typing Animation */
+.typewriter {
     display: inline-block;
-    background-color: #7f5af0;
-    color: #fff;
-    font-size: 16px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--accent-primary);
+    padding-right: 5px;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Buttons */
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
     font-weight: 600;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-top: 30px;
-    box-shadow: 0 2px 12px 0 rgba(127, 90, 240, 0.15);
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-fast);
     text-decoration: none;
 }
 
-.resume-btn:hover,
-.resume-btn:focus {
-    background-color: #6246ea;
-    color: #fffffe;
-    box-shadow: 0 4px 20px 0 rgba(127, 90, 240, 0.25);
-    outline: none;
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--bg-primary);
+    box-shadow: 0 10px 20px rgba(127, 90, 240, 0.3);
 }
 
-@keyframes typewriter {
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(127, 90, 240, 0.4);
+}
+
+.btn-secondary {
+    background: var(--glass-bg);
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Background Blobs */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    opacity: 0.4;
+    animation: float 10s ease-in-out infinite;
+}
+
+.blob-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--accent-primary);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    background: var(--accent-secondary);
+    bottom: 10%;
+    right: -50px;
+    animation-delay: -5s;
+}
+
+/* Animations */
+@keyframes spin {
     from {
-        width: 0;
+        transform: rotate(0deg);
     }
 
     to {
-        width: 20.5em;
+        transform: rotate(360deg);
     }
 }
 
-@keyframes blinkTextCursor {
+@keyframes typing {
     from {
-        border-right-color: rgba(255, 255, 255, .75);
+        width: 0
     }
 
     to {
-        border-right-color: transparent;
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--accent-primary)
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-30px) scale(1.1);
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
     }
 }
 
 @keyframes fadeInUp {
     from {
-        transform: translate3d(0, 150px, 0)
+        opacity: 0;
+        transform: translateY(40px);
     }
 
     to {
-        transform: translate3d(0, 0, 0);
-        opacity: 1
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-@keyframes fadeInDown {
-    from {
-        transform: translate3d(0, -150px, 0)
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
 
-    to {
-        transform: translate3d(0, 0, 0);
-        opacity: 1
-    }
-}
-
-/* Screen Size Specific Fixes */
-@media only screen and (max-width: 480px) {
-    section.main p {
-        font-size: 11px;
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 300px;
     }
 
-    @keyframes typewriter {
-        from {
-            width: 0;
-        }
+    .hero-image-container {
+        width: 150px;
+        height: 150px;
+    }
 
-        to {
-            width: 17em;
-            /* Shorter width for mobile font sizing */
-        }
+    .hero-img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .typewriter {
+        animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
     }
 }
