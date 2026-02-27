@@ -26,3 +26,7 @@ debug.log
 build_output_clean.txt
 build.log
 build_output.txt
+build_err.log
+err.txt
+err2.txt
+out.html
