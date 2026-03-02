@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 import Home from "./components/pages/home/Home";
 import About from "./components/pages/about/About";
 import Project from "./components/pages/project/Project";
+import Designs from "./components/pages/designs/Designs";
 import Bio from "./components/pages/bio/Bio";
 import Contact from "./components/pages/contact/Contact";
 import Footer from "./components/src/footer/Footer";
@@ -56,6 +57,7 @@ function AppContent() {
               <section id="home"><Home /></section>
               <section id="about"><About /></section>
               <section id="projects"><Project /></section>
+              <section id="designs"><Designs /></section>
               <section id="contact"><Contact /></section>
             </div>
           }

@@ -56,6 +56,15 @@ function NavBar() {
             </li>
             <li className="nav-item">
               <a
+                href="/#designs"
+                className="nav-links"
+                onClick={(e) => smoothScroll(e, 'designs')}
+              >
+                Designs
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
                 href="/#about"
                 className="nav-links"
                 onClick={(e) => smoothScroll(e, 'about')}
