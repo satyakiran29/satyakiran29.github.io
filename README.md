@@ -1,86 +1,90 @@
-# 🌐 Satyakiran Portfolio
+# Satyakiran's Portfolio
 
-<p align="center">
-  <a href="https://satyakiran.vercel.app/" target="_blank">
-    <img src="https://vercel.com/satyakiran29/satyakiran29-github-io/badge" alt="Web">
-  </a>
-  <a href="https://github.com/satyakiran29/satyakiran29.github.io/blob/main/LICENSE" target="_blank">
-    <img src="https://img.shields.io/github/license/satyakiran29/satyakiran29.github.io?style=flat-square" alt="License">
-  </a>
-  <img src="https://img.shields.io/github/last-commit/satyakiran29/satyakiran29.github.io?style=flat-square" alt="Last Commit">
-  <img src="https://img.shields.io/github/repo-size/satyakiran29/satyakiran29.github.io?style=flat-square" alt="Repo Size">
-</p>
 
-A personal portfolio website built with **React.js** and deployed on **Vercel**.  
-This project showcases my work, skills, and provides easy ways to connect with me.
+This repository contains the source code for my personal portfolio website, designed to showcase my skills, projects, and professional background. The live version is deployed on Vercel.
 
-🔗 **Live Website:** [https://satyakiran.vercel.app/](https://satyakiran.vercel.app/)  
-🔗 **Bio Page:** [https://satyakiran.vercel.app/bio](https://satyakiran.vercel.app/bio)
+**Live Website:** [https://satyakiran.vercel.app/](https://satyakiran.vercel.app/)
 
----
+## Features
 
-## 📑 Table of Contents
-- [Introduction](#-introduction)
-- [Features](#-features)
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Project Structure](#-project-structure)
-- [Dependencies](#-dependencies)
-- [Configuration](#-configuration)
-- [Deployment](#-deployment)
-- [Troubleshooting](#-troubleshooting)
-- [Contributors](#-contributors)
-- [License](#-license)
+-   **Modern UI/UX:** A clean, responsive, and mobile-first design featuring glassmorphism effects and smooth animations.
+-   **Interactive Sections:**
+    -   **Home:** A dynamic hero section with a typewriter effect and an overview of my skills.
+    -   **Projects:** A filterable and searchable gallery of my development work, complete with links to live demos and source code.
+    -   **Designs:** A visual showcase of my UI/UX design work for the Aniset application.
+    -   **About:** A timeline detailing my education, internships, and certifications.
+    -   **Bio:** A consolidated "link-in-bio" page with all my social and professional profiles.
+-   **Single-Page Application (SPA):** Built with React and React Router for fast and seamless navigation.
+-   **Custom Loading Animation:** An SVG-based animation provides a polished initial loading experience.
 
----
+## Technology Stack
 
-## 🚀 Introduction
-This project is a responsive portfolio website that highlights my personal projects, experience, and provides direct contact links.  
-It is optimized for both desktop and mobile, with SEO-friendly configurations and custom icons.
+-   **Frontend:** React, Vite
+-   **Routing:** React Router
+-   **Styling:** CSS with Custom Properties, Styled Components
+-   **Icons:** React Icons
+-   **Deployment:** Vercel
 
----
+## Getting Started
 
-## ✨ Features
-- Responsive design (mobile-first)
-- About section and bio page
-- SEO support with `manifest.json` and `robots.txt`
-- Deployed on **Vercel** for fast performance
-- Built using **React.js** and **Create React App**
+To run this project locally, follow these steps.
 
----
+### Prerequisites
 
-## 🛠️ Installation
+-   Node.js (v18 or later)
+-   npm (or a compatible package manager like Yarn or pnpm)
 
-1.  **Clone the repository:**
+### Installation
+
+1.  Clone the repository to your local machine:
     ```bash
-    git clone [https://github.com/satyakiran29/satyakiran29.github.io.git](https://github.com/satyakiran29/satyakiran29.github.io.git)
+    git clone https://github.com/satyakiran29/satyakiran29.github.io.git
+    ```
+
+2.  Navigate into the project directory:
+    ```bash
     cd satyakiran29.github.io
     ```
 
-2.  **Install dependencies:**
+3.  Install the required dependencies:
     ```bash
     npm install
     ```
 
----
+### Running the Application
 
-## ▶️ Usage
-
--   **Run the development server:**
+-   To start the development server:
     ```bash
-    npm start
+    npm run dev
     ```
-    Visit `http://localhost:3000` in your browser.
+    Open [http://localhost:5173](http://localhost:5173) (or the port specified in the terminal) to view it in your browser.
 
--   **Run tests:**
-    ```bash
-    npm test
-    ```
-
--   **Build for production:**
+-   To create a production-ready build:
     ```bash
     npm run build
     ```
+    The build artifacts will be stored in the `dist/` directory.
 
----
+-   To preview the production build locally:
+    ```bash
+    npm run preview
+    ```
 
+## Project Structure
+
+The repository is organized as follows:
+
+```
+satyakiran29.github.io/
+├── public/                # Static assets, favicons, and manifest.json
+├── src/
+│   ├── components/
+│   │   ├── icons/         # SVG icons as React components
+│   │   ├── loader/        # Custom loading screen component
+│   │   ├── pages/         # Components for each site section (Home, About, etc.)
+│   │   └── src/           # Reusable components like Navbar and Footer
+│   ├── data/              # Static data including images and certificate PDFs
+│   ├── App.jsx            # Main application component with routing logic
+│   └── index.jsx          # Application entry point
+├── vite.config.js         # Vite build tool configuration
+└── package.json           # Project dependencies and scripts
