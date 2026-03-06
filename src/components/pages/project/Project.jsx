@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import "../project/project.css";
 import { FaGithub, FaExternalLinkAlt, FaSearch, FaQuoteLeft, FaStar } from "react-icons/fa";
 
+//project img
+import otisimg from "../../../data/imgs/Project/otis.webp";
+import anisetweb from "../../../data/imgs/Project/aniset_web.webp";
+import satyakiranimg from "../../../data/imgs/Project/satyakiran.webp"
+import student from "../../../data/imgs/Project/student.webp"
 const ProjectCard = ({ title, description, tags, image, projectLink, githubLink }) => {
   return (
     <div className="project-wrapper">
@@ -70,7 +75,7 @@ const App = () => {
       description:
         "A personal portfolio website built using ReactJs and CSS. The website showcases my projects, skills, and contact information.",
       tags: ["Website", "ReactJs", "Css", "UI/UX"],
-      image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/Portfolio.png",
+      image: satyakiranimg,      
       projectLink: "https://satyakiran.vercel.app/",
       githubLink: "https://github.com/satyakiran29/satyakiran29.github.io",
       category: "Web",
@@ -90,7 +95,7 @@ const App = () => {
       description:
         "To Showcase About Aniset Android App and it's widgets website",
       tags: ["Website", "ReactJs", "Css", "UI/UX"],
-      image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/aniset_web.png",
+      image:anisetweb,
       projectLink: "https://aniset.vercel.app/",
       githubLink: "https://github.com/satyakiran29/Aniset_Web",
       category: "Web",
@@ -100,7 +105,7 @@ const App = () => {
       description:
         "A web application for managing student results, built using Php and Mysql. The application allows teachers to input and manage student results efficiently.",
       tags: ["Website", "CSS", "HTML", "PHP", "MySQL"],
-      image: "https://raw.githubusercontent.com/satyakiran29/satyakiran29.github.io/refs/heads/main/src/components/pages/imgs/Project/student.png",
+      image: student,
       projectLink: "https://web.skdev.rf.gd/",
       githubLink: "https://github.com/satyakiran29/Student_mangement_system",
       category: "Web",
@@ -110,7 +115,7 @@ const App = () => {
       description:
         "Developed a comprehensive information portal featuring a dynamic landing page and developer profiles. Implemented secure, role-based login functionality to manage access controls for various user tiers.",
       tags: ["React.js", "Node.js", "Express.js"],
-      image: "https://placehold.co/600x400?text=Temple+System",
+      image: otisimg,
       githubLink: "#",
       category: "Web",
     },
