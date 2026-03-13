@@ -71,6 +71,16 @@ const TestimonyCard = ({ title, description, tags, image }) => (
 const App = () => {
   const projects = [
     {
+      title: "MernShop - Full Stack eCommerce Platform",
+      description:
+        "A modern, responsive, and feature-rich complete MERN-stack eCommerce platform. Built with React.js, Tailwind CSS, Vite for the frontend, and Node.js, Express.js, MongoDB for the backend. It offers an exceptionally fast, fluid, and premium shopping experience for both customers and administrators.",
+      tags: ["React.js", "Tailwind CSS", "Vite", "Node.js", "Express.js", "MongoDB"],
+      image: "https://placehold.co/600x400?text=MernShop",
+      projectLink: "#",
+      githubLink: "#",
+      category: "Web",
+    },
+    {
       title: "SatyaKiran Portfolio",
       description:
         "A personal portfolio website built using ReactJs and CSS. The website showcases my projects, skills, and contact information.",
