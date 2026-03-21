@@ -32,9 +32,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Background decorative elements */}
-        <div className="blob blob-1"></div>
-        <div className="blob blob-2"></div>
+
       </section>
 
       {/* Skills Section */}

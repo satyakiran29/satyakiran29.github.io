@@ -135,33 +135,7 @@
     transform: translateY(-3px);
 }
 
-/* Background Blobs */
-.blob {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: 0;
-    opacity: 0.4;
-    animation: float 10s ease-in-out infinite;
-}
 
-.blob-1 {
-    width: 400px;
-    height: 400px;
-    background: var(--accent-primary);
-    top: -100px;
-    left: -100px;
-    animation-delay: 0s;
-}
-
-.blob-2 {
-    width: 300px;
-    height: 300px;
-    background: var(--accent-secondary);
-    bottom: 10%;
-    right: -50px;
-    animation-delay: -5s;
-}
 
 /* Animations */
 @keyframes spin {
