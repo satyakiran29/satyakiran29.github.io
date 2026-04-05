@@ -4,7 +4,8 @@ import {
   FaInstagram,
   FaGithub,
   FaTwitter,
-  FaLinkedin
+  FaLinkedin,
+  FaGooglePlay
 } from 'react-icons/fa';
 import {
   FooterContainer,
@@ -39,6 +40,9 @@ function Footer() {
             </SocialIconLink>
             <SocialIconLink href='https://in.linkedin.com/in/satyakiran29' target='_blank' aria-label='LinkedIn'>
               <FaLinkedin />
+            </SocialIconLink>
+            <SocialIconLink href='https://play.google.com/store/apps/dev?id=9166037782169864125' target='_blank' aria-label='Play Console'>
+              <FaGooglePlay />
             </SocialIconLink>
           </SocialIcons>
         </SocialMediaWrap>
