@@ -3,6 +3,7 @@ import "../home/home.css";
 import p1 from "../../src/nav/imgs/2.gif";
 import { Analytics } from '@vercel/analytics/react';
 import Skills from "./Skills";
+import { FaGooglePlay } from "react-icons/fa";
 
 const Home = () => {
   return (
@@ -28,6 +29,9 @@ const Home = () => {
             </a>
             <a href="#projects" className="btn-secondary">
               View Work
+            </a>
+            <a href="https://play.google.com/store/apps/dev?id=9166037782169864125" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+              <FaGooglePlay /> Play Console
             </a>
           </div>
         </div>
