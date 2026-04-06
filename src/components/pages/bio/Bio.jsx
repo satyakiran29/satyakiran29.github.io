@@ -1,6 +1,6 @@
 import React from "react";
 import "../bio/bio.css"; // Import the CSS file
-import { FaSteam, FaInstagram, FaTelegram, FaDiscord, FaLinkedin } from "react-icons/fa";
+import { FaSteam, FaInstagram, FaTelegram, FaDiscord, FaLinkedin, FaGooglePlay } from "react-icons/fa";
 const ProfileCard = () => {
   return (
     <div className="b_container">
@@ -39,6 +39,9 @@ const ProfileCard = () => {
           </a>
           <a href="https://www.instagram.com/satyakiran29/" className="b_social-button">
             <FaInstagram /> Instagram(Personal)
+          </a>
+          <a href="https://play.google.com/store/apps/dev?id=9166037782169864125" className="b_social-button">
+            <FaGooglePlay /> Play Store
           </a>
           <a href="https://myanimelist.net/profile/satyakiran29" className="b_social-button">
             MyAnimeList
