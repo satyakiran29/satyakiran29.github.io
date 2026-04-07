@@ -96,7 +96,7 @@ const App = () => {
         "Transform your Android Home Screen with Aniset - Anime KWGT Widgets & KLWP! Elevate your device customization to a whole new level with anime-inspired widgets and themes.",
       tags: ["Android App", "Kotlin", "JSON", "Firebase", "UI/UX"],
       image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
-      projectLink: "https://example.com/",
+      projectLink: "https://play.google.com/store/apps/details?id=com.skdev.aniset",
       githubLink: "https://example.com/",
       category: "Mobile",
     },
@@ -126,7 +126,8 @@ const App = () => {
         "Developed a comprehensive information portal featuring a dynamic landing page and developer profiles. Implemented secure, role-based login functionality to manage access controls for various user tiers.",
       tags: ["React.js", "Node.js", "Express.js"],
       image: otisimg,
-      githubLink: "#",
+      githubLink: "https://github.com/satyakiran29/OTIS",
+      projectLink: "https://otis.psatyakiran.in/",
       category: "Web",
     },
     {
