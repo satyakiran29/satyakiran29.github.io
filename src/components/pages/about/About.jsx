@@ -92,14 +92,14 @@ const App = () => {
   ];
 
   const publications = [
-    {
-      id: 1,
-      title: "Title of Built Paper / Research Topic",
-      subtitle: "Conference / Journal Name Placeholder",
-      date: "Nov 2023",
-      description: "Brief summary of the paper's contribution and findings. Highlight any novel techniques or technologies used.",
-      link: "#" // Replace with actual URL to the paper
-    }
+    // {
+    //   id: 1,
+    //   title: "Title of Built Paper / Research Topic",
+    //   subtitle: "Conference / Journal Name Placeholder",
+    //   date: "Nov 2023",
+    //   description: "Brief summary of the paper's contribution and findings. Highlight any novel techniques or technologies used.",
+    //   link: "#" // Replace with actual URL to the paper
+    // }
   ];
 
   // Static Certificates List
