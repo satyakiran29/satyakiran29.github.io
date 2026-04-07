@@ -76,8 +76,8 @@ const App = () => {
         "A modern, responsive, and feature-rich complete MERN-stack eCommerce platform. Built with React.js, Tailwind CSS, Vite for the frontend, and Node.js, Express.js, MongoDB for the backend. It offers an exceptionally fast, fluid, and premium shopping experience for both customers and administrators.",
       tags: ["React.js", "Tailwind CSS", "Vite", "Node.js", "Express.js", "MongoDB"],
       image: "https://placehold.co/600x400?text=MernShop",
-      projectLink: "#",
-      githubLink: "#",
+      projectLink: "https://mernshop.psatyakiran.in/",
+      githubLink: "https://github.com/satyakiran29/MernShop",
       category: "Web",
     },
     {
@@ -97,7 +97,6 @@ const App = () => {
       tags: ["Android App", "Kotlin", "JSON", "Firebase", "UI/UX"],
       image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
       projectLink: "https://play.google.com/store/apps/details?id=com.skdev.aniset",
-      githubLink: "https://example.com/",
       category: "Mobile",
     },
     {
@@ -137,6 +136,7 @@ const App = () => {
       tags: ["Android", "KWGT", "REST API"],
       image: "https://placehold.co/600x400?text=Aniset+Pro",
       projectLink: "#",
+      githubLink: "#",
       category: "Mobile",
     },
     {
