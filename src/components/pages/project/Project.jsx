@@ -7,6 +7,7 @@ import otisimg from "../../../data/imgs/Project/otis.webp";
 import anisetweb from "../../../data/imgs/Project/aniset_web.webp";
 import satyakiranimg from "../../../data/imgs/Project/satyakiran.webp"
 import student from "../../../data/imgs/Project/student.webp"
+import anify_bg from "../../../data/imgs/Project/anify_bg.png"
 const ProjectCard = ({ title, description, tags, image, projectLink, githubLink }) => {
   return (
     <div className="project-wrapper">
@@ -71,6 +72,45 @@ const TestimonyCard = ({ title, description, tags, image }) => (
 const App = () => {
   const projects = [
     {
+      title: "SkDev App Showcase",
+      description:
+        "A modern, responsive web application serving as a centralized hub to showcase Android applications published on the Google Play Store. It also features news updates, FAQs, and a support/donation platform.",
+      tags: ["React", "Vite", "React Router", "UI/UX"],
+      image: "https://placehold.co/600x400?text=SkDev+Apps",
+      projectLink: "https://skdev.psatyakiran.in/",
+      githubLink: "https://github.com/satyakiran29/skdev-web",
+      category: "Web",
+    },
+    {
+      title: "Anify Website",
+      description:
+        "A sleek, premium, and dynamic landing page website for Anify Widgets showcasing beautifully crafted widget designs. Built with React and Vite, the website features a modern glassmorphic aesthetic, smooth animations, and a fully responsive layout.",
+      tags: ["React.js", "Vite", "Web", "UI/UX"],
+      image: "https://placehold.co/600x400?text=Anify+Web",
+      projectLink: "https://anify.psatyakiran.in/",
+      githubLink: "https://github.com/satyakiran29/Anify_web",
+      category: "Web",
+    },
+    {
+      title: "Anify - Ultimate Personalization",
+      description:
+        "Give your phone a complete makeover with Anify, the ultimate personalization app for Android. Get access to ready-to-use widgets, HD wallpapers, and trending ringtones—all in one app, with no KWGT required.",
+      tags: ["Android App", "Widgets", "Wallpapers", "Ringtones"],
+      image: anify_bg,
+      projectLink: "https://play.google.com/store/apps/details?id=com.skdev.anify",
+      category: "Mobile",
+    },
+    {
+      title: "GMRIT Student Event Management System",
+      description:
+        "The GMRIT Student Event Management System is a lightweight, web-based platform tailored for tracking, managing, and registering for events across various student chapters. Built using PHP and MySQL, it provides a centralized portal for students to discover opportunities and for administrators to oversee chapter activities.",
+      tags: ["PHP", "MySQL", "Web", "Hackathon 2025"],
+      image: "https://placehold.co/600x400?text=GMRIT+Event+System",
+      projectLink: "#",
+      githubLink: "https://github.com/satyakiran29/hackthon_2025_Web",
+      category: "Web",
+    },
+    {
       title: "MernShop - Full Stack eCommerce Platform",
       description:
         "A modern, responsive, and feature-rich complete MERN-stack eCommerce platform. Built with React.js, Tailwind CSS, Vite for the frontend, and Node.js, Express.js, MongoDB for the backend. It offers an exceptionally fast, fluid, and premium shopping experience for both customers and administrators.",
@@ -129,25 +169,8 @@ const App = () => {
       projectLink: "https://otis.psatyakiran.in/",
       category: "Web",
     },
-    {
-      title: "Aniset Pro / Aniset Android App",
-      description:
-        "Designed and published a custom widget application on the Google Play Store, managing the full lifecycle. Developed features under a strict hackathon deadline, handling UI/UX, backend integration, and monetization.",
-      tags: ["Android", "KWGT", "REST API"],
-      image: "https://placehold.co/600x400?text=Aniset+Pro",
-      projectLink: "#",
-      githubLink: "#",
-      category: "Mobile",
-    },
-    {
-      title: "Hospital Management System",
-      description:
-        "Built a comprehensive system to efficiently manage patients, doctors, appointments, and medical records. Engineered database integration and secured access for various administrative levels.",
-      tags: ["Django", "PHP", "JavaScript", "HTML/CSS"],
-      image: "https://placehold.co/600x400?text=Hospital+System",
-      githubLink: "#",
-      category: "Web",
-    },
+
+
     {
       title: "Foodscape Web Application",
       description:
