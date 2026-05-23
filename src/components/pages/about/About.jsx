@@ -92,14 +92,14 @@ const App = () => {
   ];
 
   const publications = [
-    // {
-    //   id: 1,
-    //   title: "Title of Built Paper / Research Topic",
-    //   subtitle: "Conference / Journal Name Placeholder",
-    //   date: "Nov 2023",
-    //   description: "Brief summary of the paper's contribution and findings. Highlight any novel techniques or technologies used.",
-    //   link: "#" // Replace with actual URL to the paper
-    // }
+    {
+      id: 1,
+      title: "Chronic Disease Prediction Using ML",
+      subtitle: "International Journal of Research Publication and Reviews (IJRPR)",
+      date: "Nov 2025",
+      description: "Developed an integrated Machine Learning framework using supervised learning algorithms (Decision Trees, Random Forest, Naïve Bayes, SVM, and ensembles) for automated clinical health-risk assessment. Built a Django web platform to support real-time user interaction, secure data handling, and model deployment.",
+      link: "/paper.pdf"
+    }
   ];
 
   // Static Certificates List

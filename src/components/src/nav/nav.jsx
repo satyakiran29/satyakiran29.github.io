@@ -84,10 +84,10 @@ function NavBar() {
             <li className="nav-item">
               <Link
                 to="/bio"
-                className="nav-links"
+                className="nav-links nav-bio-badge"
                 onClick={() => setClick(false)}
               >
-                Bio
+                ✦ Full Bio
               </Link>
             </li>
           </ul>

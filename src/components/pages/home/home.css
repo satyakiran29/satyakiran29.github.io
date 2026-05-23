@@ -82,14 +82,26 @@
     /* fixed height for typing animation */
 }
 
-/* Base Typing Animation */
-.typewriter {
+/* JS Typewriter */
+.typewriter-js {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.tw-cursor {
     display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 3px solid var(--accent-primary);
-    padding-right: 5px;
-    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+    color: var(--accent-primary);
+    font-weight: 300;
+    animation: tw-blink 0.7s step-end infinite;
+    margin-left: 1px;
+    line-height: 1;
+}
+
+/* Slow the blink while erasing for a subtle visual cue */
+.tw-cursor--erasing {
+    animation: tw-blink 0.4s step-end infinite;
+    opacity: 0.7;
 }
 
 /* Buttons */
@@ -148,26 +160,9 @@
     }
 }
 
-@keyframes typing {
-    from {
-        width: 0
-    }
-
-    to {
-        width: 100%
-    }
-}
-
-@keyframes blink-caret {
-
-    from,
-    to {
-        border-color: transparent
-    }
-
-    50% {
-        border-color: var(--accent-primary)
-    }
+@keyframes tw-blink {
+    from, to { opacity: 1; }
+    50%       { opacity: 0; }
 }
 
 @keyframes float {
@@ -220,7 +215,5 @@
         height: 130px;
     }
 
-    .typewriter {
-        animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
-    }
+
 }
