@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaSignOutAlt, FaTrash, FaPen, FaLock, FaUser, FaComments } from 'react-icons/fa';
+import { FaSignOutAlt, FaTrash, FaPen, FaLock, FaUser, FaComments, FaThumbtack } from 'react-icons/fa';
 import './Guestbook.css';
 
 const Guestbook = () => {
@@ -11,6 +11,7 @@ const Guestbook = () => {
   
   // Auth Form State
   const [activeTab, setActiveTab] = useState('login'); // 'login' | 'register' | 'anonymous'
+  const [showAuthPanel, setShowAuthPanel] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -343,204 +344,132 @@ const Guestbook = () => {
         
         {/* Header */}
         <header className="guestbook-header">
-          <FaComments className="header-icon" />
-          <h1>Sign my <span className="gradient-text">Guestbook</span></h1>
-          <p>Leave a message, say hi, or share some support. Sign in below to leave your mark!</p>
+          <h1>Guestbook</h1>
+          <p className="guestbook-subtitle">Sign my guestbook and share your idea. You can tell me anything here!</p>
         </header>
 
-        <div className="guestbook-layout">
+        <div className="guestbook-layout single-column-layout">
           
-          {/* Left Column: Auth / Action Form */}
-          <div className="guestbook-sidebar">
-            {user ? (
-              // Sign Form (Logged In)
-              <div className="glass-panel guestbook-card auth-welcome">
-                <div className="user-profile-summary">
-                  <img src={user.avatarUrl} alt="Avatar" className="user-avatar-large" />
-                  <div className="user-info-text">
-                    <h3>Hello, {user.username}!</h3>
-                    <p className="status-label">{user.isAnonymous ? 'Guest User' : 'Authenticated User'}</p>
-                  </div>
-                  <button onClick={handleSignOut} className="btn-signout" title="Sign Out">
-                    <FaSignOutAlt />
-                  </button>
+          {/* Pinned Welcome Card */}
+          <div className="glass-panel message-card pinned-card">
+            <div className="message-header">
+              <div className="author-info">
+                <div className="pinned-icon-wrapper">
+                  <FaComments className="pinned-speech-bubble" />
                 </div>
-
-                <form onSubmit={handlePostMessage} className="message-form">
-                  <div className="form-group">
-                    <label htmlFor="message">Leave a message</label>
-                    <div className="textarea-container">
-                      <textarea
-                        id="message"
-                        value={messageText}
-                        onChange={(e) => setMessageText(e.target.value)}
-                        placeholder="Write something nice..."
-                        maxLength={500}
-                        required
-                        disabled={actionLoading}
-                      />
-                      <span className="char-counter">{messageText.length}/500</span>
-                    </div>
-                  </div>
-
-                  {postError && <p className="error-message">{postError}</p>}
-
-                  <button
-                    type="submit"
-                    className="btn-submit"
-                    disabled={actionLoading || !messageText.trim()}
-                  >
-                    {actionLoading ? (
-                      <span className="spinner-small"></span>
-                    ) : (
-                      <>
-                        <FaPen style={{ marginRight: '8px' }} /> Sign Guestbook
-                      </>
-                    )}
-                  </button>
-                </form>
+                <div>
+                  <h4 className="author-name">Hey there! 👋</h4>
+                </div>
               </div>
-            ) : (
-              // Auth Card (Logged Out)
-              <div className="glass-panel guestbook-card auth-card">
-                <div className="auth-tabs">
-                  <button
-                    className={`auth-tab ${activeTab === 'login' ? 'active' : ''}`}
-                    onClick={() => { setActiveTab('login'); setAuthError(''); setPostError(''); }}
-                  >
-                    Login
-                  </button>
-                  <button
-                    className={`auth-tab ${activeTab === 'register' ? 'active' : ''}`}
-                    onClick={() => { setActiveTab('register'); setAuthError(''); setPostError(''); }}
-                  >
-                    Register
-                  </button>
-                  <button
-                    className={`auth-tab ${activeTab === 'anonymous' ? 'active' : ''}`}
-                    onClick={() => { setActiveTab('anonymous'); setAuthError(''); setPostError(''); }}
-                  >
-                    Guest
-                  </button>
+              <FaThumbtack className="pinned-badge-icon" title="Pinned Message" />
+            </div>
+            <div className="message-body">
+              <p>
+                Thanks for visiting my website. If you have a moment, I'd love to hear your thoughts on my work. Please log in with your account or continue as Guest to leave a comment. Thanks!
+              </p>
+            </div>
+          </div>
+
+          {/* Action Row / Auth Form */}
+          {user ? (
+            // Form (Logged In / Guest)
+            <div className="glass-panel guestbook-card auth-welcome inline-composer">
+              <div className="user-profile-summary">
+                <img src={user.avatarUrl} alt="Avatar" className="user-avatar-large" />
+                <div className="user-info-text">
+                  <h3>Hello, {user.username}!</h3>
+                  <p className="status-label">{user.isAnonymous ? 'Guest User' : 'Authenticated User'}</p>
+                </div>
+                <button onClick={handleSignOut} className="btn-signout" title="Sign Out">
+                  <FaSignOutAlt />
+                </button>
+              </div>
+
+              <form onSubmit={handlePostMessage} className="message-form">
+                <div className="form-group">
+                  <label htmlFor="message">Leave a message</label>
+                  <div className="textarea-container">
+                    <textarea
+                      id="message"
+                      value={messageText}
+                      onChange={(e) => setMessageText(e.target.value)}
+                      placeholder="Write something nice..."
+                      maxLength={500}
+                      required
+                      disabled={actionLoading}
+                    />
+                    <span className="char-counter">{messageText.length}/500</span>
+                  </div>
                 </div>
 
-                {activeTab === 'anonymous' ? (
-                  <form onSubmit={handleGuestPost} className="auth-form">
-                    <div className="form-group">
-                      <label htmlFor="guestname">Your Name (Optional)</label>
-                      <div className="input-with-icon">
-                        <FaUser className="input-icon" />
-                        <input
-                          type="text"
-                          id="guestname"
-                          value={username}
-                          onChange={(e) => setUsername(e.target.value)}
-                          placeholder="Anonymous Guest"
-                          maxLength={25}
-                          disabled={actionLoading}
-                        />
-                      </div>
-                    </div>
+                {postError && <p className="error-message">{postError}</p>}
 
-                    <div className="form-group">
-                      <label>Select Profile Logo</label>
-                      <div className="avatar-selection-grid">
-                        {AVATAR_OPTIONS.map((avatar, idx) => (
-                          <img
-                            key={idx}
-                            src={avatar}
-                            alt={`Avatar ${idx + 1}`}
-                            className={`avatar-option-preview ${selectedAvatar === avatar ? 'selected' : ''}`}
-                            onClick={() => setSelectedAvatar(avatar)}
-                          />
-                        ))}
-                      </div>
-                    </div>
+                <button
+                  type="submit"
+                  className="btn-submit"
+                  disabled={actionLoading || !messageText.trim()}
+                >
+                  {actionLoading ? (
+                    <span className="spinner-small"></span>
+                  ) : (
+                    <>
+                      <FaPen style={{ marginRight: '8px' }} /> Sign Guestbook
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
+          ) : (
+            // Collapsible Auth Trigger
+            <div className="auth-trigger-container">
+              <div className="auth-trigger-row">
+                <button onClick={() => setShowAuthPanel(!showAuthPanel)} className="btn-auth-trigger">
+                  Sign in
+                </button>
+                <span className="auth-trigger-text">to leave a message</span>
+              </div>
 
-                    <div className="form-group">
-                      <label htmlFor="guestmessage">Leave a message</label>
-                      <div className="textarea-container">
-                        <textarea
-                          id="guestmessage"
-                          value={messageText}
-                          onChange={(e) => setMessageText(e.target.value)}
-                          placeholder="Write something nice..."
-                          maxLength={500}
-                          required
-                          disabled={actionLoading}
-                        />
-                        <span className="char-counter">{messageText.length}/500</span>
-                      </div>
-                    </div>
-
-                    {postError && <p className="error-message">{postError}</p>}
-                    {authError && <p className="error-message">{authError}</p>}
-
-                    <button type="submit" className="btn-submit" disabled={actionLoading || !messageText.trim()}>
-                      {actionLoading ? (
-                        <span className="spinner-small"></span>
-                      ) : (
-                        <>
-                          <FaPen style={{ marginRight: '8px' }} /> Sign as Guest
-                        </>
-                      )}
+              {showAuthPanel && (
+                <div className="glass-panel guestbook-card auth-card inline-auth-card">
+                  <div className="auth-tabs">
+                    <button
+                      className={`auth-tab ${activeTab === 'login' ? 'active' : ''}`}
+                      onClick={() => { setActiveTab('login'); setAuthError(''); setPostError(''); }}
+                    >
+                      Login
                     </button>
-                  </form>
-                ) : (
-                  <form onSubmit={handleAuth} className="auth-form">
-                    <div className="form-group">
-                      <label htmlFor="username">Username</label>
-                      <div className="input-with-icon">
-                        <FaUser className="input-icon" />
-                        <input
-                          type="text"
-                          id="username"
-                          value={username}
-                          onChange={(e) => setUsername(e.target.value)}
-                          placeholder="Choose a username"
-                          minLength={3}
-                          required
-                          disabled={actionLoading}
-                        />
-                      </div>
-                    </div>
+                    <button
+                      className={`auth-tab ${activeTab === 'register' ? 'active' : ''}`}
+                      onClick={() => { setActiveTab('register'); setAuthError(''); setPostError(''); }}
+                    >
+                      Register
+                    </button>
+                    <button
+                      className={`auth-tab ${activeTab === 'anonymous' ? 'active' : ''}`}
+                      onClick={() => { setActiveTab('anonymous'); setAuthError(''); setPostError(''); }}
+                    >
+                      Guest
+                    </button>
+                  </div>
 
-                    <div className="form-group">
-                      <label htmlFor="password">Password</label>
-                      <div className="input-with-icon">
-                        <FaLock className="input-icon" />
-                        <input
-                          type="password"
-                          id="password"
-                          value={password}
-                          onChange={(e) => setPassword(e.target.value)}
-                          placeholder="Enter password (min 6 chars)"
-                          minLength={6}
-                          required
-                          disabled={actionLoading}
-                        />
-                      </div>
-                    </div>
-
-                    {activeTab === 'register' && (
+                  {activeTab === 'anonymous' ? (
+                    <form onSubmit={handleGuestPost} className="auth-form">
                       <div className="form-group">
-                        <label htmlFor="confirmPassword">Confirm Password</label>
+                        <label htmlFor="guestname">Your Name (Optional)</label>
                         <div className="input-with-icon">
-                          <FaLock className="input-icon" />
+                          <FaUser className="input-icon" />
                           <input
-                            type="password"
-                            id="confirmPassword"
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            placeholder="Re-enter password"
-                            required
+                            type="text"
+                            id="guestname"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Anonymous Guest"
+                            maxLength={25}
                             disabled={actionLoading}
                           />
                         </div>
                       </div>
-                    )}
 
-                    {activeTab === 'register' && (
                       <div className="form-group">
                         <label>Select Profile Logo</label>
                         <div className="avatar-selection-grid">
@@ -555,26 +484,126 @@ const Guestbook = () => {
                           ))}
                         </div>
                       </div>
-                    )}
 
-                    {authError && <p className="error-message">{authError}</p>}
+                      <div className="form-group">
+                        <label htmlFor="guestmessage">Leave a message</label>
+                        <div className="textarea-container">
+                          <textarea
+                            id="guestmessage"
+                            value={messageText}
+                            onChange={(e) => setMessageText(e.target.value)}
+                            placeholder="Write something nice..."
+                            maxLength={500}
+                            required
+                            disabled={actionLoading}
+                          />
+                          <span className="char-counter">{messageText.length}/500</span>
+                        </div>
+                      </div>
 
-                    <button type="submit" className="btn-submit" disabled={actionLoading}>
-                      {actionLoading ? (
-                        <span className="spinner-small"></span>
-                      ) : activeTab === 'login' ? (
-                        'Sign In'
-                      ) : (
-                        'Create Account'
+                      {postError && <p className="error-message">{postError}</p>}
+                      {authError && <p className="error-message">{authError}</p>}
+
+                      <button type="submit" className="btn-submit" disabled={actionLoading || !messageText.trim()}>
+                        {actionLoading ? (
+                          <span className="spinner-small"></span>
+                        ) : (
+                          <>
+                            <FaPen style={{ marginRight: '8px' }} /> Sign as Guest
+                          </>
+                        )}
+                      </button>
+                    </form>
+                  ) : (
+                    <form onSubmit={handleAuth} className="auth-form">
+                      <div className="form-group">
+                        <label htmlFor="username">Username</label>
+                        <div className="input-with-icon">
+                          <FaUser className="input-icon" />
+                          <input
+                            type="text"
+                            id="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="Choose a username"
+                            minLength={3}
+                            required
+                            disabled={actionLoading}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="form-group">
+                        <label htmlFor="password">Password</label>
+                        <div className="input-with-icon">
+                          <FaLock className="input-icon" />
+                          <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Enter password (min 6 chars)"
+                            minLength={6}
+                            required
+                            disabled={actionLoading}
+                          />
+                        </div>
+                      </div>
+
+                      {activeTab === 'register' && (
+                        <div className="form-group">
+                          <label htmlFor="confirmPassword">Confirm Password</label>
+                          <div className="input-with-icon">
+                            <FaLock className="input-icon" />
+                            <input
+                              type="password"
+                              id="confirmPassword"
+                              value={confirmPassword}
+                              onChange={(e) => setConfirmPassword(e.target.value)}
+                              placeholder="Re-enter password"
+                              required
+                              disabled={actionLoading}
+                            />
+                          </div>
+                        </div>
                       )}
-                    </button>
-                  </form>
-                )}
-              </div>
-            )}
-          </div>
 
-          {/* Right Column: Messages Feed */}
+                      {activeTab === 'register' && (
+                        <div className="form-group">
+                          <label>Select Profile Logo</label>
+                          <div className="avatar-selection-grid">
+                            {AVATAR_OPTIONS.map((avatar, idx) => (
+                              <img
+                                key={idx}
+                                src={avatar}
+                                alt={`Avatar ${idx + 1}`}
+                                className={`avatar-option-preview ${selectedAvatar === avatar ? 'selected' : ''}`}
+                                onClick={() => setSelectedAvatar(avatar)}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {authError && <p className="error-message">{authError}</p>}
+
+                      <button type="submit" className="btn-submit" disabled={actionLoading}>
+                        {actionLoading ? (
+                          <span className="spinner-small"></span>
+                        ) : activeTab === 'login' ? (
+                          'Sign In'
+                        ) : (
+                          'Create Account'
+                        )}
+                      </button>
+                    </form>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Messages Feed */}
           <div className="guestbook-feed">
             <h2 className="feed-title">Recent Signatures ({messages.length})</h2>
             
