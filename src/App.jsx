@@ -11,6 +11,7 @@ import Nav from "./components/src/nav/nav";
 import LoaderComponent from "./components/loader/Loader";
 import ExternalRedirect from './components/pages/ExternalRedirect';
 import NotFound from "./components/pages/notfound/NotFound";
+import Guestbook from "./components/pages/guestbook/Guestbook";
 
 function App() {
   const [Loading, SetLoading] = useState(true);
@@ -36,10 +37,10 @@ function App() {
 }
 
 // Separate component to handle route-specific logic
+// routes where the Nav and Footer should NOT be displayed
 function AppContent() {
   const location = useLocation();
 
-  // routes where the Nav and Footer should NOT be displayed
   const hideNavRoutes = ["/bio", "/Bio"];
   const hideFooterRoutes = ["/bio", "/Bio"];
   // Check if the current route is in the hideNavRoutes array
@@ -64,6 +65,7 @@ function AppContent() {
         />
         <Route path="/Bio" element={<Bio />} />
         <Route path="/bio" element={<Bio />} />
+        <Route path="/guestbook" element={<Guestbook />} />
         <Route
           path="/Blog"
           element={<ExternalRedirect to="https://satyakiran-blog.vercel.app/" />}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Need this for the `/bio` route
+import { Link, NavLink } from "react-router-dom"; // Need this for the `/bio` and `/guestbook` routes
 import "../nav/Navbar.css";
 import { HamburgetMenuClose, HamburgetMenuOpen } from "./Icons";
 
@@ -82,13 +82,22 @@ function NavBar() {
               </a>
             </li>
             <li className="nav-item">
-              <Link
+              <NavLink
+                to="/guestbook"
+                className="nav-links"
+                onClick={() => setClick(false)}
+              >
+                Guestbook
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
                 to="/bio"
                 className="nav-links nav-bio-badge"
                 onClick={() => setClick(false)}
               >
                 ✦ Full Bio
-              </Link>
+              </NavLink>
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>

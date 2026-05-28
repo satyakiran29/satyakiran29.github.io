@@ -30,3 +30,4 @@ build_err.log
 err.txt
 err2.txt
 out.html
+.env
