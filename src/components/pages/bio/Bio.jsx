@@ -185,7 +185,6 @@ const ProfileCard = () => {
             </a>
             <a href="https://play.google.com/store/apps/dev?id=9166037782169864125" className="b_social-button b_playstore b_playstore-button" target="_blank" rel="noopener noreferrer">
               <FaGooglePlay /> Play Store
-              <span className="b_playstore-badge">Published Developer</span>
             </a>
             <a href="https://myanimelist.net/profile/satyakiran29" className="b_social-button b_myanimelist" target="_blank" rel="noopener noreferrer">
               MyAnimeList
