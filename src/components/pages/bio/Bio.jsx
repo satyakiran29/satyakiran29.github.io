@@ -52,6 +52,63 @@ const CodingBackground = () => {
 };
 
 const ProfileCard = () => {
+  const [steamStatus, setSteamStatus] = React.useState({ state: "loading", message: "Loading..." });
+
+  React.useEffect(() => {
+    const fetchSteamStatus = async () => {
+      const urls = [
+        "https://corsproxy.io/?https://steamcommunity.com/id/skdev29/?xml=1&t=" + Date.now(),
+        "https://api.allorigins.win/get?url=" + encodeURIComponent("https://steamcommunity.com/id/skdev29/?xml=1&t=" + Date.now())
+      ];
+
+      for (const url of urls) {
+        try {
+          const res = await fetch(url);
+          if (!res.ok) continue;
+
+          let xmlText = "";
+          if (url.includes("allorigins")) {
+            const data = await res.json();
+            xmlText = data.contents;
+          } else {
+            xmlText = await res.text();
+          }
+
+          if (!xmlText) continue;
+
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+
+          // Check for parser errors
+          if (xmlDoc.getElementsByTagName("parsererror").length > 0) continue;
+
+          const onlineState = xmlDoc.getElementsByTagName("onlineState")[0]?.textContent || "offline";
+          const stateMessage = xmlDoc.getElementsByTagName("stateMessage")[0]?.textContent || "Offline";
+
+          let state = "offline";
+          let message = "Offline";
+
+          if (onlineState === "in-game") {
+            state = "in-game";
+            const gameName = xmlDoc.getElementsByTagName("gameName")[0]?.textContent;
+            message = gameName ? `Playing: ${gameName}` : "In-Game";
+          } else if (onlineState === "online") {
+            state = "online";
+            message = "Online";
+          }
+
+          setSteamStatus({ state, message });
+          return;
+        } catch (err) {
+          console.warn("Failed to fetch steam status from", url, err);
+        }
+      }
+      setSteamStatus({ state: "offline", message: "Offline" });
+    };
+
+    fetchSteamStatus();
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -113,6 +170,11 @@ const ProfileCard = () => {
             </a>
             <a href="https://steamcommunity.com/id/skdev29/" className="b_social-button b_steam" target="_blank" rel="noopener noreferrer">
               <FaSteam /> Steam
+              {steamStatus.state !== "loading" && (
+                <span className={`b_steam-badge ${steamStatus.state}`}>
+                  {steamStatus.message}
+                </span>
+              )}
             </a>
 
             <a href="https://www.instagram.com/skdev29/" className="b_social-button b_instagram" target="_blank" rel="noopener noreferrer">

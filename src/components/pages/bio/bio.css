@@ -237,6 +237,51 @@
   color: var(--text-main);
 }
 
+/* Steam Badge & Status Styling */
+.b_steam-badge {
+  font-size: 9px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-left: auto;
+  transition: all var(--transition-fast);
+}
+
+.b_steam-badge.offline {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.b_steam-badge.online {
+  background: rgba(87, 203, 255, 0.08);
+  color: #57cbff;
+  border: 1px solid rgba(87, 203, 255, 0.3);
+}
+
+.b_steam-badge.in-game {
+  background: rgba(144, 186, 60, 0.08); /* Steam green */
+  color: #90ba3c;
+  border: 1px solid rgba(144, 186, 60, 0.3);
+  box-shadow: 0 0 10px rgba(144, 186, 60, 0.15);
+}
+
+/* Steam Hover animations for badges */
+.b_steam:hover .b_steam-badge.online {
+  background: rgba(87, 203, 255, 0.2);
+  border-color: rgba(87, 203, 255, 0.5);
+  color: var(--text-main);
+}
+
+.b_steam:hover .b_steam-badge.in-game {
+  background: rgba(144, 186, 60, 0.2);
+  border-color: rgba(144, 186, 60, 0.5);
+  color: var(--text-main);
+}
+
 /* Branded Social Hover Effects */
 
 /* LinkedIn - Blue glow */
