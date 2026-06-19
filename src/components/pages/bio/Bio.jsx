@@ -10,7 +10,8 @@ import {
   FaGooglePlay,
   FaGlobe,
   FaBookOpen,
-  FaEnvelope
+  FaEnvelope,
+  FaChevronDown
 } from "react-icons/fa";
 
 const CodingBackground = () => {
@@ -52,7 +53,19 @@ const CodingBackground = () => {
 };
 
 const ProfileCard = () => {
-  const [steamStatus, setSteamStatus] = React.useState({ state: "loading", message: "Loading..." });
+  const [showSteamCard, setShowSteamCard] = React.useState(false);
+  const [steamStatus, setSteamStatus] = React.useState({
+    state: "loading",
+    message: "Loading...",
+    steamID: "",
+    avatarMedium: "",
+    memberSince: "",
+    hoursPlayed2Wk: "0.0",
+    location: "",
+    gameName: "",
+    gameIcon: "",
+    gameLogo: ""
+  });
 
   React.useEffect(() => {
     const fetchSteamStatus = async () => {
@@ -84,26 +97,47 @@ const ProfileCard = () => {
 
           const onlineState = xmlDoc.getElementsByTagName("onlineState")[0]?.textContent || "offline";
           const stateMessage = xmlDoc.getElementsByTagName("stateMessage")[0]?.textContent || "Offline";
+          const steamID = xmlDoc.getElementsByTagName("steamID")[0]?.textContent || "skdev";
+          const avatarMedium = xmlDoc.getElementsByTagName("avatarMedium")[0]?.textContent || "";
+          const memberSince = xmlDoc.getElementsByTagName("memberSince")[0]?.textContent || "";
+          const hoursPlayed2Wk = xmlDoc.getElementsByTagName("hoursPlayed2Wk")[0]?.textContent || "0.0";
+          const location = xmlDoc.getElementsByTagName("location")[0]?.textContent || "India";
 
           let state = "offline";
           let message = "Offline";
+          let gameName = "";
+          let gameIcon = "";
+          let gameLogo = "";
 
           if (onlineState === "in-game") {
             state = "in-game";
-            const gameName = xmlDoc.getElementsByTagName("gameName")[0]?.textContent;
+            gameName = xmlDoc.getElementsByTagName("gameName")[0]?.textContent || "";
             message = gameName ? `Playing: ${gameName}` : "In-Game";
+            gameIcon = xmlDoc.getElementsByTagName("gameIcon")[0]?.textContent || "";
+            gameLogo = xmlDoc.getElementsByTagName("gameLogo")[0]?.textContent || "";
           } else if (onlineState === "online") {
             state = "online";
             message = "Online";
           }
 
-          setSteamStatus({ state, message });
+          setSteamStatus({
+            state,
+            message,
+            steamID,
+            avatarMedium,
+            memberSince,
+            hoursPlayed2Wk,
+            location,
+            gameName,
+            gameIcon,
+            gameLogo
+          });
           return;
         } catch (err) {
           console.warn("Failed to fetch steam status from", url, err);
         }
       }
-      setSteamStatus({ state: "offline", message: "Offline" });
+      setSteamStatus({ state: "offline", message: "Offline", steamID: "skdev", hoursPlayed2Wk: "0.0" });
     };
 
     fetchSteamStatus();
@@ -168,14 +202,66 @@ const ProfileCard = () => {
             <a href="https://www.t.me/skdev1/" className="b_social-button b_telegram" target="_blank" rel="noopener noreferrer">
               <FaTelegram /> Telegram
             </a>
-            <a href="https://steamcommunity.com/id/skdev29/" className="b_social-button b_steam" target="_blank" rel="noopener noreferrer">
-              <FaSteam /> Steam
+            <div className={`b_steam-container ${showSteamCard ? "expanded" : ""}`}>
+              <a href="https://steamcommunity.com/id/skdev29/" className="b_social-button b_steam" target="_blank" rel="noopener noreferrer">
+                <FaSteam /> Steam
+                {steamStatus.state !== "loading" && (
+                  <span className={`b_steam-badge ${steamStatus.state}`}>
+                    {steamStatus.state === "in-game" ? "In-Game" : steamStatus.message}
+                  </span>
+                )}
+                {steamStatus.state !== "loading" && (
+                  <span 
+                    className="b_steam-chevron"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setShowSteamCard(!showSteamCard);
+                    }}
+                    aria-label="Toggle Steam Info"
+                  >
+                    <FaChevronDown style={{ transform: showSteamCard ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform var(--transition-fast)' }} />
+                  </span>
+                )}
+              </a>
               {steamStatus.state !== "loading" && (
-                <span className={`b_steam-badge ${steamStatus.state}`}>
-                  {steamStatus.message}
-                </span>
+                <div className="b_steam-details-card">
+                  <div className="b_steam-details-header">
+                    {steamStatus.avatarMedium && (
+                      <img src={steamStatus.avatarMedium} alt="Steam Avatar" className="b_steam-avatar" />
+                    )}
+                    <div className="b_steam-meta">
+                      <h4>{steamStatus.steamID}</h4>
+                      <p className="b_steam-location">{steamStatus.location}</p>
+                    </div>
+                    <span className={`b_steam-indicator ${steamStatus.state}`}></span>
+                  </div>
+                  <div className="b_steam-details-body">
+                    {steamStatus.memberSince && (
+                      <div className="b_steam-info-row">
+                        <span className="b_steam-info-label">Member Since</span>
+                        <span className="b_steam-info-value">{steamStatus.memberSince}</span>
+                      </div>
+                    )}
+                    <div className="b_steam-info-row">
+                      <span className="b_steam-info-label">Playtime (2w)</span>
+                      <span className="b_steam-info-value">{steamStatus.hoursPlayed2Wk} hrs</span>
+                    </div>
+                    {steamStatus.state === "in-game" && (
+                      <div className="b_steam-game-highlight">
+                        {steamStatus.gameIcon && (
+                          <img src={steamStatus.gameIcon} alt="Game Icon" className="b_steam-game-icon" />
+                        )}
+                        <div className="b_steam-game-meta">
+                          <span className="b_steam-game-label">Currently Playing</span>
+                          <span className="b_steam-game-name">{steamStatus.gameName}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               )}
-            </a>
+            </div>
 
             <a href="https://www.instagram.com/skdev29/" className="b_social-button b_instagram" target="_blank" rel="noopener noreferrer">
               <FaInstagram /> Instagram (Creative)
