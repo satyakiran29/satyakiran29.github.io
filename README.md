@@ -28,6 +28,7 @@ This project serves as an interactive resume that provides a clear overview of m
 - **Interactive Sections:** Dynamic hero section, filterable projects gallery, UI/UX design showcase, education/internship timeline, and a bio link tree.
 - **Custom Loading Animation:** An SVG-based custom initial loading screen.
 - **Fast and Seamless Navigation:** Built as a Single-Page Application (SPA) with React Router, making user navigation incredibly fast.
+- **Secured Guestbook API:** A custom Express/MongoDB backend featuring JWT authentication, emoji reactions, strict rate-limiting, and XSS protection.
 
 ## How users can get started
 
@@ -79,6 +80,7 @@ The repository is organized as follows:
 
 ```
 satyakiran29.github.io/
+├── api/                   # Express backend for Guestbook with JWT, rate-limiting & XSS protection
 ├── public/                # Static assets, favicons, and manifest.json
 ├── src/
 │   ├── components/
@@ -86,9 +88,9 @@ satyakiran29.github.io/
 │   │   ├── loader/        # Custom loading screen component
 │   │   ├── pages/         # Components for each site section (Home, About, etc.)
 │   │   └── src/           # Reusable components like Navbar and Footer
-│   ├── data/              # Static data including images and certificate PDFs
+│   ├── data/              # Static data including projectsData.js, images, and certificates
 │   ├── App.jsx            # Main application component with routing logic
-│   └── index.jsx          # Application entry point
+│   └── index.jsx          # Application entry point with HelmetProvider for SEO
 ├── vite.config.js         # Vite build tool configuration
 └── package.json           # Project dependencies and scripts
 ```

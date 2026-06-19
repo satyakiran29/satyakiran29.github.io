@@ -34,10 +34,31 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { ObjectId } = require('mongodb');
 const { getDatabase } = require('./db');
+const rateLimit = require('express-rate-limit');
+const xss = require('xss');
 
 const app = express();
+
+// Trust proxy is required for rate limiters on Vercel to correctly identify IP
+app.set('trust proxy', 1);
+
 app.use(cors());
 app.use(express.json());
+
+// Global API rate limiter
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 200, // Limit each IP to 200 requests per window
+  message: { message: 'Too many requests from this IP, please try again later.' }
+});
+app.use('/api/', apiLimiter);
+
+// Stricter rate limiter for POST actions (auth and posting messages)
+const postLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 30, // Limit each IP to 30 POSTs per window
+  message: { message: 'Too many actions from this IP, please try again later.' }
+});
 
 const JWT_SECRET = process.env.JWT_SECRET || 'super_fallback_secret_key';
 
@@ -95,7 +116,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Register
-app.post('/api/auth/register', async (req, res) => {
+app.post('/api/auth/register', postLimiter, async (req, res) => {
   try {
     const { username, password } = req.body;
     if (!username || !password) {
@@ -160,7 +181,7 @@ app.post('/api/auth/register', async (req, res) => {
 });
 
 // Login
-app.post('/api/auth/login', async (req, res) => {
+app.post('/api/auth/login', postLimiter, async (req, res) => {
   try {
     const { username, password } = req.body;
     if (!username || !password) {
@@ -264,14 +285,14 @@ app.get('/api/messages', async (req, res) => {
 });
 
 // Add Message (Authenticated)
-app.post('/api/messages', authenticateToken, async (req, res) => {
+app.post('/api/messages', authenticateToken, postLimiter, async (req, res) => {
   try {
     const { text } = req.body;
     if (!text || !text.trim()) {
       return res.status(400).json({ message: 'Message text cannot be empty' });
     }
 
-    const cleanText = text.trim();
+    const cleanText = xss(text.trim());
     if (cleanText.length > 500) {
       return res.status(400).json({ message: 'Message cannot exceed 500 characters' });
     }
@@ -284,7 +305,7 @@ app.post('/api/messages', authenticateToken, async (req, res) => {
 
     if (isAnonymous) {
       if (req.body.anonymousName && req.body.anonymousName.trim()) {
-        username = req.body.anonymousName.trim().substring(0, 25);
+        username = xss(req.body.anonymousName.trim().substring(0, 25));
       } else {
         username = 'Anonymous Guest';
       }
@@ -355,7 +376,7 @@ app.delete('/api/messages/:id', authenticateToken, async (req, res) => {
 });
 
 // Toggle Emoji Reaction (Authenticated)
-app.post('/api/messages/:id/react', authenticateToken, async (req, res) => {
+app.post('/api/messages/:id/react', authenticateToken, postLimiter, async (req, res) => {
   try {
     const messageId = req.params.id;
     const { emoji } = req.body;

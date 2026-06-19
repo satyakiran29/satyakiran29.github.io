@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FaSignOutAlt, FaTrash, FaPen, FaLock, FaUser, FaComments, FaThumbtack } from 'react-icons/fa';
 import './Guestbook.css';
 

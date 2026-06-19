@@ -100,7 +100,14 @@ function NavBar() {
               </NavLink>
             </li>
           </ul>
-          <div className="nav-icon" onClick={handleClick}>
+          <div 
+            className="nav-icon" 
+            onClick={handleClick}
+            role="button"
+            tabIndex="0"
+            aria-label="Toggle navigation menu"
+            onKeyDown={(e) => { if(e.key === 'Enter') handleClick(); }}
+          >
             {click ? (
               <span className="icon">
                 <HamburgetMenuOpen />{" "}

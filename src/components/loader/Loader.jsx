@@ -43,7 +43,7 @@ const StyledContainer = styled.div`
   left: 0;
   right: 0;
   z-index: 99;
-  ${props => props.isHiding && css`
+  ${props => props.$isHiding && css`
     animation: ${fadeOut} 0.5s ease-out forwards;
   `}
 `;
@@ -52,7 +52,7 @@ const StyledLogo = styled.div`
   width: max-content;
   max-width: 100px;
   transition: ${theme.transition};
-  opacity: ${props => (props.isMounted ? 1 : 0)};
+  opacity: ${props => (props.$isMounted ? 1 : 0)};
   color: ${theme.colors.green};
   
   svg {
@@ -97,8 +97,8 @@ const Loader = ({ finishLoading }) => {
     }, [finishLoading]);
 
     return (
-        <StyledContainer className="loader" isHiding={isHiding}>
-            <StyledLogo isMounted={isMounted}>
+        <StyledContainer className="loader" $isHiding={isHiding}>
+            <StyledLogo $isMounted={isMounted}>
                 <IconLoader />
             </StyledLogo>
         </StyledContainer>

@@ -16,7 +16,7 @@
   width: 100vw;
   height: 100vh;
   background-color: var(--bg-primary);
-  background-image: 
+  background-image:
     linear-gradient(rgba(127, 90, 240, 0.025) 1px, transparent 1px),
     linear-gradient(90deg, rgba(127, 90, 240, 0.025) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -41,7 +41,8 @@
   font-family: 'Courier New', Courier, monospace;
   font-size: clamp(13px, 1.2vw, 16px);
   font-weight: 600;
-  color: rgba(127, 90, 240, 0.15); /* Accent primary opacity */
+  color: rgba(127, 90, 240, 0.15);
+  /* Accent primary opacity */
   user-select: none;
   pointer-events: none;
   animation: float-up infinite ease-in-out alternate;
@@ -49,11 +50,13 @@
 
 /* Color variations */
 .b_code-particle:nth-child(3n) {
-  color: rgba(44, 182, 125, 0.15); /* Accent secondary (green) */
+  color: rgba(44, 182, 125, 0.15);
+  /* Accent secondary (green) */
 }
 
 .b_code-particle:nth-child(4n) {
-  color: rgba(255, 255, 255, 0.08); /* White code */
+  color: rgba(255, 255, 255, 0.08);
+  /* White code */
 }
 
 /* Profile Card matching website's glassmorphism */
@@ -263,7 +266,8 @@
 }
 
 .b_steam-badge.in-game {
-  background: rgba(144, 186, 60, 0.08); /* Steam green */
+  background: rgba(144, 186, 60, 0.08);
+  /* Steam green */
   color: #90ba3c;
   border: 1px solid rgba(144, 186, 60, 0.3);
   box-shadow: 0 0 10px rgba(144, 186, 60, 0.15);
@@ -289,6 +293,7 @@
   border-color: #0077b5;
   box-shadow: 0 6px 20px rgba(0, 119, 181, 0.25);
 }
+
 .b_linkedin:hover svg {
   color: #0077b5;
 }
@@ -298,6 +303,7 @@
   border-color: #5865f2;
   box-shadow: 0 6px 20px rgba(88, 101, 242, 0.25);
 }
+
 .b_discord:hover svg {
   color: #5865f2;
 }
@@ -307,6 +313,7 @@
   border-color: #24a1de;
   box-shadow: 0 6px 20px rgba(36, 161, 222, 0.25);
 }
+
 .b_telegram:hover svg {
   color: #24a1de;
 }
@@ -316,8 +323,191 @@
   border-color: #66c0f4;
   box-shadow: 0 6px 20px rgba(102, 192, 244, 0.25);
 }
+
 .b_steam:hover svg {
   color: #66c0f4;
+}
+
+/* Steam Details Card container */
+.b_steam-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.b_steam-details-card {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  background: rgba(10, 10, 11, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 12px;
+  padding: 0 16px;
+  text-align: left;
+  transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              opacity 0.3s ease, 
+              padding 0.3s ease, 
+              margin-top 0.3s ease,
+              margin-bottom 0.3s ease;
+  pointer-events: none;
+}
+
+/* Expansion state on hover or manual state toggle */
+.b_steam-container:hover .b_steam-details-card,
+.b_steam-container.expanded .b_steam-details-card {
+  max-height: 250px;
+  opacity: 1;
+  padding: 16px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  border-color: rgba(102, 192, 244, 0.3); /* Steam blue border accent */
+  box-shadow: 0 4px 15px rgba(102, 192, 244, 0.05);
+  pointer-events: auto;
+}
+
+/* Steam Chevron Toggle Icon inside button */
+.b_steam-chevron {
+  display: none; /* Hide by default on desktop */
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-left: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+@media (max-width: 768px) {
+  .b_steam-chevron {
+    display: flex; /* Show on mobile/tablet */
+  }
+}
+
+.b_steam-chevron:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #66c0f4;
+  transform: scale(1.05);
+}
+
+.b_steam-chevron svg {
+  font-size: 10px !important;
+  color: var(--text-muted) !important;
+  margin: 0 !important;
+}
+
+.b_steam-chevron:hover svg {
+  color: #66c0f4 !important;
+}
+
+/* Header inside steam card */
+.b_steam-details-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.b_steam-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.b_steam-meta h4 {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.b_steam-location {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0;
+  margin-top: 2px;
+}
+
+/* Online status indicator dot */
+.b_steam-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+.b_steam-indicator.offline {
+  background: var(--text-muted);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
+}
+
+.b_steam-indicator.online {
+  background: #57cbff;
+  box-shadow: 0 0 8px rgba(87, 203, 255, 0.5);
+}
+
+.b_steam-indicator.in-game {
+  background: #90ba3c;
+  box-shadow: 0 0 8px rgba(144, 186, 60, 0.5);
+}
+
+/* Info rows */
+.b_steam-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.b_steam-info-label {
+  color: var(--text-muted);
+}
+
+.b_steam-info-value {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* In-game highlight card style */
+.b_steam-game-highlight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(144, 186, 60, 0.05);
+  border: 1px solid rgba(144, 186, 60, 0.15);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-top: 10px;
+}
+
+.b_steam-game-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.b_steam-game-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.b_steam-game-label {
+  font-size: 9px;
+  color: #90ba3c;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.b_steam-game-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
 }
 
 /* Instagram - Pinkish/Red glow */
@@ -325,6 +515,7 @@
   border-color: #e1306c;
   box-shadow: 0 6px 20px rgba(225, 48, 108, 0.25);
 }
+
 .b_instagram:hover svg {
   color: #e1306c;
 }
@@ -340,6 +531,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -350,6 +542,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -361,9 +554,11 @@
     transform: translateY(0) rotate(0deg);
     opacity: 0.1;
   }
+
   50% {
     opacity: 0.45;
   }
+
   100% {
     transform: translateY(-30px) rotate(15deg);
     opacity: 0.15;
