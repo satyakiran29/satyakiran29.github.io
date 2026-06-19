@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { FaSignOutAlt, FaTrash, FaPen, FaLock, FaUser, FaComments, FaThumbtack } from 'react-icons/fa';
 import './Guestbook.css';
 
@@ -340,6 +341,25 @@ const Guestbook = () => {
 
   return (
     <div className="guestbook-page">
+      <Helmet>
+        <title>Satyakiran | Guestbook - Sign my Guestbook</title>
+        <meta name="description" content="Sign the guestbook of Satyakiran. Leave a message, share feedback, or react to other developer messages." />
+        <meta name="keywords" content="Satyakiran, guestbook, sign guestbook, web developer, portfolio comments, developer community" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://satyakiran.vercel.app/guestbook" />
+        <meta property="og:title" content="Satyakiran | Guestbook - Sign my Guestbook" />
+        <meta property="og:description" content="Sign the guestbook of Satyakiran. Leave a message, share feedback, or react to other developer messages." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://satyakiran.vercel.app/guestbook" />
+        <meta name="twitter:title" content="Satyakiran | Guestbook - Sign my Guestbook" />
+        <meta name="twitter:description" content="Sign the guestbook of Satyakiran. Leave a message, share feedback, or react to other developer messages." />
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+      </Helmet>
       <div className="guestbook-container">
         
         {/* Header */}

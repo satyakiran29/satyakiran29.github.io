@@ -23,7 +23,10 @@ const ProjectCard = ({ title, description, tags, image, projectLink, githubLink 
 
         <div className="project-tags">
           {tags.map((tag, idx) => (
-            <span key={idx} className="project-tag">
+            <span 
+              key={idx} 
+              className={`project-tag ${tag.toLowerCase().includes("play store") ? "project-tag-playstore" : ""}`}
+            >
               {tag}
             </span>
           ))}
@@ -95,7 +98,7 @@ const App = () => {
       title: "Anify - Ultimate Personalization",
       description:
         "Give your phone a complete makeover with Anify, the ultimate personalization app for Android. Get access to ready-to-use widgets, HD wallpapers, and trending ringtones—all in one app, with no KWGT required.",
-      tags: ["Android App", "Widgets", "Wallpapers", "Ringtones"],
+      tags: ["Android App", "Widgets", "Wallpapers", "Ringtones", "Published on Play Store"],
       image: anify_bg,
       projectLink: "https://play.google.com/store/apps/details?id=com.skdev.anify",
       category: "Mobile",
@@ -134,7 +137,7 @@ const App = () => {
       title: "Aniset - Kwgt Widgets & Klwp",
       description:
         "Transform your Android Home Screen with Aniset - Anime KWGT Widgets & KLWP! Elevate your device customization to a whole new level with anime-inspired widgets and themes.",
-      tags: ["Android App", "Kotlin", "JSON", "Firebase", "UI/UX"],
+      tags: ["Android App", "Kotlin", "JSON", "Firebase", "UI/UX", "Published on Play Store"],
       image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
       projectLink: "https://play.google.com/store/apps/details?id=com.skdev.aniset",
       category: "Mobile",

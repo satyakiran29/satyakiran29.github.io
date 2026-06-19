@@ -74,6 +74,16 @@ const App = () => {
     }
   ];
 
+  const achievements = [
+    {
+      id: 1,
+      title: "App Monetization",
+      subtitle: "Aniset / Anify Android Apps",
+      date: "2024 - Present",
+      description: "Successfully monetized the \"Aniset / Anify\" Android applications, generating over 16,000 in revenue through in-app purchases, ad integration, and active user engagement."
+    }
+  ];
+
   const education = [
     {
       id: 1,
@@ -183,6 +193,11 @@ const App = () => {
       <div className="timeline-container">
         <h2 className="section-heading">Internships</h2>
         {internships.map((item) => (
+          <TimelineItem key={item.id} {...item} />
+        ))}
+
+        <h2 className="section-heading">Achievements</h2>
+        {achievements.map((item) => (
           <TimelineItem key={item.id} {...item} />
         ))}
 

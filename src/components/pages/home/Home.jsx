@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import "../home/home.css";
 
 import { Analytics } from '@vercel/analytics/react';
@@ -78,6 +79,25 @@ const Home = () => {
 
   return (
     <div className="home-wrapper">
+      <Helmet>
+        <title>Satyakiran | Full-Stack Web Developer & Android Dev</title>
+        <meta name="description" content="Official portfolio of Satyakiran, a passionate Full-Stack Web Developer, Android Developer, and Linux enthusiast. Explore projects, certifications, and technical experience." />
+        <meta name="keywords" content="Satyakiran, Satyakiran portfolio, web developer, Android developer, full stack engineer, react developer, SkDev, Anify, Aniset" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://satyakiran.vercel.app/" />
+        <meta property="og:title" content="Satyakiran | Full-Stack Web Developer & Android Dev" />
+        <meta property="og:description" content="Discover projects, experience, and certifications on the official portfolio site of Satyakiran." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://satyakiran.vercel.app/" />
+        <meta name="twitter:title" content="Satyakiran | Full-Stack Web Developer & Android Dev" />
+        <meta name="twitter:description" content="Discover projects, experience, and certifications on the official portfolio site of Satyakiran." />
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+      </Helmet>
       <Analytics />
 
       {/* Hero Section */}
