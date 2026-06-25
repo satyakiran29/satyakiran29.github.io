@@ -95,6 +95,48 @@ satyakiran29.github.io/
 └── package.json           # Project dependencies and scripts
 ```
 
+## Architecture & Flow
+
+### Navigation & Component Tree
+This flowchart demonstrates the single-page application (SPA) routing logic and component hierarchy.
+
+```mermaid
+graph TD
+    A[App Entry - index.jsx] --> B[App.jsx Routing]
+    B --> C{Routes}
+    C -->|/| D[One-Page Container]
+    D --> E[Home]
+    D --> F[About]
+    D --> G[Projects]
+    D --> H[Designs]
+    D --> I[Contact]
+    
+    C -->|/Bio| J[Bio Link Tree]
+    C -->|/guestbook| K[Guestbook Page]
+    
+    K --> L[Guestbook API Backend]
+    
+    C -->|*| M[404 Not Found]
+    
+    B -.-> N[Navbar Component]
+    B -.-> O[Footer Component]
+```
+
+### Guestbook Backend Architecture
+This flowchart demonstrates how the React frontend interacts with the Express API and MongoDB database for the guestbook feature.
+
+```mermaid
+graph LR
+    A[React Frontend] -->|GET /api/guestbook| B(Express API)
+    A -->|POST /api/guestbook| B
+    B --> C{Rate Limiter & XSS Sanitization}
+    C --> D[(MongoDB Database)]
+    
+    A -->|POST /api/auth/register| E(JWT Auth Service)
+    A -->|POST /api/auth/login| E
+    E --> D
+```
+
 ## Where users can get help
 
 If you encounter any issues or have questions about the project setup or structure:
