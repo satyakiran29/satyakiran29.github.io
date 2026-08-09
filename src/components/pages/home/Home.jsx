@@ -15,16 +15,16 @@ const PHRASES = [
 ];
 
 const TYPING_SPEED = 80;   // ms per character when typing
-const ERASE_SPEED  = 40;   // ms per character when erasing
-const PAUSE_AFTER  = 1800; // ms to hold the completed phrase
+const ERASE_SPEED = 40;   // ms per character when erasing
+const PAUSE_AFTER = 1800; // ms to hold the completed phrase
 const PAUSE_BEFORE = 400;  // ms to wait before typing next phrase
 
 function useTypewriter(phrases) {
-  const [displayed, setDisplayed]   = useState("");
-  const [phraseIdx, setPhraseIdx]   = useState(0);
-  const [charIdx, setCharIdx]       = useState(0);
-  const [erasing, setErasing]       = useState(false);
-  const [paused, setPaused]         = useState(false);
+  const [displayed, setDisplayed] = useState("");
+  const [phraseIdx, setPhraseIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+  const [erasing, setErasing] = useState(false);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     if (paused) return;
@@ -83,20 +83,20 @@ const Home = () => {
         <title>Satyakiran | Full-Stack Web Developer & Android Dev</title>
         <meta name="description" content="Official portfolio of Satyakiran, a passionate Full-Stack Web Developer, Android Developer, and Linux enthusiast. Explore projects, certifications, and technical experience." />
         <meta name="keywords" content="Satyakiran, Satyakiran portfolio, web developer, Android developer, full stack engineer, react developer, SkDev, Anify, Aniset" />
-        
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://satyakiran.vercel.app/" />
         <meta property="og:title" content="Satyakiran | Full-Stack Web Developer & Android Dev" />
         <meta property="og:description" content="Discover projects, experience, and certifications on the official portfolio site of Satyakiran." />
-        <meta property="og:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+        <meta property="og:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://satyakiran.vercel.app/" />
         <meta name="twitter:title" content="Satyakiran | Full-Stack Web Developer & Android Dev" />
         <meta name="twitter:description" content="Discover projects, experience, and certifications on the official portfolio site of Satyakiran." />
-        <meta name="twitter:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+        <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
       </Helmet>
       <Analytics />
 
@@ -106,6 +106,15 @@ const Home = () => {
           <div className="hero-image-container">
             <img src="https://avatars.githubusercontent.com/u/87798342?v=4" alt="Profile" className="hero-img" />
             <div className="glow-ring"></div>
+            <div className="status-badge">
+              <div className="status-dot-container">
+                <div className="status-dot"></div>
+              </div>
+              <div className="status-text-container">
+                <span className="status-label">STATUS</span>
+                <span className="status-text">Open for Work</span>
+              </div>
+            </div>
           </div>
           <h1 className="hero-title">
             Hi, I'm <span className="gradient-text">Satyakiran</span>

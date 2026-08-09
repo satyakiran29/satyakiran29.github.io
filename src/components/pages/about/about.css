@@ -56,6 +56,87 @@
   color: var(--accent-primary);
 }
 
+/* Certificate Preview Wrapper */
+.certificate-preview-wrapper {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--glass-border);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.certificate-preview-wrapper:hover {
+  border-color: rgba(127, 90, 240, 0.6);
+  box-shadow: 0 0 15px rgba(127, 90, 240, 0.3);
+}
+
+.pdf-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #1a1a2e;
+}
+
+.pdf-preview-container .react-pdf__Document {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.pdf-preview-container .react-pdf__Page {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pdf-preview-container canvas {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+.certificate-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform var(--transition-normal);
+}
+
+.certificate-preview-wrapper:hover .certificate-preview-img {
+  transform: scale(1.04);
+}
+
+.pdf-preview-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.pdf-preview-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 /* Card Title */
 .card h2 {
   font-size: 20px;

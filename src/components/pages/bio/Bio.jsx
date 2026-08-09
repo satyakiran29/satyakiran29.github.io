@@ -155,14 +155,14 @@ const ProfileCard = () => {
         <meta property="og:url" content="https://satyakiran.vercel.app/bio" />
         <meta property="og:title" content="Satyakiran | Links & Bio" />
         <meta property="og:description" content="Connect with Satyakiran - Gamer & Web Developer. Links to portfolio, blog, social media, and apps." />
-        <meta property="og:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+        <meta property="og:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://satyakiran.vercel.app/bio" />
-        <meta name="twitter:title" content="Satyakiran | Links & Bio" />
-        <meta name="twitter:description" content="Connect with Satyakiran - Gamer & Web Developer. Links to portfolio, blog, social media, and apps." />
-        <meta name="twitter:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+        <meta name="twitter:title" content="Bio & Links | Satyakiran" />
+        <meta name="twitter:description" content="Explore social links, gaming profiles, and developer portfolio of Satyakiran." />
+        <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
       </Helmet>
 
       <div className="b_container">
@@ -171,10 +171,19 @@ const ProfileCard = () => {
           <div className="b_profile-image-container">
             <div className="b_glow-ring"></div>
             <img
-              src="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg"
+              src="https://avatars.githubusercontent.com/u/87798342?v=4"
               alt="Profile"
               className="b_profile-pic"
             />
+            <div className="status-badge">
+              <div className="status-dot-container">
+                <div className="status-dot"></div>
+              </div>
+              <div className="status-text-container">
+                <span className="status-label">STATUS</span>
+                <span className="status-text">Open for Work</span>
+              </div>
+            </div>
           </div>
           <h2 className="b_name gradient-text">Satyakiran</h2>
           <p className="b_title">Gamer & Web Developer</p>

@@ -351,14 +351,14 @@ const Guestbook = () => {
         <meta property="og:url" content="https://satyakiran.vercel.app/guestbook" />
         <meta property="og:title" content="Satyakiran | Guestbook - Sign my Guestbook" />
         <meta property="og:description" content="Sign the guestbook of Satyakiran. Leave a message, share feedback, or react to other developer messages." />
-        <meta property="og:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+        <meta property="og:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://satyakiran.vercel.app/guestbook" />
         <meta name="twitter:title" content="Satyakiran | Guestbook - Sign my Guestbook" />
         <meta name="twitter:description" content="Sign the guestbook of Satyakiran. Leave a message, share feedback, or react to other developer messages." />
-        <meta name="twitter:image" content="https://raw.githubusercontent.com/satyakiran29/satyakiran29/refs/heads/main/Images/photo_2025-02-15_00-51-41.jpg" />
+        <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
       </Helmet>
       <div className="guestbook-container">
         

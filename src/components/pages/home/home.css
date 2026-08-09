@@ -24,44 +24,130 @@
     animation: fadeInUp 1s ease-out;
 }
 
-/* Profile Image */
+/* Profile Image & Avatar Glow */
 .hero-image-container {
     position: relative;
-    width: 180px;
-    height: 180px;
-    margin: 0 auto 30px auto;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 40px auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hero-img {
-    width: 160px;
-    height: 160px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
     object-fit: cover;
     position: relative;
     z-index: 2;
-    border: 4px solid var(--bg-tertiary);
+    border: 3px solid rgba(56, 189, 248, 0.5);
+    box-shadow: 0 0 35px rgba(56, 189, 248, 0.35), 0 0 65px rgba(59, 130, 246, 0.25);
     transition: transform var(--transition-normal);
 }
 
 .hero-image-container:hover .hero-img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .glow-ring {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: -6px;
+    left: -6px;
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
     border-radius: 50%;
-    background: conic-gradient(from 0deg, var(--accent-primary), var(--accent-secondary), var(--accent-primary));
-    animation: spin 4s linear infinite;
+    background: conic-gradient(from 180deg, #38bdf8, #818cf8, #3b82f6, #38bdf8);
+    animation: spin 6s linear infinite;
     z-index: 1;
-    filter: blur(10px);
-    opacity: 0.7;
+    filter: blur(14px);
+    opacity: 0.8;
+}
+
+/* Open for Work Status Badge Overlay */
+.status-badge {
+    position: absolute;
+    bottom: -5px;
+    left: -20px;
+    z-index: 10;
+    background: rgba(13, 18, 30, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 16px;
+    padding: 9px 18px 9px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    text-align: left;
+    white-space: nowrap;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.status-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 197, 94, 0.25);
+}
+
+.status-dot-container {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(34, 197, 94, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 10px #22c55e;
+    animation: statusPulse 2s infinite;
+}
+
+.status-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.status-label {
+    color: #8e9bae;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.status-text {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 3px;
+}
+
+@keyframes statusPulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
 }
 
 /* Typography */
