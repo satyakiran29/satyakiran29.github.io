@@ -2,6 +2,13 @@ import React, { useEffect, useState } from "react";
 import LoaderComponent from "../../loader/Loader";
 import "../about/about.css";
 
+import { Document, Page, pdfjs } from "react-pdf";
+import "react-pdf/dist/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
+
+// Configure pdfjs worker for react-pdf
+pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
 // Import local certificates
 import cert1 from "../../../data/Certificate/Full-Stack Web Dev Bootcamp_ HTML, CSS, JS, PHP, & WordPress.pdf";
 import cert2 from "../../../data/Certificate/Full-Stack Web Development Mastery_ From HTML to React (1).pdf";
@@ -10,29 +17,87 @@ import cert4 from "../../../data/Certificate/Next-Level Git with Expert Version 
 import cert5 from "../../../data/Certificate/React & .NET API Bootcamp_ Next.js, Redux, and Advanced Hooks.pdf";
 import { FaCertificate } from "react-icons/fa";
 
-const CetificateCard = ({ title, description, date, certificatelink }) => (
-  <div className="card certificate-card">
-    <div className="certificate-icon-container">
-      <FaCertificate className="certificate-icon" />
+const PdfPreview = ({ file }) => {
+  const [error, setError] = useState(false);
+
+  return (
+    <div className="pdf-preview-container">
+      {!error ? (
+        <Document
+          file={file}
+          onLoadError={(err) => {
+            console.error("PDF load error:", err);
+            setError(true);
+          }}
+          loading={
+            <div className="pdf-preview-loading">
+              <LoaderComponent />
+            </div>
+          }
+        >
+          <Page
+            pageNumber={1}
+            width={280}
+            renderTextLayer={false}
+            renderAnnotationLayer={false}
+          />
+        </Document>
+      ) : (
+        <div className="pdf-preview-fallback">
+          <div className="certificate-icon-container">
+            <FaCertificate className="certificate-icon" />
+          </div>
+        </div>
+      )}
     </div>
-    <h2>{title}</h2>
-    <h5>
-      <b>Issued By</b> {description}
-    </h5>
-    <h6>
-      <b>Date:-</b> {date}
-    </h6>
-    <div className="links">
-      <button
-        className="link-button"
+  );
+};
+
+const CetificateCard = ({ title, description, date, certificatelink, image }) => {
+  const isPdf =
+    typeof certificatelink === "string" &&
+    (certificatelink.toLowerCase().includes(".pdf") ||
+      certificatelink.startsWith("data:application/pdf"));
+
+  return (
+    <div className="card certificate-card">
+      <div
+        className="certificate-preview-wrapper"
         onClick={() => window.open(certificatelink, "_blank")}
-        aria-label={`View certificate for ${title}`}
+        title={`View ${title}`}
       >
-        View Certificate
-      </button>
+        {image ? (
+          <img src={image} alt={title} className="certificate-preview-img" />
+        ) : isPdf ? (
+          <PdfPreview file={certificatelink} />
+        ) : (
+          <div className="pdf-preview-fallback">
+            <div className="certificate-icon-container">
+              <FaCertificate className="certificate-icon" />
+            </div>
+          </div>
+        )}
+      </div>
+
+      <h2>{title}</h2>
+      <h5>
+        <b>Issued By</b> {description}
+      </h5>
+      <h6>
+        <b>Date:-</b> {date}
+      </h6>
+      <div className="links">
+        <button
+          className="link-button"
+          onClick={() => window.open(certificatelink, "_blank")}
+          aria-label={`View certificate for ${title}`}
+        >
+          View Certificate
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const TimelineItem = ({ date, title, subtitle, description, link }) => (
   <div className="timeline-item">
@@ -148,6 +213,14 @@ const App = () => {
       description: "Next.js, Redux, and Advanced Hooks",
       date: "2024",
       certificatelink: cert5
+    },
+    {
+      id: "stat-6",
+      title: "Google Play Store Listing Certificate",
+      description: "Google Play Academy",
+      date: "November 29, 2025",
+      certificatelink: "https://www.credential.net/f0eb93aa-61c3-4223-ad30-5d0a40b5a829",
+      image: "/images/google_play_certificate.png"
     }
   ];
 
