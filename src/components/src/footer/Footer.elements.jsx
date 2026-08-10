@@ -30,10 +30,31 @@ export const SocialMediaWrap = styled.div`
   }
 `;
 
-export const WebsiteRights = styled.small`
+export const WebsiteRights = styled.div`
   color: var(--text-muted);
   font-size: 0.9rem;
   font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @media screen and (max-width: 820px) {
+    align-items: center;
+    text-align: center;
+  }
+`;
+
+export const LastUpdatedText = styled.span`
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  @media screen and (max-width: 820px) {
+    justify-content: center;
+  }
 `;
 
 export const SocialIcons = styled.div`

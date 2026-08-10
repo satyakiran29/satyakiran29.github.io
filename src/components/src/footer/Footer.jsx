@@ -1,30 +1,83 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FaTelegram,
   FaInstagram,
   FaGithub,
   FaTwitter,
   FaLinkedin,
-  FaGooglePlay
+  FaGooglePlay,
+  FaClock
 } from 'react-icons/fa';
 import {
   FooterContainer,
   SocialMedia,
   SocialMediaWrap,
   WebsiteRights,
+  LastUpdatedText,
   SocialIcons,
   SocialIconLink
 } from './Footer.elements';
 
 function Footer() {
-
+  const [lastUpdated, setLastUpdated] = useState('');
   const date = new Date();
+
+  useEffect(() => {
+    const fetchLastCommit = async () => {
+      try {
+        const res = await fetch('https://api.github.com/repos/satyakiran29/satyakiran29.github.io/commits/main');
+        if (res.ok) {
+          const data = await res.json();
+          const commitDateStr = data.commit?.committer?.date || data.commit?.author?.date;
+          if (commitDateStr) {
+            const commitDate = new Date(commitDateStr);
+            const formatted = commitDate.toLocaleString('en-US', {
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: true
+            });
+            setLastUpdated(formatted);
+            return;
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch commit date:', err);
+      }
+
+      // Fallback
+      if (document.lastModified) {
+        const modDate = new Date(document.lastModified);
+        const formatted = modDate.toLocaleString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+        });
+        setLastUpdated(formatted);
+      }
+    };
+
+    fetchLastCommit();
+  }, []);
 
   return (
     <FooterContainer>
       <SocialMedia>
         <SocialMediaWrap>
-          <WebsiteRights>Developed by Satyakiran © {date.getFullYear()} </WebsiteRights>
+          <WebsiteRights>
+            <span>Developed by Satyakiran © {date.getFullYear()}</span>
+            {lastUpdated && (
+              <LastUpdatedText>
+                <FaClock style={{ fontSize: '0.75rem', color: 'var(--accent-primary)' }} />
+                Last updated: {lastUpdated}
+              </LastUpdatedText>
+            )}
+          </WebsiteRights>
           <SocialIcons>
             <SocialIconLink href='https://www.t.me/skdev1/' target='_blank' aria-label='Telegram'>
               <FaTelegram />
