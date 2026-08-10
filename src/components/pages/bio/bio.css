@@ -565,3 +565,35 @@
     opacity: 0.15;
   }
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .b_container {
+    padding: 60px 15px 40px;
+  }
+
+  .b_card {
+    padding: 28px 20px;
+    max-width: 100%;
+  }
+
+  .b_profile-image-container {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
+  }
+
+  .b_profile-pic {
+    width: 130px;
+    height: 130px;
+  }
+
+  .b_name {
+    font-size: 22px;
+  }
+
+  .b_social-button {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+}

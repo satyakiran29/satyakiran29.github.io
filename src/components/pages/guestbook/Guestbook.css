@@ -713,3 +713,28 @@
   }
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+  .guestbook-page {
+    padding: 90px 16px 40px;
+  }
+
+  .guestbook-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .guestbook-sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .guestbook-card {
+    padding: 20px 16px;
+  }
+
+  .guestbook-header h1 {
+    font-size: 2.2rem;
+  }
+}
+

@@ -153,7 +153,32 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .projects-container {
-    padding: 20px;
+    padding: 20px 10px;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .project-content {
+    padding: 20px 16px;
+  }
+
+  .project-title {
+    font-size: 20px;
+  }
+
+  .testimonies-grid {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .testimony-card {
+    padding: 20px 16px;
+  }
+
+  .search-container {
+    max-width: 90%;
+    margin-bottom: 20px;
   }
 }
 
