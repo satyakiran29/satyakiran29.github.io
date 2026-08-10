@@ -15,7 +15,7 @@ import cert2 from "../../../data/Certificate/Full-Stack Web Development Mastery_
 import cert3 from "../../../data/Certificate/Mastering the Linux.pdf";
 import cert4 from "../../../data/Certificate/Next-Level Git with Expert Version Control and GitHub Techniques.pdf";
 import cert5 from "../../../data/Certificate/React & .NET API Bootcamp_ Next.js, Redux, and Advanced Hooks.pdf";
-import { FaCertificate } from "react-icons/fa";
+import { FaCertificate, FaEye, FaDownload, FaFileAlt } from "react-icons/fa";
 
 const PdfPreview = ({ file }) => {
   const [error, setError] = useState(false);
@@ -262,6 +262,24 @@ const App = () => {
         <h1>Experience & <span style={{ color: '#7f5af0' }}>Education</span></h1>
         <p className="subtitle">My academic and professional journey.</p>
       </center>
+
+      <div className="resume-section" style={{ maxWidth: '800px', margin: '30px auto 10px', padding: '0 20px' }}>
+        <div className="card resume-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+          <div className="certificate-preview-wrapper" onClick={() => window.open('/resume.pdf', '_blank')} title="View Resume PDF">
+            <PdfPreview file="/resume.pdf" />
+          </div>
+          <h2 style={{ marginTop: '16px' }}>Curriculum Vitae / Resume</h2>
+          <p style={{ color: 'var(--text-muted)', marginBottom: '20px' }}>View online or download my official up-to-date resume PDF.</p>
+          <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <button className="link-button" onClick={() => window.open('/resume.pdf', '_blank')} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <FaEye /> View Resume
+            </button>
+            <a href="/resume.pdf" download="satyakiran_resume.pdf" className="link-button" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+              <FaDownload /> Download Resume
+            </a>
+          </div>
+        </div>
+      </div>
 
       <div className="timeline-container">
         <h2 className="section-heading">Internships</h2>

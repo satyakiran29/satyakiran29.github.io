@@ -11,7 +11,10 @@ import {
   FaGlobe,
   FaBookOpen,
   FaEnvelope,
-  FaChevronDown
+  FaChevronDown,
+  FaFileAlt,
+  FaEye,
+  FaDownload
 } from "react-icons/fa";
 
 const CodingBackground = () => {
@@ -201,6 +204,9 @@ const ProfileCard = () => {
           </div>
 
           <div className="b_social-links">
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="b_social-button b_resume">
+              <FaFileAlt /> Resume / CV
+            </a>
             <a href="https://www.linkedin.com/in/satyakiran29/" className="b_social-button b_linkedin" target="_blank" rel="noopener noreferrer">
               <FaLinkedin /> Linkedin
             </a>

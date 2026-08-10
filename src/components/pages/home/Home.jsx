@@ -4,7 +4,7 @@ import "../home/home.css";
 
 import { Analytics } from '@vercel/analytics/react';
 import Skills from "./Skills";
-import { FaGooglePlay } from "react-icons/fa";
+import { FaGooglePlay, FaEye, FaDownload } from "react-icons/fa";
 
 const PHRASES = [
   "Web Developer",
@@ -126,9 +126,15 @@ const Home = () => {
             </span>
           </p>
           <div className="hero-actions">
-            <a href="/resume.pdf" download className="btn-primary">
-              Download Resume
-            </a>
+            <div className="resume-btn-group">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn-main" title="View Resume in Browser">
+                <FaEye /> Resume
+              </a>
+              <span className="resume-btn-divider"></span>
+              <a href="/resume.pdf" download="satyakiran_resume.pdf" className="resume-btn-dl" title="Download Resume PDF">
+                <FaDownload />
+              </a>
+            </div>
             <a href="#projects" className="btn-secondary">
               View Work
             </a>
