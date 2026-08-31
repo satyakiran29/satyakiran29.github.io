@@ -56,4 +56,27 @@
     .contact-section {
         padding: 50px 16px;
     }
+
+    .contact-btn {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .contact-section {
+        padding: 40px 12px;
+    }
+
+    .contact-title {
+        font-size: clamp(24px, 7vw, 36px);
+    }
+
+    .contact-btn {
+        max-width: 100%;
+        font-size: 14px;
+        padding: 13px 24px;
+    }
 }

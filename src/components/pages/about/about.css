@@ -337,4 +337,43 @@
     max-width: 100% !important;
     height: auto !important;
   }
+
+  .link-button {
+    min-height: 40px;
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+}
+
+/* 360px ultra-small screens */
+@media (max-width: 360px) {
+  .about-page {
+    padding: 30px 12px;
+  }
+
+  .c_container {
+    padding: 12px 0;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .timeline-container::before {
+    left: 10px;
+  }
+
+  .timeline-marker {
+    left: 3px;
+  }
+
+  .timeline-item {
+    padding-left: 28px;
+  }
+
+  .section-heading {
+    margin-left: 28px;
+  }
 }

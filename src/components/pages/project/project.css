@@ -62,6 +62,12 @@
   transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
+@media (max-width: 600px) {
+  .project-image {
+    height: clamp(160px, 45vw, 200px);
+  }
+}
+
 .project-wrapper:hover .project-image {
   transform: scale(1.06);
 }
@@ -185,7 +191,7 @@
   border: none;
   font-family: var(--font-body);
   color: var(--text-main);
-  font-size: 15px;
+  font-size: 16px; /* Prevent iOS zoom */
   width: 100%;
   outline: none;
 }
@@ -375,5 +381,19 @@
     flex-shrink: 0;
     padding: 7px 14px;
     font-size: 13px;
+    min-height: 36px; /* Touch target minimum */
+  }
+
+  .search-container {
+    width: calc(100% - 32px);
+  }
+
+  .project-links a,
+  .project-links button {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

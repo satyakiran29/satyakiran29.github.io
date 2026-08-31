@@ -25,6 +25,7 @@ html {
   overflow-x: hidden;
   width: 100%;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 *,
@@ -39,6 +40,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-size: 16px; /* Prevent iOS input zoom */
   background-color: var(--bg-primary);
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
@@ -47,6 +49,26 @@ body {
   overflow-x: hidden;
   width: 100%;
   touch-action: manipulation;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* iOS safe area support */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Prevent iOS input zoom */
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: 16px;
 }
 
 /* Offset for fixed navbar on section navigation */
@@ -73,7 +95,11 @@ section[id] {
   .btn-secondary:active,
   .category-btn:active,
   .link-button:active,
-  .b_social-button:active {
+  .b_social-button:active,
+  .mobile-nav-card:active,
+  .mobile-social-pill:active,
+  .design-card:active,
+  .project-wrapper:active {
     transform: scale(0.97) !important;
     transition: transform 0.1s ease !important;
   }
@@ -96,22 +122,24 @@ a {
   text-decoration: none;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+/* Custom Scrollbar - Desktop only */
+@media (hover: hover) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--bg-primary);
-}
+  ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--bg-tertiary);
-  border-radius: 4px;
-}
+  ::-webkit-scrollbar-thumb {
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-primary);
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-primary);
+  }
 }
 
 /* Utilities */
@@ -144,6 +172,7 @@ button {
 /* Base Loader */
 .loader {
   height: 100vh;
+  height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,3 +192,10 @@ footer {
   border-top: 1px solid var(--border-color);
   background: var(--bg-secondary);
 }
+
+@media (max-width: 480px) {
+  footer {
+    padding: 1.5rem 16px;
+    margin-top: 2rem;
+  }
+}

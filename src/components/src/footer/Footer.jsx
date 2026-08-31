@@ -19,7 +19,7 @@ import {
 } from './Footer.elements';
 
 function Footer() {
-  const [lastUpdated, setLastUpdated] = useState('Sep 1, 2026, 01:29 AM');
+  const [lastUpdated, setLastUpdated] = useState('Sep 1, 2026, 01:39 AM');
   const [currentTime, setCurrentTime] = useState('');
   const currentYear = new Date().getFullYear();
 

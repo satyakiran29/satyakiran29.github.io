@@ -4,8 +4,10 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  min-height: 100dvh;
   position: relative;
   padding: 40px 20px;
+  padding-bottom: max(40px, env(safe-area-inset-bottom, 20px));
 }
 
 /* Better coding-themed background */
@@ -617,5 +619,96 @@
   .b_steam-badge {
     font-size: 8px;
     padding: 2px 6px;
+  }
+}
+
+/* 480px and below — tighter spacing */
+@media (max-width: 480px) {
+  .b_container {
+    padding: 20px 12px;
+    align-items: flex-start;
+    padding-top: max(70px, env(safe-area-inset-top, 70px));
+  }
+
+  .b_card {
+    padding: 20px 14px;
+    border-radius: 14px;
+  }
+
+  .b_profile-image-container {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 14px;
+  }
+
+  .b_profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .b_name {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .b_title {
+    font-size: 13px;
+  }
+
+  .b_info-buttons {
+    gap: 5px;
+    margin-top: 12px;
+  }
+
+  .b_info-button {
+    padding: 5px 10px;
+    font-size: 11.5px;
+    gap: 5px;
+  }
+
+  .b_social-links {
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .b_social-button {
+    padding: 10px 12px;
+    font-size: 13px;
+    border-radius: 10px;
+  }
+
+  .b_social-button svg {
+    font-size: 17px;
+  }
+
+  .b_steam-chevron {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* 360px ultra-small */
+@media (max-width: 360px) {
+  .b_card {
+    padding: 16px 10px;
+  }
+
+  .b_profile-image-container {
+    width: 95px;
+    height: 95px;
+  }
+
+  .b_profile-pic {
+    width: 85px;
+    height: 85px;
+  }
+
+  .b_name {
+    font-size: 18px;
+  }
+
+  .b_social-button {
+    padding: 9px 10px;
+    font-size: 12.5px;
   }
 }

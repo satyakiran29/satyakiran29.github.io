@@ -121,5 +121,10 @@
 @media (max-width: 340px) {
   .designs-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .design-card {
+    border-radius: 10px;
   }
 }
