@@ -5,56 +5,55 @@
     justify-content: center;
     text-align: center;
     max-width: 600px;
+    width: 100%;
     margin: 0 auto;
-    padding: 100px 20px;
+    padding: clamp(60px, 8vw, 100px) 16px;
     animation: fadeInUp var(--transition-slow);
+    box-sizing: border-box;
 }
 
 .contact-title {
-    font-size: clamp(40px, 5vw, 60px);
+    font-size: clamp(28px, 6vw, 52px);
     font-weight: 700;
     font-family: var(--font-heading);
     color: var(--text-main);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .contact-desc {
     color: var(--text-muted);
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
     line-height: 1.6;
-    margin-bottom: 50px;
+    margin-bottom: clamp(25px, 5vw, 45px);
+    padding: 0 8px;
 }
 
 .contact-btn {
     color: var(--accent-primary);
     background-color: transparent;
     border: 1px solid var(--accent-primary);
-    border-radius: 4px;
-    padding: 1.25rem 1.75rem;
-    font-size: 16px;
+    border-radius: 50px;
+    padding: 14px 32px;
+    font-size: 15px;
     font-family: var(--font-heading);
     font-weight: 600;
     letter-spacing: 0.5px;
     text-decoration: none;
     transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    display: inline-block;
+    max-width: 280px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-btn:hover {
-    background-color: rgba(127, 90, 240, 0.1);
+    background-color: rgba(127, 90, 240, 0.15);
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(127, 90, 240, 0.2);
+    box-shadow: 0 8px 20px rgba(127, 90, 240, 0.25);
 }
 
 @media (max-width: 480px) {
     .contact-section {
-        padding: 60px 20px;
-    }
-
-    .contact-title {
-        font-size: 32px;
-    }
-
-    .contact-desc {
-        font-size: 16px;
+        padding: 50px 16px;
     }
 }

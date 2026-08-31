@@ -152,9 +152,11 @@ const ProfileCard = () => {
         <title>Satyakiran | Links & Bio</title>
         <meta name="description" content="Connect with Satyakiran - Gamer & Web Developer. Links to website, blogs, social media profiles, and Play Store developer console." />
         <meta name="keywords" content="Satyakiran, developer bio, Linktree, portfolio, gamer, web developer, Android developer, Play Store developer" />
+        <link rel="canonical" href="https://satyakiran.vercel.app/bio" />
         
         {/* Open Graph / Facebook */}
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="profile" />
+        <meta property="og:site_name" content="Satyakiran Portfolio" />
         <meta property="og:url" content="https://satyakiran.vercel.app/bio" />
         <meta property="og:title" content="Satyakiran | Links & Bio" />
         <meta property="og:description" content="Connect with Satyakiran - Gamer & Web Developer. Links to portfolio, blog, social media, and apps." />
@@ -166,6 +168,7 @@ const ProfileCard = () => {
         <meta name="twitter:title" content="Bio & Links | Satyakiran" />
         <meta name="twitter:description" content="Explore social links, gaming profiles, and developer portfolio of Satyakiran." />
         <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta name="twitter:creator" content="@satyakiran29" />
       </Helmet>
 
       <div className="b_container">

@@ -83,9 +83,11 @@ const Home = () => {
         <title>Satyakiran | Full-Stack Web Developer & Android Dev</title>
         <meta name="description" content="Official portfolio of Satyakiran, a passionate Full-Stack Web Developer, Android Developer, and Linux enthusiast. Explore projects, certifications, and technical experience." />
         <meta name="keywords" content="Satyakiran, Satyakiran portfolio, web developer, Android developer, full stack engineer, react developer, SkDev, Anify, Aniset" />
+        <link rel="canonical" href="https://satyakiran.vercel.app/" />
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Satyakiran Portfolio" />
         <meta property="og:url" content="https://satyakiran.vercel.app/" />
         <meta property="og:title" content="Satyakiran | Full-Stack Web Developer & Android Dev" />
         <meta property="og:description" content="Discover projects, experience, and certifications on the official portfolio site of Satyakiran." />
@@ -97,6 +99,7 @@ const Home = () => {
         <meta name="twitter:title" content="Satyakiran | Full-Stack Web Developer & Android Dev" />
         <meta name="twitter:description" content="Discover projects, experience, and certifications on the official portfolio site of Satyakiran." />
         <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta name="twitter:creator" content="@satyakiran29" />
       </Helmet>
       <Analytics />
 

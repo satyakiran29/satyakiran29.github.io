@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import './notfound.css';
 
 const NotFound = () => {
     return (
         <div className="notfound-container">
+            <Helmet>
+                <title>404 - Page Not Found | Satyakiran</title>
+                <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
             <div className="notfound-content card">
                 <h1 className="notfound-code">404</h1>
                 <h2 className="notfound-title">Page Not Found</h2>
@@ -20,3 +25,4 @@ const NotFound = () => {
 };
 
 export default NotFound;
+
