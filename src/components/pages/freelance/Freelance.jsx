@@ -9,6 +9,8 @@ import {
   FaTelegramPlane,
   FaEnvelope,
   FaLinkedin,
+  FaGithub,
+  FaCopy,
   FaChevronDown,
   FaCode,
   FaAndroid,
@@ -24,7 +26,8 @@ import {
   FaStar,
   FaCalendarAlt,
   FaBoxOpen,
-  FaFilter
+  FaFilter,
+  FaQuestionCircle
 } from "react-icons/fa";
 
 // ==========================================
@@ -34,7 +37,8 @@ import {
 const SERVICES_DATA = [
   {
     id: "android",
-    shortLabel: "Android Mobile Apps",
+    shortLabel: "Native Android App",
+    formOption: "Native Android App",
     badge: "Published on Google Play",
     icon: <FaAndroid />,
     title: "Native Android App Development",
@@ -69,7 +73,8 @@ const SERVICES_DATA = [
   },
   {
     id: "web",
-    shortLabel: "Full-Stack Web Apps",
+    shortLabel: "Full-Stack Web App",
+    formOption: "Full-Stack Web App",
     badge: "Fast, Scalable & Modern",
     icon: <FaCode />,
     title: "Full-Stack Web Application Development",
@@ -103,42 +108,9 @@ const SERVICES_DATA = [
     proofAppIds: ["mernshop", "skdev"]
   },
   {
-    id: "mvp",
-    shortLabel: "MVP Launchpad",
-    badge: "Speed to Market (1-3 Wks)",
-    icon: <FaRocket />,
-    title: "Rapid MVP Launchpad for Startups",
-    desc: "Turn your startup idea into a fully functional, production-ready product in weeks, not months. Perfect for founders testing market demand with real users.",
-    timeline: "1 - 3 Weeks",
-    recommendedPackage: "MVP Launchpad",
-    scopeBreakdown: [
-      {
-        title: "Core Feature Scoping",
-        desc: "We isolate the highest-value core features to build a lean, working product without bloated complexity."
-      },
-      {
-        title: "Turnkey Development",
-        desc: "Complete frontend, basic backend/database, contact/lead capture forms, and analytics integration."
-      },
-      {
-        title: "Instant Go-Live",
-        desc: "Deployed to production with high SEO readiness, ready to share with investors and early adopters."
-      }
-    ],
-    deliverables: [
-      "Custom responsive web application or Android MVP",
-      "Up to 5 core high-impact features / pages",
-      "Clean UI/UX design & subtle micro-interactions",
-      "Contact form, newsletter & analytics integration",
-      "Vercel / Cloud deployment setup",
-      "14 days post-launch support and bug fixes"
-    ],
-    tags: ["React.js", "Vite", "Node.js", "Firebase", "CSS3", "Vercel", "Rapid MVP"],
-    proofAppIds: ["mernshop", "anify"]
-  },
-  {
     id: "uiux",
-    shortLabel: "UI/UX & Product Design",
+    shortLabel: "UI/UX & Figma Design",
+    formOption: "UI/UX & Figma Design",
     badge: "Figma to Code",
     icon: <FaPalette />,
     title: "UI/UX & Product Interface Design",
@@ -171,8 +143,43 @@ const SERVICES_DATA = [
     proofAppIds: ["skdev", "mernshop"]
   },
   {
+    id: "widgets",
+    shortLabel: "Widgets & Tools",
+    formOption: "Home Screen Widgets / Tools",
+    badge: "Android Customization",
+    icon: <FaRocket />,
+    title: "Home Screen Widgets & Customization Tools",
+    desc: "Custom Android home screen widget architectures, KWGT/KLWP presets, live wallpaper engines, and system personalization tools.",
+    timeline: "1 - 3 Weeks",
+    recommendedPackage: "MVP Launchpad",
+    scopeBreakdown: [
+      {
+        title: "Custom Widget Engine",
+        desc: "Lightweight, zero-battery-drain widgets displaying weather, clocks, battery, and system metrics."
+      },
+      {
+        title: "KWGT & KLWP Themes",
+        desc: "Expert-crafted Kustom widgets and live wallpapers tailored for Android customization enthusiasts."
+      },
+      {
+        title: "Cloud Content Sync",
+        desc: "Firebase backend synchronization to push new widget presets and wallpapers dynamically."
+      }
+    ],
+    deliverables: [
+      "Native Android widget provider & RemoteViews architecture",
+      "Custom KWGT / KLWP skin packages",
+      "Firebase cloud asset pipeline & instant updates",
+      "Battery-efficient background update alarms",
+      "Play Store release assets & store listing"
+    ],
+    tags: ["Android", "KWGT", "KLWP", "Widgets", "Firebase", "Live Wallpapers"],
+    proofAppIds: ["anify", "aniset"]
+  },
+  {
     id: "backend",
     shortLabel: "Backend & Automation",
+    formOption: "Consultation / Other",
     badge: "Scalable & Reliable",
     icon: <FaCogs />,
     title: "Backend, APIs & Workflow Automation",
@@ -399,20 +406,20 @@ const PACKAGES = [
 
 const FAQ_ITEMS = [
   {
-    q: "How does the freelance engagement work?",
-    a: "We start with a discovery chat (via Telegram, Email, or Google Meet) to understand your requirements, timeline, and scope. Once agreed, I provide a clear milestone roadmap. You receive regular live staging links to review progress before final handover."
-  },
-  {
-    q: "How are payments structured?",
+    q: "How does the payment and milestone structure work?",
     a: "For fixed-price projects, payments are typically split into milestones (e.g., 40% upfront deposit to begin work, 30% after mid-point design & core feature demo, and 30% upon final delivery and deployment). For ongoing retainers, payments are invoiced bi-weekly or monthly."
   },
   {
-    q: "Do I get full ownership of the source code and design assets?",
-    a: "Yes! 100% of the intellectual property, source code, Figma design files, and deployment assets belong entirely to you once the final payment is cleared."
+    q: "Who owns the intellectual property and code?",
+    a: "You do! 100% of the intellectual property, source code, Figma design files, and deployment assets belong entirely to you once the final payment is cleared."
   },
   {
-    q: "Can you help publish my Android app to the Google Play Store?",
+    q: "Can you help publish my app to the Google Play Store?",
     a: "Absolutely. I have published multiple apps to the Google Play Store (e.g., Anify, Aniset) and can guide you through Google Play Console setup, app bundle creation, signing, asset creation, and store listing optimization."
+  },
+  {
+    q: "How does the freelance engagement work?",
+    a: "We start with a discovery chat (via Telegram, Email, or Google Meet) to understand your requirements, timeline, and scope. Once agreed, I provide a clear milestone roadmap. You receive regular live staging links to review progress before final handover."
   },
   {
     q: "What if I already have an existing codebase or Figma design?",
@@ -434,13 +441,14 @@ const Freelance = () => {
   // Interactive Process Step State
   const [activeStepIndex, setActiveStepIndex] = useState(0);
 
-  // Form state
-  const [serviceType, setServiceType] = useState("Android Mobile App");
-  const [budget, setBudget] = useState("$500 - $1,500");
-  const [timeline, setTimeline] = useState("2 - 4 Weeks");
+  // Form state - exactly mirroring https://skdev.psatyakiran.in/freelance
+  const [projectType, setProjectType] = useState("Native Android App");
+  const [budget, setBudget] = useState("$500 - $1,500 (₹40K - ₹1.25L)");
+  const [timeline, setTimeline] = useState("1 Month");
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [contactHandle, setContactHandle] = useState("");
   const [message, setMessage] = useState("");
+  const [copied, setCopied] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   // Accordion state
@@ -463,12 +471,16 @@ const Freelance = () => {
   // Action: Select service and update inquiry form
   const handleSelectService = (service) => {
     setSelectedServiceId(service.id);
-    setServiceType(service.shortLabel);
+    if (service.formOption) {
+      setProjectType(service.formOption);
+    }
   };
 
   // Action: Start inquiry with current service
   const handleStartInquiryForService = (service) => {
-    setServiceType(service.shortLabel);
+    if (service.formOption) {
+      setProjectType(service.formOption);
+    }
     const element = document.getElementById("inquiry");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -476,30 +488,60 @@ const Freelance = () => {
   };
 
   const handlePackageSelect = (pkgName) => {
-    setServiceType(pkgName);
+    if (pkgName === "MVP Launchpad") {
+      setProjectType("Full-Stack Web App");
+      setTimeline("Urgent (< 2 weeks)");
+    } else if (pkgName === "Full-Stack Custom App") {
+      setProjectType("Native Android App");
+      setTimeline("1 Month");
+    } else {
+      setProjectType("Consultation / Other");
+      setTimeline("Flexible");
+    }
     const element = document.getElementById("inquiry");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const subject = encodeURIComponent(`Freelance Project Inquiry: ${serviceType} - ${name || "New Client"}`);
-    const body = encodeURIComponent(
-      `Hi Satyakiran,\n\nI would like to discuss a freelance project with you:\n\n` +
+  // Construct inquiry message text
+  const getFormattedInquiryText = () => {
+    return (
+      `Hi Satyakiran,\n\n` +
+      `I would like to discuss a freelance project with you:\n\n` +
+      `• Project Type: ${projectType}\n` +
+      `• Estimated Budget: ${budget}\n` +
+      `• Expected Timeline: ${timeline}\n` +
       `• Name: ${name || "N/A"}\n` +
-      `• Email: ${email || "N/A"}\n` +
-      `• Service Selected: ${serviceType}\n` +
-      `• Budget: ${budget}\n` +
-      `• Desired Timeline: ${timeline}\n\n` +
+      `• Contact: ${contactHandle || "N/A"}\n\n` +
       `Project Details:\n${message || "No additional details provided."}\n\n` +
       `Looking forward to hearing from you!`
     );
+  };
 
+  // 1. Send via Telegram (inspiration from skdev.psatyakiran.in)
+  const handleSendTelegram = (e) => {
+    e?.preventDefault();
+    const text = encodeURIComponent(getFormattedInquiryText());
+    window.open(`https://t.me/skdev29?text=${text}`, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
+  };
+
+  // 2. Send via Email
+  const handleSendEmail = (e) => {
+    e?.preventDefault();
+    const subject = encodeURIComponent(`Freelance Project Inquiry: ${projectType} - ${name || "New Client"}`);
+    const body = encodeURIComponent(getFormattedInquiryText());
     window.location.href = `mailto:satyakiran296@gmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
+  };
+
+  // 3. Copy Inquiry Text
+  const handleCopyInquiry = () => {
+    navigator.clipboard.writeText(getFormattedInquiryText()).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2500);
+    });
   };
 
   return (
@@ -555,7 +597,7 @@ const Freelance = () => {
 
           <div className="freelance-hero-actions">
             <a href="#interactive-hub" className="btn-primary-glow">
-              <FaRocket /> Explore Interactive Services
+              <FaRocket /> Explore Services
             </a>
             <a href="#inquiry" className="btn-secondary-glass">
               <FaPaperPlane /> Request a Quote
@@ -988,35 +1030,39 @@ const Freelance = () => {
           </div>
         </section>
 
-        {/* ================= INQUIRY / CONTACT FORM ================= */}
+        {/* ================= INQUIRY FORM (INSPIRED BY SKDEV) ================= */}
         <section id="inquiry" className="freelance-inquiry-section">
           <div className="section-header">
-            <span className="section-tag">Let's Connect</span>
-            <h2 className="section-title">Start Your Project</h2>
+            <span className="section-tag">
+              <FaPaperPlane style={{ marginRight: "6px", fontSize: "0.75rem" }} /> Let's Connect
+            </span>
+            <h2 className="section-title">
+              Start Your <span className="gradient-text">Project</span>
+            </h2>
             <p className="section-subtitle">
               Tell me about your idea, timeline, and budget. I'll review your details and respond within 24 hours.
             </p>
           </div>
 
           <div className="inquiry-wrapper">
-            <form onSubmit={handleSubmit}>
-              {/* Project Type */}
+            <form onSubmit={handleSendEmail}>
+              {/* Question 1: Project Type */}
               <div className="form-group-block">
                 <label className="form-label">1. What type of project are you looking for?</label>
                 <div className="chip-options-grid">
                   {[
-                    "Android Mobile Apps",
-                    "Full-Stack Web Apps",
-                    "MVP Launchpad",
-                    "UI/UX & Product Design",
-                    "Backend & Automation",
-                    "Retainer & Support"
+                    "Native Android App",
+                    "Full-Stack Web App",
+                    "UI/UX & Figma Design",
+                    "Home Screen Widgets / Tools",
+                    "Bug Fix & Optimization",
+                    "Consultation / Other"
                   ].map((option) => (
                     <button
                       key={option}
                       type="button"
-                      className={`chip-btn ${serviceType === option ? "selected" : ""}`}
-                      onClick={() => setServiceType(option)}
+                      className={`chip-btn ${projectType === option ? "selected" : ""}`}
+                      onClick={() => setProjectType(option)}
                     >
                       {option}
                     </button>
@@ -1024,16 +1070,16 @@ const Freelance = () => {
                 </div>
               </div>
 
-              {/* Budget Range */}
+              {/* Question 2: Estimated Budget */}
               <div className="form-group-block">
-                <label className="form-label">2. Estimated Budget Range</label>
+                <label className="form-label">2. What is your estimated budget?</label>
                 <div className="chip-options-grid">
                   {[
-                    "< $500 (₹40k)",
-                    "$500 - $1,500 (₹40k - ₹1.2L)",
-                    "$1,500 - $3,000 (₹1.2L - ₹2.5L)",
+                    "< $500 (₹40K)",
+                    "$500 - $1,500 (₹40K - ₹1.25L)",
+                    "$1,500 - $3,000 (₹1.25L - ₹2.5L)",
                     "$3,000+ (₹2.5L+)",
-                    "Flexible / Discussion"
+                    "Flexible / Hourly"
                   ].map((b) => (
                     <button
                       key={b}
@@ -1047,14 +1093,14 @@ const Freelance = () => {
                 </div>
               </div>
 
-              {/* Timeline */}
+              {/* Question 3: Expected Timeline */}
               <div className="form-group-block">
-                <label className="form-label">3. Desired Timeline</label>
+                <label className="form-label">3. Expected timeline or deadline?</label>
                 <div className="chip-options-grid">
                   {[
-                    "Urgent (< 2 Weeks)",
-                    "2 - 4 Weeks",
-                    "1 - 2 Months",
+                    "Urgent (< 2 weeks)",
+                    "1 Month",
+                    "2 - 3 Months",
                     "Flexible"
                   ].map((t) => (
                     <button
@@ -1069,91 +1115,108 @@ const Freelance = () => {
                 </div>
               </div>
 
-              {/* Contact Info */}
+              {/* Contact Inputs */}
               <div className="input-row">
-                <div>
+                <div className="input-col">
                   <label className="form-label">Your Name</label>
                   <input
                     type="text"
-                    required
-                    placeholder="e.g. Alex Smith"
+                    placeholder="e.g. Alex"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="form-input"
                   />
                 </div>
-                <div>
-                  <label className="form-label">Your Email</label>
+                <div className="input-col">
+                  <label className="form-label">Email or Telegram Handle</label>
                   <input
-                    type="email"
+                    type="text"
                     required
-                    placeholder="e.g. alex@company.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="e.g. alex@company.com or @alex_tg"
+                    value={contactHandle}
+                    onChange={(e) => setContactHandle(e.target.value)}
                     className="form-input"
                   />
                 </div>
               </div>
 
-              {/* Project Details */}
+              {/* Project Overview */}
               <div className="form-group-block">
                 <label className="form-label">Project Overview & Requirements</label>
                 <textarea
                   rows="4"
                   required
-                  placeholder="Tell me about your product, what problems it solves, features you need, and any reference links..."
+                  placeholder="Describe your project, goals, key features, or link to references/designs..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="form-textarea"
                 ></textarea>
               </div>
 
-              {/* Submit & Direct Channels */}
-              <div className="inquiry-actions">
-                <div className="direct-connect-pills">
-                  <span className="direct-connect-label">Or reach out directly:</span>
-                  <div className="direct-connect-icons">
-                    <a
-                      href="https://t.me/skdev1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="connect-icon-link"
-                      title="Chat on Telegram"
-                      aria-label="Telegram"
-                    >
-                      <FaTelegramPlane />
-                    </a>
-                    <a
-                      href="mailto:satyakiran296@gmail.com"
-                      className="connect-icon-link"
-                      title="Send an Email"
-                      aria-label="Email"
-                    >
-                      <FaEnvelope />
-                    </a>
-                    <a
-                      href="https://in.linkedin.com/in/satyakiran29"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="connect-icon-link"
-                      title="Connect on LinkedIn"
-                      aria-label="LinkedIn"
-                    >
-                      <FaLinkedin />
-                    </a>
-                  </div>
-                </div>
+              {/* Three Main Actions (Telegram, Email, Copy) - Exactly like SKDev */}
+              <div className="inquiry-actions-row">
+                <button
+                  type="button"
+                  className="btn-action-telegram"
+                  onClick={handleSendTelegram}
+                >
+                  <FaTelegramPlane /> Send via Telegram
+                </button>
 
-                <button type="submit" className="submit-inquiry-btn">
-                  <FaRocket /> Send Project Inquiry
+                <button
+                  type="submit"
+                  className="btn-action-email"
+                >
+                  <FaEnvelope /> Send via Email
+                </button>
+
+                <button
+                  type="button"
+                  className="btn-action-copy"
+                  onClick={handleCopyInquiry}
+                >
+                  <FaCopy /> {copied ? "Copied to Clipboard!" : "Copy Inquiry Text"}
                 </button>
               </div>
 
+              {/* Direct Channels Bar */}
+              <div className="form-direct-footer">
+                <a
+                  href="https://t.me/skdev29"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="direct-pill"
+                >
+                  <FaTelegramPlane /> Telegram: @skdev29
+                </a>
+                <a
+                  href="mailto:satyakiran296@gmail.com"
+                  className="direct-pill"
+                >
+                  <FaEnvelope /> satyakiran296@gmail.com
+                </a>
+                <a
+                  href="https://in.linkedin.com/in/satyakiran29"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="direct-pill"
+                >
+                  <FaLinkedin /> LinkedIn
+                </a>
+                <a
+                  href="https://github.com/satyakiran29"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="direct-pill"
+                >
+                  <FaGithub /> GitHub
+                </a>
+              </div>
+
               {submitted && (
-                <p style={{ marginTop: "18px", color: "#2cb67d", fontSize: "0.95rem", textAlign: "center" }}>
-                  ✓ Your email draft has been generated. If your client didn't open, email me directly at{" "}
-                  <b>satyakiran296@gmail.com</b>!
-                </p>
+                <div className="form-success-banner">
+                  <FaCheckCircle /> Your inquiry draft was generated! If your client didn't open automatically, reach out directly at <b>satyakiran296@gmail.com</b> or Telegram <b>@skdev29</b>.
+                </div>
               )}
             </form>
           </div>
@@ -1162,10 +1225,12 @@ const Freelance = () => {
         {/* ================= FAQ SECTION ================= */}
         <section className="freelance-faq-section">
           <div className="section-header">
-            <span className="section-tag">Got Questions?</span>
+            <span className="section-tag">
+              <FaQuestionCircle style={{ marginRight: "6px", fontSize: "0.8rem" }} /> Clarifications
+            </span>
             <h2 className="section-title">Frequently Asked Questions</h2>
             <p className="section-subtitle">
-              Common questions about working together, intellectual property, payments, and project timelines.
+              Have questions before starting? Tap any question below to inspect the details.
             </p>
           </div>
 
@@ -1208,7 +1273,7 @@ const Freelance = () => {
                 <FaPaperPlane /> Request a Quote
               </a>
               <a
-                href="https://t.me/skdev1"
+                href="https://t.me/skdev29"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary-glass"
