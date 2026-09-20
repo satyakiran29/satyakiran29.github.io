@@ -21,73 +21,201 @@ import {
   FaCheck,
   FaGooglePlay,
   FaExternalLinkAlt,
-  FaStar
+  FaStar,
+  FaCalendarAlt,
+  FaBoxOpen,
+  FaFilter
 } from "react-icons/fa";
+
+// ==========================================
+// DATA DEFINITIONS
+// ==========================================
 
 const SERVICES_DATA = [
   {
+    id: "android",
+    shortLabel: "Android Mobile Apps",
+    badge: "Published on Google Play",
+    icon: <FaAndroid />,
+    title: "Native Android App Development",
+    desc: "Fluid, high-performance native Android applications with custom UI widgets, background services, and Google Play Store compliance. Built from the ground up for maximum speed and zero battery drain.",
+    timeline: "3 - 6 Weeks",
+    recommendedPackage: "Full-Stack Custom App",
+    scopeBreakdown: [
+      {
+        title: "Native Architecture (Kotlin / Java)",
+        desc: "Clean MVVM architecture, modular code, Room local DB, and background service optimization."
+      },
+      {
+        title: "Widgets & System UI",
+        desc: "Specialized home screen widgets, live wallpapers, and dynamic Material You personalization."
+      },
+      {
+        title: "Play Store Release & Compliance",
+        desc: "End-to-end guidance through Google Play Console setup, app bundles (.aab), privacy policies, and store approval."
+      }
+    ],
+    deliverables: [
+      "Native Android app architecture (Java / Kotlin)",
+      "Home screen widgets & system UI personalization",
+      "Firebase backend & push notifications",
+      "Offline caching & Room local data storage",
+      "Proven published apps: Anify & Aniset on Google Play Store",
+      "Google Play Store release & compliance guidance",
+      "30 days post-launch maintenance & bug warranty"
+    ],
+    tags: ["Android SDK", "Kotlin", "Java", "Firebase", "REST APIs", "Play Console", "KWGT / KLWP"],
+    proofAppIds: ["anify", "aniset"]
+  },
+  {
+    id: "web",
+    shortLabel: "Full-Stack Web Apps",
+    badge: "Fast, Scalable & Modern",
     icon: <FaCode />,
-    title: "Full-Stack Web Development",
-    desc: "Custom, ultra-fast, and responsive web applications built with modern frontend frameworks and robust backend architectures.",
+    title: "Full-Stack Web Application Development",
+    desc: "Custom, ultra-fast, and responsive web applications built with modern frontend frameworks (React, Vite) and robust backend architectures (Node.js, Express, Django, MongoDB).",
+    timeline: "2 - 5 Weeks",
+    recommendedPackage: "Full-Stack Custom App",
+    scopeBreakdown: [
+      {
+        title: "Frontend Experience",
+        desc: "Component-driven React SPA with lightning-fast Vite bundling, responsive layouts, and smooth animations."
+      },
+      {
+        title: "Robust Backend & APIs",
+        desc: "RESTful endpoints, JWT authentication, role-based access, and database architecture (MongoDB / SQL)."
+      },
+      {
+        title: "Production Deployment",
+        desc: "Continuous deployment to Vercel/Cloudflare, SSL configuration, custom domain setup, and SEO optimization."
+      }
+    ],
     deliverables: [
       "Single Page Apps (SPA) & SaaS Dashboards",
       "RESTful API & GraphQL integrations",
       "Database design (MongoDB, SQLite, MySQL)",
       "Vite & React performance optimization",
-      "Vercel, Cloudflare, and custom deployment"
+      "JWT Authentication & secure sessions",
+      "Vercel, Cloudflare, and custom deployment",
+      "Comprehensive cross-device & browser testing"
     ],
-    tags: ["React.js", "Vite", "Node.js", "Express", "Django", "MongoDB", "CSS3 / Tailwind"]
+    tags: ["React.js", "Vite", "Node.js", "Express", "Django", "MongoDB", "CSS3 / Tailwind"],
+    proofAppIds: ["mernshop", "skdev"]
   },
   {
-    icon: <FaAndroid />,
-    title: "Android App Development",
-    desc: "Fluid, high-performance native Android applications with custom UI widgets, background services, and modern system integrations.",
+    id: "mvp",
+    shortLabel: "MVP Launchpad",
+    badge: "Speed to Market (1-3 Wks)",
+    icon: <FaRocket />,
+    title: "Rapid MVP Launchpad for Startups",
+    desc: "Turn your startup idea into a fully functional, production-ready product in weeks, not months. Perfect for founders testing market demand with real users.",
+    timeline: "1 - 3 Weeks",
+    recommendedPackage: "MVP Launchpad",
+    scopeBreakdown: [
+      {
+        title: "Core Feature Scoping",
+        desc: "We isolate the highest-value core features to build a lean, working product without bloated complexity."
+      },
+      {
+        title: "Turnkey Development",
+        desc: "Complete frontend, basic backend/database, contact/lead capture forms, and analytics integration."
+      },
+      {
+        title: "Instant Go-Live",
+        desc: "Deployed to production with high SEO readiness, ready to share with investors and early adopters."
+      }
+    ],
     deliverables: [
-      "Native Android app architecture (Java / Kotlin)",
-      "Home screen widgets & system UI personalization",
-      "Firebase backend & push notifications",
-      "Offline caching & local data storage",
-      "Proven published apps: Anify & Aniset on Google Play Store",
-      "Google Play Store release & compliance guidance"
+      "Custom responsive web application or Android MVP",
+      "Up to 5 core high-impact features / pages",
+      "Clean UI/UX design & subtle micro-interactions",
+      "Contact form, newsletter & analytics integration",
+      "Vercel / Cloud deployment setup",
+      "14 days post-launch support and bug fixes"
     ],
-    tags: ["Android SDK", "Kotlin", "Java", "Firebase", "REST APIs", "Play Console"]
+    tags: ["React.js", "Vite", "Node.js", "Firebase", "CSS3", "Vercel", "Rapid MVP"],
+    proofAppIds: ["mernshop", "anify"]
   },
   {
+    id: "uiux",
+    shortLabel: "UI/UX & Product Design",
+    badge: "Figma to Code",
     icon: <FaPalette />,
-    title: "UI/UX & Product Design",
-    desc: "Modern, aesthetic, and user-centric interfaces crafted with meticulous attention to detail, typography, and micro-interactions.",
+    title: "UI/UX & Product Interface Design",
+    desc: "Modern, aesthetic, and user-centric interfaces crafted with meticulous attention to detail, typography, and micro-interactions. Designed in Figma and ready for seamless code handoff.",
+    timeline: "1 - 2 Weeks",
+    recommendedPackage: "MVP Launchpad",
+    scopeBreakdown: [
+      {
+        title: "Wireframes & User Journeys",
+        desc: "Mapping out user flows, information architecture, and screen hierarchies for maximum conversion."
+      },
+      {
+        title: "High-Fidelity Figma Mockups",
+        desc: "Sleek dark mode, glassmorphism, tailored typography, and modern color palettes."
+      },
+      {
+        title: "Component Design System",
+        desc: "Reusable design tokens, UI components, button states, and interactive prototypes."
+      }
+    ],
     deliverables: [
       "High-fidelity Figma wireframes & mockups",
       "Interactive, clickable prototypes",
-      "Component design systems & tokens",
+      "Component design systems & design tokens",
       "Mobile-first responsive layouts",
-      "Dark mode & glassmorphism aesthetics"
+      "Dark mode & glassmorphism aesthetics",
+      "Developer-ready asset export & design spec"
     ],
-    tags: ["Figma", "UI/UX Design", "Wireframing", "Design Systems", "Prototyping"]
+    tags: ["Figma", "UI/UX Design", "Wireframing", "Design Systems", "Prototyping", "Glassmorphism"],
+    proofAppIds: ["skdev", "mernshop"]
   },
   {
+    id: "backend",
+    shortLabel: "Backend & Automation",
+    badge: "Scalable & Reliable",
     icon: <FaCogs />,
-    title: "Backend, APIs & Automation",
-    desc: "Reliable server-side logic, data pipelines, third-party service integrations, and workflow automations that scale.",
+    title: "Backend, APIs & Workflow Automation",
+    desc: "Reliable server-side logic, data pipelines, third-party service integrations, and workflow automations that scale. Free your team from repetitive manual tasks.",
+    timeline: "1 - 3 Weeks",
+    recommendedPackage: "Full-Stack Custom App",
+    scopeBreakdown: [
+      {
+        title: "Custom REST APIs",
+        desc: "Clean, documented endpoints built with Express or Django, with rate limiting and input sanitization."
+      },
+      {
+        title: "n8n & Python Automations",
+        desc: "Automated webhook handlers, data synchronization, email triggers, and CRM connections."
+      },
+      {
+        title: "Auth & Security",
+        desc: "JWT authentication, OAuth login (Google/GitHub), password hashing, and CORS protection."
+      }
+    ],
     deliverables: [
       "Custom RESTful API endpoints & webhooks",
       "Automated workflows with n8n & Python",
       "User authentication (JWT, OAuth, Sessions)",
       "Rate limiting, security & input sanitization",
-      "Server deployment & environment setup"
+      "Database schemas, indexes & migration scripts",
+      "Server deployment & environment configuration"
     ],
-    tags: ["Node.js", "Express", "Python / Django", "n8n", "REST APIs", "JWT"]
+    tags: ["Node.js", "Express", "Python / Django", "n8n", "REST APIs", "JWT", "MongoDB"],
+    proofAppIds: ["mernshop"]
   }
 ];
 
 const PROVEN_APPS_DATA = [
   {
+    id: "anify",
     title: "Anify - Ultimate Personalization",
     platform: "Android App (Google Play Store)",
+    category: "android",
     badge: "Published on Play Store",
     desc: "A feature-packed Android personalization app published on Google Play. Offers ready-to-use home screen widgets, curated HD wallpapers, and trending ringtones—all natively built without requiring third-party tools like KWGT.",
     highlights: [
-      "Native Android Architecture & Performance",
+      "Native Android Architecture & 60fps Performance",
       "Custom Widget Engine & Live Wallpapers",
       "Published on Google Play Store with Active Users",
       "Seamless Firebase Integration & Offline Support"
@@ -97,8 +225,10 @@ const PROVEN_APPS_DATA = [
     linkText: "View on Google Play"
   },
   {
+    id: "aniset",
     title: "Aniset - Anime KWGT & KLWP",
     platform: "Android App (Google Play Store)",
+    category: "android",
     badge: "Published on Play Store",
     desc: "A popular Android home screen customization app on Google Play with anime-inspired widgets, custom KLWP themes, and regular cloud asset updates.",
     highlights: [
@@ -112,8 +242,10 @@ const PROVEN_APPS_DATA = [
     linkText: "View on Google Play"
   },
   {
+    id: "mernshop",
     title: "MernShop - Full-Stack eCommerce",
     platform: "Full-Stack Web App",
+    category: "web",
     badge: "Live Production App",
     desc: "A complete MERN-stack eCommerce platform featuring a responsive React + Tailwind frontend, Node.js & Express REST API, MongoDB database, cart/checkout flows, and admin dashboard.",
     highlights: [
@@ -127,8 +259,10 @@ const PROVEN_APPS_DATA = [
     linkText: "Live Demo"
   },
   {
+    id: "skdev",
     title: "SkDev Android Apps Showcase",
     platform: "Web Application & Hub",
+    category: "web",
     badge: "Live Web Hub",
     desc: "Centralized web application serving as the official hub for Android apps published on Google Play, providing release notes, FAQs, direct downloads, and developer support.",
     highlights: [
@@ -170,22 +304,46 @@ const PROCESS_STEPS = [
   {
     step: "01",
     title: "Discovery & Scope",
-    desc: "We discuss your project goals, technical requirements, target audience, and set clear milestones and budget."
+    tagline: "Aligning on goals & roadmap",
+    desc: "We discuss your project vision, target audience, technical requirements, and core features. We define a clear milestone roadmap, timeline, and deliverables so there are no surprises.",
+    clientReceives: [
+      "Project Scope Document & Milestone Roadmap",
+      "Technical Architecture Recommendation",
+      "Transparent Fixed-Price or Milestone Estimate"
+    ]
   },
   {
     step: "02",
     title: "Design & Prototype",
-    desc: "Creating wireframes, user journeys, and high-fidelity Figma mockups to align on the visual direction."
+    tagline: "Visualizing before building",
+    desc: "Creating wireframes, interactive user flows, and high-fidelity Figma mockups. We refine the visual identity and user experience until you're completely thrilled with the direction.",
+    clientReceives: [
+      "Clickable Figma Prototype",
+      "Component Design System & Style Guide",
+      "Approved Screen Layouts & Responsive Specs"
+    ]
   },
   {
     step: "03",
     title: "Agile Development",
-    desc: "Writing modular, performant code with regular staging previews so you can test features as they are built."
+    tagline: "Iterative sprints with live demos",
+    desc: "Writing clean, modular, and performant code. You receive regular staging preview links to test features firsthand as they are built, ensuring constant transparency.",
+    clientReceives: [
+      "Private Git Repository Access",
+      "Live Staging Environment for Continuous Testing",
+      "Weekly Video Demos & Milestone Progress Reports"
+    ]
   },
   {
     step: "04",
     title: "Launch & Support",
-    desc: "Full deployment to production, SEO setup, performance testing, and post-launch maintenance warranty."
+    tagline: "Production deployment & warranty",
+    desc: "Full deployment to production hosting or Google Play Store submission. Complete handover of source code, deployment credentials, and post-launch bug warranty.",
+    clientReceives: [
+      "100% IP & Source Code Ownership Handover",
+      "Production Deployment (Vercel/Cloudflare) or Play Store Release",
+      "14 to 30 Days Post-Launch Bug Warranty"
+    ]
   }
 ];
 
@@ -262,9 +420,22 @@ const FAQ_ITEMS = [
   }
 ];
 
+// ==========================================
+// COMPONENT
+// ==========================================
+
 const Freelance = () => {
+  // Interactive Service Selector State
+  const [selectedServiceId, setSelectedServiceId] = useState("android");
+
+  // Filter state for apps showcase
+  const [appFilter, setAppFilter] = useState("all");
+
+  // Interactive Process Step State
+  const [activeStepIndex, setActiveStepIndex] = useState(0);
+
   // Form state
-  const [serviceType, setServiceType] = useState("Full-Stack Web App");
+  const [serviceType, setServiceType] = useState("Android Mobile App");
   const [budget, setBudget] = useState("$500 - $1,500");
   const [timeline, setTimeline] = useState("2 - 4 Weeks");
   const [name, setName] = useState("");
@@ -277,6 +448,31 @@ const Freelance = () => {
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
+  };
+
+  // Get active service data
+  const currentService =
+    SERVICES_DATA.find((s) => s.id === selectedServiceId) || SERVICES_DATA[0];
+
+  // Filter proven apps based on active filter
+  const filteredApps =
+    appFilter === "all"
+      ? PROVEN_APPS_DATA
+      : PROVEN_APPS_DATA.filter((app) => app.category === appFilter);
+
+  // Action: Select service and update inquiry form
+  const handleSelectService = (service) => {
+    setSelectedServiceId(service.id);
+    setServiceType(service.shortLabel);
+  };
+
+  // Action: Start inquiry with current service
+  const handleStartInquiryForService = (service) => {
+    setServiceType(service.shortLabel);
+    const element = document.getElementById("inquiry");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const handlePackageSelect = (pkgName) => {
@@ -295,9 +491,9 @@ const Freelance = () => {
       `Hi Satyakiran,\n\nI would like to discuss a freelance project with you:\n\n` +
       `• Name: ${name || "N/A"}\n` +
       `• Email: ${email || "N/A"}\n` +
-      `• Service: ${serviceType}\n` +
+      `• Service Selected: ${serviceType}\n` +
       `• Budget: ${budget}\n` +
-      `• Timeline: ${timeline}\n\n` +
+      `• Desired Timeline: ${timeline}\n\n` +
       `Project Details:\n${message || "No additional details provided."}\n\n` +
       `Looking forward to hearing from you!`
     );
@@ -312,7 +508,7 @@ const Freelance = () => {
         <title>Hire Satyakiran | Freelance Full-Stack & Android Developer</title>
         <meta
           name="description"
-          content="Hire Satyakiran for high-performance full-stack web applications, native Android development, and modern UI/UX design. Available for freelance projects, MVP launches, and contracts."
+          content="Hire Satyakiran for high-performance full-stack web applications, native Android development, and modern UI/UX design. Interactive service explorer, proven Google Play apps, and quick project estimates."
         />
         <meta
           name="keywords"
@@ -353,28 +549,28 @@ const Freelance = () => {
           </h1>
 
           <p className="freelance-hero-subtitle">
-            Full-stack developer and creator of published Google Play Store Android apps (<b>Anify</b>, <b>Aniset</b>).
-            I engineer scalable, fast, and visually stunning digital products—from high-performance React web applications to native Android experiences.
+            Full-stack engineer and creator of published Google Play Store Android apps (<b>Anify</b>, <b>Aniset</b>).
+            Select a service below to explore full details, real-world proof, deliverables, and estimated timelines.
           </p>
 
           <div className="freelance-hero-actions">
-            <a href="#inquiry" className="btn-primary-glow">
-              <FaPaperPlane /> Start a Project
+            <a href="#interactive-hub" className="btn-primary-glow">
+              <FaRocket /> Explore Interactive Services
+            </a>
+            <a href="#inquiry" className="btn-secondary-glass">
+              <FaPaperPlane /> Request a Quote
             </a>
             <a href="#proven-apps" className="btn-secondary-glass">
               <FaGooglePlay /> Real-World Apps
-            </a>
-            <a href="#services" className="btn-secondary-glass">
-              Explore Services <FaArrowRight />
             </a>
           </div>
 
           <div className="hero-highlights-strip">
             <div className="highlight-badge">
-              <FaCheckCircle /> Fast Turnaround & Sprints
+              <FaCheckCircle /> Published Play Store Developer
             </div>
             <div className="highlight-badge">
-              <FaCheckCircle /> 100% Direct Communication
+              <FaCheckCircle /> 100% Direct 1-on-1 Communication
             </div>
             <div className="highlight-badge">
               <FaCheckCircle /> Full Lifecycle (Design to Launch)
@@ -382,58 +578,193 @@ const Freelance = () => {
           </div>
         </section>
 
-        {/* ================= SERVICES SECTION ================= */}
-        <section id="services" className="freelance-services-section">
+        {/* ================= INTERACTIVE SERVICE SELECTION HUB ================= */}
+        <section id="interactive-hub" className="freelance-services-section">
           <div className="section-header">
-            <span className="section-tag">Capabilities</span>
-            <h2 className="section-title">What I Can Build For You</h2>
+            <span className="section-tag">Interactive Solution Explorer</span>
+            <h2 className="section-title">What Do You Need Built?</h2>
             <p className="section-subtitle">
-              Comprehensive end-to-end engineering and design services tailored to your project's unique requirements.
+              Click any service category below to view in-depth deliverables, architecture breakdown, live proof of work, and project scope.
             </p>
           </div>
 
-          <div className="services-grid">
-            {SERVICES_DATA.map((service, index) => (
-              <div key={index} className="service-card">
-                <div className="service-icon-box">{service.icon}</div>
-                <h3 className="service-card-title">{service.title}</h3>
-                <p className="service-card-desc">{service.desc}</p>
+          {/* Interactive Service Selector Tabs */}
+          <div className="service-tabs-nav" role="tablist" aria-label="Freelance Services">
+            {SERVICES_DATA.map((service) => {
+              const isActive = service.id === selectedServiceId;
+              return (
+                <button
+                  key={service.id}
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`service-tab-btn ${isActive ? "active" : ""}`}
+                  onClick={() => handleSelectService(service)}
+                >
+                  <span className="tab-icon">{service.icon}</span>
+                  <span className="tab-text">{service.shortLabel}</span>
+                  {isActive && <span className="tab-active-indicator"></span>}
+                </button>
+              );
+            })}
+          </div>
 
-                <div className="service-deliverables-title">Key Deliverables:</div>
-                <ul className="service-deliverables-list">
-                  {service.deliverables.map((item, idx) => (
+          {/* Interactive Dynamic Detail Panel */}
+          <div className="interactive-detail-panel" key={currentService.id}>
+            <div className="panel-header">
+              <div className="panel-title-area">
+                <span className="panel-badge">{currentService.badge}</span>
+                <h3 className="panel-title">{currentService.title}</h3>
+                <p className="panel-desc">{currentService.desc}</p>
+              </div>
+              <div className="panel-quick-meta">
+                <div className="meta-card">
+                  <span className="meta-label">
+                    <FaCalendarAlt /> Turnaround Time
+                  </span>
+                  <span className="meta-value">{currentService.timeline}</span>
+                </div>
+                <div className="meta-card">
+                  <span className="meta-label">
+                    <FaBoxOpen /> Recommended Plan
+                  </span>
+                  <span className="meta-value">{currentService.recommendedPackage}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Scope Breakdown Grid */}
+            <div className="panel-scope-section">
+              <h4 className="panel-subheading">How I Approach This</h4>
+              <div className="scope-cards-grid">
+                {currentService.scopeBreakdown.map((item, idx) => (
+                  <div key={idx} className="scope-card">
+                    <div className="scope-card-num">0{idx + 1}</div>
+                    <h5 className="scope-card-title">{item.title}</h5>
+                    <p className="scope-card-desc">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Deliverables Checklist & Tech Stack */}
+            <div className="panel-content-grid">
+              <div className="panel-deliverables-col">
+                <h4 className="panel-subheading">Included Deliverables:</h4>
+                <ul className="interactive-deliverables-list">
+                  {currentService.deliverables.map((item, idx) => (
                     <li key={idx}>
-                      <FaCheck />
+                      <FaCheck className="check-icon" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
 
+                <h4 className="panel-subheading" style={{ marginTop: "24px" }}>
+                  Technologies & Tools:
+                </h4>
                 <div className="service-tags">
-                  {service.tags.map((tag, idx) => (
+                  {currentService.tags.map((tag, idx) => (
                     <span key={idx} className="tech-tag">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
-            ))}
+
+              {/* Matching Real-World Proof Card */}
+              <div className="panel-proof-col">
+                <h4 className="panel-subheading">Relevant Real-World Work:</h4>
+                <div className="proof-cards-container">
+                  {PROVEN_APPS_DATA.filter((app) =>
+                    currentService.proofAppIds.includes(app.id)
+                  ).map((app) => (
+                    <div key={app.id} className="proof-mini-card">
+                      <div className="proof-card-top">
+                        <div>
+                          <span className="proof-platform">{app.platform}</span>
+                          <h5 className="proof-title">{app.title}</h5>
+                        </div>
+                        <span className="proof-badge">{app.badge}</span>
+                      </div>
+                      <p className="proof-desc">{app.desc}</p>
+                      <div className="proof-card-bottom">
+                        <div className="proof-tags">
+                          {app.tags.slice(0, 4).map((t, idx) => (
+                            <span key={idx} className="mini-tag">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                        <a
+                          href={app.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="proof-link-btn"
+                        >
+                          {app.linkText} <FaExternalLinkAlt style={{ fontSize: "0.7rem" }} />
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Call To Action Box for this specific service */}
+                <div className="panel-cta-box">
+                  <div className="cta-box-text">
+                    <strong>Need a {currentService.shortLabel}?</strong>
+                    <span>Lock in your sprint slot and get a tailored milestone quote.</span>
+                  </div>
+                  <button
+                    type="button"
+                    className="btn-primary-glow"
+                    onClick={() => handleStartInquiryForService(currentService)}
+                  >
+                    <FaPaperPlane /> Inquire for this Service
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* ================= PROVEN PRODUCTION APPS SECTION ================= */}
+        {/* ================= PROVEN PRODUCTION APPS (FILTERABLE) ================= */}
         <section id="proven-apps" className="freelance-apps-section">
           <div className="section-header">
             <span className="section-tag">Proven Track Record</span>
-            <h2 className="section-title">Real-World Apps on Google Play & Web</h2>
+            <h2 className="section-title">Production Apps on Google Play & Web</h2>
             <p className="section-subtitle">
-              Not just concepts or toy projects. I design, build, deploy, and maintain production applications with active users on the Google Play Store and web.
+              Real-world, battle-tested applications actively serving users. Filter to explore mobile or web architectures.
             </p>
           </div>
 
+          {/* Apps Filter Tabs */}
+          <div className="apps-filter-bar">
+            <button
+              type="button"
+              className={`filter-btn ${appFilter === "all" ? "active" : ""}`}
+              onClick={() => setAppFilter("all")}
+            >
+              <FaFilter /> All Projects ({PROVEN_APPS_DATA.length})
+            </button>
+            <button
+              type="button"
+              className={`filter-btn ${appFilter === "android" ? "active" : ""}`}
+              onClick={() => setAppFilter("android")}
+            >
+              <FaAndroid /> Android Apps (Play Store)
+            </button>
+            <button
+              type="button"
+              className={`filter-btn ${appFilter === "web" ? "active" : ""}`}
+              onClick={() => setAppFilter("web")}
+            >
+              <FaCode /> Web Applications
+            </button>
+          </div>
+
           <div className="apps-grid">
-            {PROVEN_APPS_DATA.map((app, index) => (
-              <div key={index} className="app-card">
+            {filteredApps.map((app) => (
+              <div key={app.id} className="app-card">
                 <div className="app-card-header">
                   <div>
                     <span className="app-platform-tag">{app.platform}</span>
@@ -483,7 +814,7 @@ const Freelance = () => {
               <div>
                 <h4 className="dev-banner-heading">Official Google Play Developer Account</h4>
                 <p className="dev-banner-sub">
-                  Explore all published Android applications, updates, and releases directly on the Google Play Store.
+                  Explore all published Android applications, release notes, and updates directly on the Google Play Store.
                 </p>
               </div>
             </div>
@@ -564,24 +895,57 @@ const Freelance = () => {
           </div>
         </section>
 
-        {/* ================= PROCESS SECTION ================= */}
+        {/* ================= INTERACTIVE WORKFLOW / PROCESS ================= */}
         <section className="freelance-process-section">
           <div className="section-header">
-            <span className="section-tag">Workflow</span>
+            <span className="section-tag">Interactive Workflow</span>
             <h2 className="section-title">How We'll Work Together</h2>
             <p className="section-subtitle">
-              A structured, transparent 4-step process designed to keep you in control and informed every step of the way.
+              A structured, transparent 4-step process designed to keep you in control and informed. Click each stage to see deliverables.
             </p>
           </div>
 
-          <div className="process-steps-grid">
-            {PROCESS_STEPS.map((step, index) => (
-              <div key={index} className="process-step-card">
-                <div className="step-number">{step.step}</div>
-                <h3 className="step-title">{step.title}</h3>
-                <p className="step-desc">{step.desc}</p>
+          {/* Interactive Stepper Navigation */}
+          <div className="stepper-nav-bar">
+            {PROCESS_STEPS.map((step, idx) => {
+              const isActive = idx === activeStepIndex;
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  className={`step-nav-btn ${isActive ? "active" : ""}`}
+                  onClick={() => setActiveStepIndex(idx)}
+                >
+                  <span className="step-btn-num">{step.step}</span>
+                  <span className="step-btn-text">{step.title}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Step Detailed Card */}
+          <div className="active-step-card" key={activeStepIndex}>
+            <div className="active-step-header">
+              <div className="step-large-num">{PROCESS_STEPS[activeStepIndex].step}</div>
+              <div>
+                <span className="step-tagline">{PROCESS_STEPS[activeStepIndex].tagline}</span>
+                <h3 className="step-heading">{PROCESS_STEPS[activeStepIndex].title}</h3>
               </div>
-            ))}
+            </div>
+
+            <p className="step-paragraph">{PROCESS_STEPS[activeStepIndex].desc}</p>
+
+            <div className="step-deliverables-box">
+              <div className="step-deliverables-heading">What You Receive at this Stage:</div>
+              <div className="step-deliverables-grid">
+                {PROCESS_STEPS[activeStepIndex].clientReceives.map((item, i) => (
+                  <div key={i} className="step-deliverable-item">
+                    <FaCheckCircle className="step-check-icon" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -591,7 +955,7 @@ const Freelance = () => {
             <span className="section-tag">Engagements</span>
             <h2 className="section-title">Flexible Engagement Models</h2>
             <p className="section-subtitle">
-              Choose the package that aligns with your product goals, whether you are launching an MVP or scaling an existing app.
+              Choose the package that aligns with your product goals, whether launching an MVP or scaling an existing app.
             </p>
           </div>
 
@@ -641,12 +1005,12 @@ const Freelance = () => {
                 <label className="form-label">1. What type of project are you looking for?</label>
                 <div className="chip-options-grid">
                   {[
-                    "Full-Stack Web App",
-                    "Android Mobile App",
-                    "UI/UX Design in Figma",
+                    "Android Mobile Apps",
+                    "Full-Stack Web Apps",
                     "MVP Launchpad",
-                    "Custom Backend / API",
-                    "Retainer / Maintenance"
+                    "UI/UX & Product Design",
+                    "Backend & Automation",
+                    "Retainer & Support"
                   ].map((option) => (
                     <button
                       key={option}
@@ -748,31 +1112,36 @@ const Freelance = () => {
               <div className="inquiry-actions">
                 <div className="direct-connect-pills">
                   <span className="direct-connect-label">Or reach out directly:</span>
-                  <a
-                    href="https://t.me/skdev1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="connect-icon-link"
-                    title="Chat on Telegram"
-                  >
-                    <FaTelegramPlane />
-                  </a>
-                  <a
-                    href="mailto:satyakiran296@gmail.com"
-                    className="connect-icon-link"
-                    title="Send an Email"
-                  >
-                    <FaEnvelope />
-                  </a>
-                  <a
-                    href="https://in.linkedin.com/in/satyakiran29"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="connect-icon-link"
-                    title="Connect on LinkedIn"
-                  >
-                    <FaLinkedin />
-                  </a>
+                  <div className="direct-connect-icons">
+                    <a
+                      href="https://t.me/skdev1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="connect-icon-link"
+                      title="Chat on Telegram"
+                      aria-label="Telegram"
+                    >
+                      <FaTelegramPlane />
+                    </a>
+                    <a
+                      href="mailto:satyakiran296@gmail.com"
+                      className="connect-icon-link"
+                      title="Send an Email"
+                      aria-label="Email"
+                    >
+                      <FaEnvelope />
+                    </a>
+                    <a
+                      href="https://in.linkedin.com/in/satyakiran29"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="connect-icon-link"
+                      title="Connect on LinkedIn"
+                      aria-label="LinkedIn"
+                    >
+                      <FaLinkedin />
+                    </a>
+                  </div>
                 </div>
 
                 <button type="submit" className="submit-inquiry-btn">
