@@ -544,38 +544,115 @@ const Freelance = () => {
     });
   };
 
+  const freelanceJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://satyakiran.vercel.app/freelance#service",
+        "name": "Satyakiran Freelance Software Development",
+        "url": "https://satyakiran.vercel.app/freelance",
+        "image": "https://avatars.githubusercontent.com/u/87798342?v=4",
+        "description": "Professional freelance full-stack web development and native Android application development services by Satyakiran.",
+        "provider": {
+          "@type": "Person",
+          "@id": "https://satyakiran.vercel.app/#person",
+          "name": "Satyakiran",
+          "url": "https://satyakiran.vercel.app/"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Worldwide"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Freelance Development Services",
+          "itemListElement": SERVICES_DATA.map((service, idx) => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": service.title,
+              "description": service.desc
+            },
+            "position": idx + 1
+          }))
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://satyakiran.vercel.app/freelance#faq",
+        "mainEntity": FAQ_ITEMS.map((item) => ({
+          "@type": "Question",
+          "name": item.q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.a
+          }
+        }))
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://satyakiran.vercel.app/freelance#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://satyakiran.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Freelance Services",
+            "item": "https://satyakiran.vercel.app/freelance"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="freelance-page">
       <Helmet>
         <title>Hire Satyakiran | Freelance Full-Stack & Android Developer</title>
         <meta
           name="description"
-          content="Hire Satyakiran for high-performance full-stack web applications, native Android development, and modern UI/UX design. Interactive service explorer, proven Google Play apps, and quick project estimates."
+          content="Hire Satyakiran, a Freelance Full-Stack Web & Android Developer. Specializing in high-performance React & Node web apps, native Android apps, and UI/UX design. Request a quote."
         />
         <meta
           name="keywords"
-          content="Hire Web Developer, Freelance Full-Stack Developer, Freelance React Developer, Android App Developer for Hire, UI/UX Designer, Satyakiran Freelance"
+          content="Hire Web Developer, Freelance Full-Stack Developer, Freelance React Developer, Android App Developer for Hire, UI/UX Designer, Satyakiran Freelance, Native Android Developer, Hire Kotlin Developer, Hire Node.js Developer, Mobile App Freelancer, Custom Web Development"
         />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <link rel="canonical" href="https://satyakiran.vercel.app/freelance" />
 
         {/* Open Graph */}
         <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Satyakiran Portfolio" />
         <meta property="og:url" content="https://satyakiran.vercel.app/freelance" />
         <meta property="og:title" content="Hire Satyakiran | Freelance Full-Stack & Android Developer" />
         <meta
           property="og:description"
-          content="Transform your ideas into high-performance web and mobile applications with Satyakiran."
+          content="Hire Satyakiran for high-performance full-stack web applications, native Android development, and UI/UX design. Published Play Store apps and fast turnaround."
         />
         <meta property="og:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta property="og:locale" content="en_US" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://satyakiran.vercel.app/freelance" />
         <meta name="twitter:title" content="Hire Satyakiran | Freelance Full-Stack & Android Developer" />
         <meta
           name="twitter:description"
-          content="Transform your ideas into high-performance web and mobile applications with Satyakiran."
+          content="Hire Satyakiran for high-performance full-stack web applications, native Android development, and UI/UX design. Published Play Store apps and fast turnaround."
         />
         <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta name="twitter:creator" content="@satyakiran29" />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(freelanceJsonLd)}
+        </script>
       </Helmet>
 
       <div className="freelance-container">

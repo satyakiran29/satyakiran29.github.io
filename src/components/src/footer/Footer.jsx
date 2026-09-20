@@ -82,6 +82,10 @@ function Footer() {
         <SocialMediaWrap>
           <WebsiteRights>
             <span>Developed by Satyakiran © {currentYear}</span>
+            <span style={{ margin: '0 8px', opacity: 0.3 }}>•</span>
+            <a href="/freelance" style={{ color: 'var(--accent-primary)', textDecoration: 'none', fontWeight: 500 }} title="Freelance Services & Project Inquiries">
+              Freelance & Hire
+            </a>
             {lastUpdated && (
               <LastUpdatedText title={`Local Time: ${currentTime}`}>
                 <FaClock style={{ fontSize: '0.8rem', color: 'var(--accent-primary)', flexShrink: 0 }} />

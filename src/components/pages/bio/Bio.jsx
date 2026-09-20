@@ -14,7 +14,8 @@ import {
   FaChevronDown,
   FaFileAlt,
   FaEye,
-  FaDownload
+  FaDownload,
+  FaBriefcase
 } from "react-icons/fa";
 
 const CodingBackground = () => {
@@ -150,8 +151,8 @@ const ProfileCard = () => {
     <>
       <Helmet>
         <title>Satyakiran | Links & Bio</title>
-        <meta name="description" content="Connect with Satyakiran - Gamer & Web Developer. Links to website, blogs, social media profiles, and Play Store developer console." />
-        <meta name="keywords" content="Satyakiran, developer bio, Linktree, portfolio, gamer, web developer, Android developer, Play Store developer" />
+        <meta name="description" content="Connect with Satyakiran – Full-Stack & Android Developer, Gamer, and Freelance Engineer. Access developer portfolio, freelance services, blog, and social links." />
+        <meta name="keywords" content="Satyakiran, developer bio, freelance developer, hire developer, Linktree, portfolio, gamer, web developer, Android developer, Play Store developer" />
         <link rel="canonical" href="https://satyakiran.vercel.app/bio" />
         
         {/* Open Graph / Facebook */}
@@ -159,14 +160,14 @@ const ProfileCard = () => {
         <meta property="og:site_name" content="Satyakiran Portfolio" />
         <meta property="og:url" content="https://satyakiran.vercel.app/bio" />
         <meta property="og:title" content="Satyakiran | Links & Bio" />
-        <meta property="og:description" content="Connect with Satyakiran - Gamer & Web Developer. Links to portfolio, blog, social media, and apps." />
+        <meta property="og:description" content="Connect with Satyakiran – Full-Stack & Android Developer, Gamer, and Freelance Engineer. Access developer portfolio, freelance services, blog, and social links." />
         <meta property="og:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://satyakiran.vercel.app/bio" />
         <meta name="twitter:title" content="Bio & Links | Satyakiran" />
-        <meta name="twitter:description" content="Explore social links, gaming profiles, and developer portfolio of Satyakiran." />
+        <meta name="twitter:description" content="Explore social links, gaming profiles, freelance services, and developer portfolio of Satyakiran." />
         <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
         <meta name="twitter:creator" content="@satyakiran29" />
       </Helmet>
@@ -197,6 +198,9 @@ const ProfileCard = () => {
           <div className="b_info-buttons">
             <a href="https://satyakiran.vercel.app" className="b_info-button">
               <FaGlobe /> Website
+            </a>
+            <a href="/freelance" className="b_info-button" style={{ border: '1px solid rgba(138, 43, 226, 0.4)', background: 'rgba(138, 43, 226, 0.1)' }}>
+              <FaBriefcase /> Freelance Services
             </a>
             <a href="https://satyakiran-blog.vercel.app" className="b_info-button">
               <FaBookOpen /> Blog Website
