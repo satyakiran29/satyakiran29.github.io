@@ -1180,20 +1180,138 @@
     padding-top: 80px;
   }
 
+  .freelance-page::before {
+    width: 350px;
+    height: 350px;
+    filter: blur(60px);
+    opacity: 0.7;
+  }
+
+  .freelance-page::after {
+    width: 300px;
+    height: 300px;
+    filter: blur(60px);
+    opacity: 0.5;
+    right: -30px;
+  }
+
+  .freelance-container {
+    padding: 0 18px;
+  }
+
+  /* Hero Section */
   .freelance-hero {
-    padding: 40px 0 50px 0;
+    padding: 36px 0 45px 0;
+  }
+
+  .status-pill {
+    font-size: 0.78rem;
+    padding: 6px 14px;
+    gap: 8px;
+    margin-bottom: 20px;
   }
 
   .freelance-hero-title {
     font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 16px;
   }
 
   .freelance-hero-subtitle {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
   }
 
+  .freelance-hero-actions {
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  /* Section Headers & Spacing */
+  .freelance-services-section,
+  .freelance-apps-section,
+  .freelance-why-section,
+  .freelance-process-section,
+  .freelance-pricing-section,
+  .freelance-inquiry-section,
+  .freelance-faq-section {
+    padding: 48px 0;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.98rem;
+  }
+
+  /* Services Grid */
   .services-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 26px 20px;
+  }
+
+  /* Apps Section - CRITICAL FIX */
+  .apps-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .app-card {
+    padding: 26px 20px;
+  }
+
+  .developer-console-banner {
+    padding: 22px 18px;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+    gap: 16px;
+  }
+
+  .developer-console-banner .btn-primary-glow {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  .experience-spotlight-card {
+    padding: 26px 20px;
+    margin-top: 26px;
+    border-radius: 18px;
+  }
+
+  .spotlight-takeaways-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* Pricing */
+  .pricing-grid {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    gap: 22px;
+  }
+
+  .pricing-card {
+    padding: 28px 20px;
+  }
+
+  /* Inquiry Form */
+  .inquiry-wrapper {
+    padding: 28px 20px;
+    border-radius: 20px;
   }
 
   .input-row {
@@ -1201,13 +1319,10 @@
     gap: 14px;
   }
 
-  .inquiry-wrapper {
-    padding: 26px 18px;
-  }
-
   .inquiry-actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 18px;
   }
 
   .submit-inquiry-btn {
@@ -1217,38 +1332,312 @@
 
   .direct-connect-pills {
     justify-content: center;
+    flex-wrap: wrap;
   }
 
+  /* FAQ */
+  .faq-question-btn {
+    padding: 18px 20px;
+    font-size: 1rem;
+  }
+
+  .faq-answer {
+    padding: 0 20px 18px 20px;
+  }
+
+  /* CTA Banner */
   .cta-banner {
-    padding: 40px 20px;
+    padding: 40px 22px;
+    border-radius: 22px;
   }
 
   .cta-banner-title {
-    font-size: 1.9rem;
+    font-size: 2rem;
+  }
+
+  .cta-banner-desc {
+    font-size: 1rem;
+    margin-bottom: 28px;
   }
 }
 
-@media (max-width: 480px) {
-  .freelance-hero-title {
-    font-size: 1.9rem;
+@media (max-width: 600px) {
+  .freelance-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 12px;
+  }
+
+  .freelance-hero-actions .btn-primary-glow,
+  .freelance-hero-actions .btn-secondary-glass {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
   }
 
   .why-grid,
   .process-steps-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .section-title {
-    font-size: 1.9rem;
+  .cta-banner-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    gap: 12px;
+  }
+
+  .cta-banner-actions a {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .freelance-container {
+    padding: 0 14px;
+  }
+
+  .freelance-hero {
+    padding: 28px 0 38px 0;
+  }
+
+  .freelance-hero-title {
+    font-size: 1.85rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+  }
+
+  .freelance-hero-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 26px;
   }
 
   .hero-highlights-strip {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    gap: 8px;
   }
 
   .highlight-badge {
     width: 100%;
     justify-content: center;
+    box-sizing: border-box;
+    font-size: 0.84rem;
+    padding: 8px 14px;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .service-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .service-icon-box {
+    width: 48px;
+    height: 48px;
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+  }
+
+  .service-card-title {
+    font-size: 1.25rem;
+  }
+
+  .service-card-desc {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .service-deliverables-list li {
+    font-size: 0.86rem;
+  }
+
+  .app-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .app-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .app-card-title {
+    font-size: 1.25rem;
+  }
+
+  .app-card-desc {
+    font-size: 0.9rem;
+  }
+
+  .app-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .app-link-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .dev-banner-text {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .dev-banner-icon {
+    font-size: 1.8rem;
+  }
+
+  .experience-spotlight-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .spotlight-header {
+    gap: 12px;
+  }
+
+  .spotlight-avatar {
+    width: 46px;
+    height: 46px;
+  }
+
+  .spotlight-title-group h4 {
+    font-size: 1.1rem;
+  }
+
+  .spotlight-content {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .takeaway-item {
+    padding: 14px 12px;
+  }
+
+  .pricing-card {
+    padding: 22px 16px;
+    border-radius: 16px;
+  }
+
+  .plan-desc {
+    min-height: auto;
+    margin-bottom: 14px;
+  }
+
+  .plan-features-list {
+    margin-bottom: 22px;
+  }
+
+  .plan-features-list li {
+    font-size: 0.86rem;
+    margin-bottom: 10px;
+  }
+
+  .inquiry-wrapper {
+    padding: 20px 14px;
+    border-radius: 16px;
+  }
+
+  .form-group-block {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    font-size: 0.88rem;
+    margin-bottom: 10px;
+  }
+
+  .chip-options-grid {
+    gap: 8px;
+  }
+
+  .chip-btn {
+    padding: 7px 12px;
+    font-size: 0.82rem;
+    border-radius: 8px;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .direct-connect-pills {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .faq-question-btn {
+    padding: 15px 14px;
+    font-size: 0.92rem;
+    gap: 12px;
+  }
+
+  .faq-answer {
+    padding: 0 14px 16px 14px;
+    font-size: 0.86rem;
+  }
+
+  .cta-banner {
+    padding: 32px 16px;
+    border-radius: 18px;
+  }
+
+  .cta-banner-title {
+    font-size: 1.55rem;
+    margin-bottom: 12px;
+  }
+
+  .cta-banner-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .freelance-container {
+    padding: 0 10px;
+  }
+
+  .freelance-hero-title {
+    font-size: 1.65rem;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+  }
+
+  .chip-btn {
+    font-size: 0.76rem;
+    padding: 6px 10px;
   }
 }
