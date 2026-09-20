@@ -142,10 +142,10 @@ const App = () => {
   const achievements = [
     {
       id: 1,
-      title: "App Monetization",
-      subtitle: "Aniset / Anify Android Apps",
+      title: "Android App Creator & Publisher",
+      subtitle: "Anify & Aniset (Google Play Store)",
       date: "2024 - Present",
-      description: "Successfully monetized the \"Aniset / Anify\" Android applications, generating over 16,000 in revenue through in-app purchases, ad integration, and active user engagement."
+      description: "Designed, engineered, and published production Android applications (\"Anify\" and \"Aniset\") on the Google Play Store. Implemented native Android UI, widget customization engines, Firebase cloud synchronization, and successfully monetized with in-app purchases and ads, generating over 16,000 in revenue with active user engagement."
     }
   ];
 

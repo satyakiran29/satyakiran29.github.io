@@ -11,6 +11,7 @@ import Nav from "./components/src/nav/nav";
 import LoaderComponent from "./components/loader/Loader";
 import ExternalRedirect from './components/pages/ExternalRedirect';
 import NotFound from "./components/pages/notfound/NotFound";
+import Freelance from "./components/pages/freelance/Freelance";
 
 function App() {
   const [Loading, SetLoading] = useState(true);
@@ -64,6 +65,8 @@ function AppContent() {
         />
         <Route path="/Bio" element={<Bio />} />
         <Route path="/bio" element={<Bio />} />
+        <Route path="/freelance" element={<Freelance />} />
+        <Route path="/Freelance" element={<Freelance />} />
         <Route
           path="/Blog"
           element={<ExternalRedirect to="https://satyakiran-blog.vercel.app/" />}

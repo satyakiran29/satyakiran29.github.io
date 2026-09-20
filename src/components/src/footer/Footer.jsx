@@ -19,7 +19,8 @@ import {
 } from './Footer.elements';
 
 function Footer() {
-  const [lastUpdated, setLastUpdated] = useState('Sep 1, 2026, 01:39 AM');
+  const CURRENT_RELEASE_DATE = 'Sep 20, 2026, 02:48 PM';
+  const [lastUpdated, setLastUpdated] = useState(CURRENT_RELEASE_DATE);
   const [currentTime, setCurrentTime] = useState('');
   const currentYear = new Date().getFullYear();
 
@@ -47,33 +48,27 @@ function Footer() {
           const commitDateStr = data.commit?.committer?.date || data.commit?.author?.date;
           if (commitDateStr) {
             const commitDate = new Date(commitDateStr);
-            const formatted = commitDate.toLocaleString('en-US', {
-              month: 'short',
-              day: 'numeric',
-              year: 'numeric',
-              hour: '2-digit',
-              minute: '2-digit',
-              hour12: true
-            });
-            setLastUpdated(formatted);
-            return;
+            const minimumDate = new Date('2026-09-20T14:48:00+05:30');
+            // Only update if remote GitHub commit is newer than the current update
+            if (commitDate > minimumDate) {
+              const formatted = commitDate.toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                hour12: true
+              });
+              setLastUpdated(formatted);
+              return;
+            }
           }
         }
       } catch (err) {
         console.warn('Using default date for last updated:', err);
       }
 
-      // Default formatted timestamp
-      const fallbackDate = new Date();
-      const formatted = fallbackDate.toLocaleString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true
-      });
-      setLastUpdated(formatted);
+      setLastUpdated(CURRENT_RELEASE_DATE);
     };
 
     fetchLastCommit();

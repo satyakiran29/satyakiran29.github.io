@@ -201,8 +201,8 @@ const ProfileCard = () => {
             <a href="https://satyakiran-blog.vercel.app" className="b_info-button">
               <FaBookOpen /> Blog Website
             </a>
-            <a href="mailto:psatyakiran1@gmail.com" className="b_info-button">
-              <FaEnvelope /> Email
+            <a href="mailto:satyakiran296@gmail.com" className="b_info-button">
+              <FaEnvelope /> Email Me
             </a>
           </div>
 

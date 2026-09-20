@@ -354,6 +354,23 @@
   box-shadow: 0 0 16px rgba(129, 140, 248, 0.25);
 }
 
+/* Freelance Item (Emerald accent) */
+.mobile-nav-card.freelance-card .icon-freelance,
+.mobile-nav-card.freelance-card .text-freelance,
+.mobile-nav-card.freelance-card .chevron-freelance {
+  color: #2cb67d;
+}
+
+.mobile-nav-card.freelance-card:hover {
+  background: rgba(44, 182, 125, 0.08);
+}
+
+.mobile-nav-card.freelance-card.active-freelance {
+  background: rgba(44, 182, 125, 0.1);
+  border: 1.5px solid #2cb67d;
+  box-shadow: 0 0 16px rgba(44, 182, 125, 0.25);
+}
+
 /* Bottom Quick Action / Social Bar */
 .mobile-social-bar {
   display: grid;

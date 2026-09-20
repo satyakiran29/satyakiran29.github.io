@@ -8,7 +8,7 @@ const Contact = () => {
             <p className="contact-desc">
                 My inbox is always open. Whether you have a question or just want to say hello, I'll try my best to get back to you! Feel free to mail me about any relevant job updates.
             </p>
-            <a href="mailto:psatyakiran1@gmail.com" className="contact-btn">
+            <a href="mailto:satyakiran296@gmail.com" className="contact-btn">
                 Mail Me
             </a>
         </section>

@@ -15,7 +15,8 @@ import {
   FaGooglePlay,
   FaInstagram,
   FaEnvelope,
-  FaGithub
+  FaGithub,
+  FaBriefcase
 } from "react-icons/fa";
 
 function NavBar() {
@@ -30,6 +31,11 @@ function NavBar() {
   useEffect(() => {
     if (location.pathname === "/bio" || location.pathname === "/Bio") {
       setActiveSection("bio");
+      return;
+    }
+
+    if (location.pathname.toLowerCase() === "/freelance") {
+      setActiveSection("freelance");
       return;
     }
 
@@ -139,6 +145,14 @@ function NavBar() {
               >
                 Contact
               </a>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                to="/freelance"
+                className={`nav-links ${location.pathname.toLowerCase() === "/freelance" ? "active" : ""}`}
+              >
+                Freelance
+              </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
@@ -265,6 +279,18 @@ function NavBar() {
               </div>
               <FaChevronRight className="nav-item-chevron chevron-bio" />
             </NavLink>
+
+            <NavLink
+              to="/freelance"
+              className={`mobile-nav-card freelance-card ${location.pathname.toLowerCase() === "/freelance" ? "active-freelance" : ""}`}
+              onClick={closeMenu}
+            >
+              <div className="mobile-nav-left">
+                <FaBriefcase className="nav-item-icon icon-freelance" />
+                <span className="nav-item-label text-freelance">💼 Freelance & Hire</span>
+              </div>
+              <FaChevronRight className="nav-item-chevron chevron-freelance" />
+            </NavLink>
           </div>
 
           {/* Bottom Social / Quick Action Icons Grid */}
@@ -297,7 +323,7 @@ function NavBar() {
               <FaInstagram />
             </a>
             <a
-              href="mailto:psatyakiran29@gmail.com"
+              href="mailto:satyakiran296@gmail.com"
               className="mobile-social-pill"
               aria-label="Email"
             >

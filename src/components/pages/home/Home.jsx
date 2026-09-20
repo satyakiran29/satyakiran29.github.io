@@ -4,7 +4,8 @@ import "../home/home.css";
 
 import { Analytics } from '@vercel/analytics/react';
 import Skills from "./Skills";
-import { FaGooglePlay, FaEye, FaDownload } from "react-icons/fa";
+import { FaGooglePlay, FaEye, FaDownload, FaBriefcase } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const PHRASES = [
   "Web Developer",
@@ -109,15 +110,15 @@ const Home = () => {
           <div className="hero-image-container">
             <img src="https://avatars.githubusercontent.com/u/87798342?v=4" alt="Profile" className="hero-img" />
             <div className="glow-ring"></div>
-            <div className="status-badge">
+            <Link to="/freelance" className="status-badge" title="Available for Freelance - Click to view services">
               <div className="status-dot-container">
                 <div className="status-dot"></div>
               </div>
               <div className="status-text-container">
                 <span className="status-label">STATUS</span>
-                <span className="status-text">Open for Work</span>
+                <span className="status-text">Open for Work ✦</span>
               </div>
-            </div>
+            </Link>
           </div>
           <h1 className="hero-title">
             Hi, I'm <span className="gradient-text">Satyakiran</span>
@@ -129,6 +130,9 @@ const Home = () => {
             </span>
           </p>
           <div className="hero-actions">
+            <Link to="/freelance" className="btn-freelance">
+              <FaBriefcase /> Hire Me
+            </Link>
             <div className="resume-btn-group">
               <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn-main" title="View Resume in Browser">
                 <FaEye /> Resume

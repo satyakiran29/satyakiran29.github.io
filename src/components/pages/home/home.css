@@ -194,99 +194,112 @@
 /* Buttons */
 .hero-actions {
     display: flex;
-    gap: 20px;
+    gap: 14px;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
 }
 
 .btn-primary,
-.btn-secondary {
-    padding: 14px 32px;
+.btn-secondary,
+.btn-freelance,
+.resume-btn-group {
+    height: 48px;
     border-radius: 50px;
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 0.5px;
     transition: all var(--transition-fast);
     text-decoration: none;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-primary {
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    color: var(--bg-primary);
-    box-shadow: 0 10px 20px rgba(127, 90, 240, 0.3);
+.btn-freelance {
+    gap: 8px;
+    padding: 0 24px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
+    box-shadow: 0 8px 22px rgba(16, 185, 129, 0.35);
+    border: none;
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(127, 90, 240, 0.4);
-}
-
-.btn-secondary {
-    background: var(--glass-bg);
-    color: var(--text-main);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(10px);
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-3px);
+.btn-freelance:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(16, 185, 129, 0.5);
+    color: #ffffff;
 }
 
 /* Split Resume Button Group */
 .resume-btn-group {
-    display: inline-flex;
-    align-items: center;
-    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    border-radius: 50px;
-    box-shadow: 0 10px 20px rgba(127, 90, 240, 0.3);
-    transition: all var(--transition-fast);
+    background: linear-gradient(135deg, var(--accent-primary), #6342d6);
+    box-shadow: 0 8px 22px rgba(127, 90, 240, 0.35);
     overflow: hidden;
+    padding: 0;
 }
 
 .resume-btn-group:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 25px rgba(127, 90, 240, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(127, 90, 240, 0.5);
 }
 
 .resume-btn-main {
-    padding: 14px 20px 14px 28px;
-    color: var(--bg-primary);
+    padding: 0 16px 0 20px;
+    color: #ffffff;
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1rem;
     letter-spacing: 0.5px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
+    height: 100%;
     gap: 8px;
     transition: background 0.2s ease;
 }
 
 .resume-btn-main:hover {
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .resume-btn-divider {
     width: 1px;
-    height: 22px;
-    background: rgba(0, 0, 0, 0.25);
+    height: 20px;
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .resume-btn-dl {
-    padding: 14px 22px 14px 18px;
-    color: var(--bg-primary);
-    font-size: 1.1rem;
+    padding: 0 16px;
+    color: #ffffff;
+    font-size: 0.95rem;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
     transition: background 0.2s ease;
 }
 
 .resume-btn-dl:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary {
+    padding: 0 24px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
 }
 
 
@@ -345,17 +358,22 @@
     }
 
     .hero-actions {
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
         width: 100%;
-        gap: 12px;
+        max-width: 360px;
+        margin: 0 auto;
     }
 
     .btn-primary,
     .btn-secondary,
+    .btn-freelance,
     .resume-btn-group {
         width: 100%;
-        max-width: 320px;
+        height: 44px;
+        font-size: 0.92rem;
+        padding: 0 12px;
         box-sizing: border-box;
         justify-content: center;
     }
@@ -363,13 +381,13 @@
     .resume-btn-main {
         flex: 1;
         justify-content: center;
-        padding: 12px 16px;
-        font-size: 1rem;
+        padding: 0 8px 0 12px;
+        font-size: 0.92rem;
     }
 
     .resume-btn-dl {
-        padding: 12px 18px;
-        font-size: 1rem;
+        padding: 0 12px;
+        font-size: 0.92rem;
     }
 
     .hero-image-container {
