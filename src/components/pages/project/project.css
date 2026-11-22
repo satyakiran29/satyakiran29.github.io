@@ -1,12 +1,16 @@
 /* General Styles - Removing duplicated body styles to inherit from index.css */
+.projects-section {
+  padding: 48px 0;
+  width: 100%;
+}
+
 .projects-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: clamp(20px, 3vw, 40px);
-  padding: clamp(20px, 4vw, 40px) 16px;
+  gap: clamp(20px, 3vw, 32px);
+  padding: 16px;
   max-width: 1200px;
   margin: 0 auto;
-  animation: fadeInDown var(--transition-slow);
   width: 100%;
 }
 
@@ -61,8 +65,9 @@
 }
 
 .project-title {
-  font-size: clamp(18px, 3vw, 24px);
-  font-weight: bold;
+  font-size: clamp(18px, 3vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
   font-family: var(--font-heading);
   color: var(--text-main);
   margin-top: 0;
@@ -128,12 +133,11 @@
 .project-icon {
   font-size: 20px;
   color: var(--text-muted);
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  transition: color var(--transition-fast);
 }
 
 .project-icon:hover {
-  color: var(--accent-primary);
-  transform: translateY(-3px) scale(1.1);
+  color: var(--text-main);
 }
 
 /* Search Bar Styles */
