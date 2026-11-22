@@ -80,12 +80,12 @@ const CetificateCard = ({ title, description, date, certificatelink, image }) =>
       </div>
 
       <h2>{title}</h2>
-      <h5>
-        <b>Issued By</b> {description}
-      </h5>
-      <h6>
-        <b>Date:-</b> {date}
-      </h6>
+      <p className="certificate-issuer">
+        <span>Issued by</span> {description}
+      </p>
+      <span className="certificate-date">
+        {date}
+      </span>
       <div className="links">
         <button
           className="link-button"
@@ -258,23 +258,23 @@ const App = () => {
 
   return (
     <div className="about-page">
-      <center>
-        <h1>Experience & <span style={{ color: '#7f5af0' }}>Education</span></h1>
-        <p className="subtitle">My academic and professional journey.</p>
-      </center>
+      <div className="section-header-center">
+        <h1>Experience & Education</h1>
+        <p className="subtitle">Academic background, technical internships, and published achievements.</p>
+      </div>
 
-      <div className="resume-section" style={{ maxWidth: '800px', margin: '30px auto 10px', padding: '0 20px' }}>
-        <div className="card resume-card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+      <div className="resume-section">
+        <div className="card resume-card">
           <div className="certificate-preview-wrapper" onClick={() => window.open('/resume.pdf', '_blank')} title="View Resume PDF">
             <PdfPreview file="/resume.pdf" />
           </div>
-          <h2 style={{ marginTop: '16px' }}>Curriculum Vitae / Resume</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '20px' }}>View online or download my official up-to-date resume PDF.</p>
-          <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <button className="link-button" onClick={() => window.open('/resume.pdf', '_blank')} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+          <h2 className="resume-card-title">Curriculum Vitae / Resume</h2>
+          <p className="resume-card-desc">View online or download my official up-to-date resume PDF.</p>
+          <div className="resume-card-actions">
+            <button className="link-button" onClick={() => window.open('/resume.pdf', '_blank')}>
               <FaEye /> View Resume
             </button>
-            <a href="/resume.pdf" download="satyakiran_resume.pdf" className="link-button" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}>
+            <a href="/resume.pdf" download="satyakiran_resume.pdf" className="link-button">
               <FaDownload /> Download Resume
             </a>
           </div>
@@ -303,9 +303,10 @@ const App = () => {
         ))}
       </div>
 
-      <center style={{ marginTop: '60px' }}>
-        <h1>Licenses & <span style={{ color: '#7f5af0' }}>Certificates</span></h1>
-      </center>
+      <div className="section-header-center section-header-certs">
+        <h1>Licenses & Certificates</h1>
+        <p className="subtitle">Verified credentials and developer certifications.</p>
+      </div>
       <div className="c_container">
         {staticCertificates.map((certificate) => (
           <CetificateCard key={certificate.id} {...certificate} />
