@@ -85,10 +85,10 @@ const Project = () => {
   });
 
   return (
-    <>
-      <center>
-        <h1>Projects</h1>
-        <p>My projects make use of a vast variety of the latest technology tools.</p>
+    <div className="projects-section">
+      <div className="section-header-center">
+        <h1 className="projects-heading">Featured Projects</h1>
+        <p className="projects-subtitle">Production Android applications on Google Play Store and full-stack web platforms.</p>
 
         {/* Search Bar */}
         <div className="search-container">
@@ -114,26 +114,25 @@ const Project = () => {
             </button>
           ))}
         </div>
-      </center>
+      </div>
       <div className="projects-container">
         {filteredProjects.map((project, index) => (
           <ProjectCard key={index} index={index} {...project} />
         ))}
       </div>
 
-      <center>
-        <h1>Client Feedback</h1>
-        <p className="testimony-subtitle">
-          Verified feedback from collaborators and clients
+      <div className="section-header-center section-header-feedback">
+        <h1 className="projects-heading">Client & User Feedback</h1>
+        <p className="projects-subtitle">
+          Verified reviews from published Google Play apps and software collaborations.
         </p>
-      </center>
+      </div>
       <div className="testimonies-grid">
         {testimonies.map((testimony, index) => (
           <TestimonyCard key={index} {...testimony} />
         ))}
       </div>
-
-    </>
+    </div>
   );
 };
 
