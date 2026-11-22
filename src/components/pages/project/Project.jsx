@@ -122,9 +122,9 @@ const Project = () => {
       </div>
 
       <center>
-        <h1>Client <span style={{ color: '#7f5af0' }}>Feedback</span></h1>
+        <h1>Client Feedback</h1>
         <p className="testimony-subtitle">
-          What people say about my work
+          Verified feedback from collaborators and clients
         </p>
       </center>
       <div className="testimonies-grid">

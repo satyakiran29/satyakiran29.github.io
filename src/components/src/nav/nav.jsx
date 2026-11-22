@@ -159,7 +159,7 @@ function NavBar() {
                 to="/bio"
                 className="nav-links nav-bio-badge"
               >
-                ✦ Full Bio
+                Bio
               </NavLink>
             </li>
           </ul>
@@ -275,7 +275,7 @@ function NavBar() {
             >
               <div className="mobile-nav-left">
                 <FaUserNinja className="nav-item-icon icon-bio" />
-                <span className="nav-item-label text-bio">✦ Developer Bio</span>
+                <span className="nav-item-label text-bio">Developer Bio</span>
               </div>
               <FaChevronRight className="nav-item-chevron chevron-bio" />
             </NavLink>
@@ -287,7 +287,7 @@ function NavBar() {
             >
               <div className="mobile-nav-left">
                 <FaBriefcase className="nav-item-icon icon-freelance" />
-                <span className="nav-item-label text-freelance">💼 Freelance & Hire</span>
+                <span className="nav-item-label text-freelance">Freelance & Services</span>
               </div>
               <FaChevronRight className="nav-item-chevron chevron-freelance" />
             </NavLink>

@@ -72,10 +72,10 @@ const skillCategories = [
 const Skills = () => {
     return (
         <section className="skills-section">
-            <center>
-                <h1 className="skills-heading">My <span className="gradient-text">Skills</span></h1>
-                <p className="skills-subtitle">Technologies and tools I use to build robust applications.</p>
-            </center>
+            <div className="skills-header-center">
+                <h2 className="skills-heading">Technical Stack</h2>
+                <p className="skills-subtitle">Languages, frameworks, and tools used across production projects.</p>
+            </div>
             <div className="skills-container">
                 {skillCategories.map((group, index) => (
                     <div key={index} className="skills-category">
@@ -87,16 +87,7 @@ const Skills = () => {
                                         <div className="skill-icon">{skill.icon}</div>
                                     </div>
                                     <div className="skill-details">
-                                        <div className="skill-header">
-                                            <span className="skill-name">{skill.name}</span>
-                                            <span className="skill-percentage">{skill.percentage}%</span>
-                                        </div>
-                                        <div className="skill-progress-bar">
-                                            <div
-                                                className="skill-progress-fill"
-                                                style={{ width: `${skill.percentage}%` }}
-                                            ></div>
-                                        </div>
+                                        <span className="skill-name">{skill.name}</span>
                                     </div>
                                 </div>
                             ))}

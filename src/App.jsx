@@ -18,9 +18,10 @@ function App() {
 
   useEffect(() => {
     SetLoading(true);
-    setTimeout(() => {
+    const t = setTimeout(() => {
       SetLoading(false);
-    }, 3500); // Increased timeout to let the loader animation finish
+    }, 400);
+    return () => clearTimeout(t);
   }, []);
 
   return (

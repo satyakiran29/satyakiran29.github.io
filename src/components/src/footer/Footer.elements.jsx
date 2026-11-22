@@ -51,25 +51,25 @@ export const WebsiteRights = styled.div`
 export const LastUpdatedText = styled.span`
   color: var(--text-muted);
   font-size: clamp(0.72rem, 1.8vw, 0.78rem);
+  font-family: var(--font-mono);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
   padding: 4px 10px;
-  border-radius: 20px;
+  border-radius: var(--radius-sm);
   margin-top: 4px;
   width: fit-content;
-  transition: border-color var(--transition-fast), background var(--transition-fast);
+  transition: border-color var(--transition-fast);
 
   b {
-    color: var(--text-main);
+    color: var(--text-secondary);
     font-weight: 500;
   }
 
   &:hover {
-    background: rgba(127, 90, 240, 0.08);
-    border-color: rgba(127, 90, 240, 0.3);
+    border-color: var(--border-hover);
   }
 
   @media screen and (max-width: 820px) {

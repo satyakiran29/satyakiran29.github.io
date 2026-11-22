@@ -109,19 +109,18 @@ const Home = () => {
         <div className="hero-content">
           <div className="hero-image-container">
             <img src="https://avatars.githubusercontent.com/u/87798342?v=4" alt="Profile" className="hero-img" />
-            <div className="glow-ring"></div>
-            <Link to="/freelance" className="status-badge" title="Available for Freelance - Click to view services">
+            <Link to="/freelance" className="status-badge" title="Available for Freelance">
               <div className="status-dot-container">
                 <div className="status-dot"></div>
               </div>
               <div className="status-text-container">
-                <span className="status-label">STATUS</span>
-                <span className="status-text">Open for Work ✦</span>
+                <span className="status-label">Status</span>
+                <span className="status-text">Open for work</span>
               </div>
             </Link>
           </div>
           <h1 className="hero-title">
-            Hi, I'm <span className="gradient-text">Satyakiran</span>
+            Hi, I'm Satyakiran
           </h1>
           <p className="hero-subtitle">
             <span className="typewriter-js">
@@ -130,22 +129,22 @@ const Home = () => {
             </span>
           </p>
           <div className="hero-actions">
-            <Link to="/freelance" className="btn-freelance">
+            <Link to="/freelance" className="btn-primary">
               <FaBriefcase /> Hire Me
             </Link>
             <div className="resume-btn-group">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn-main" title="View Resume in Browser">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn-main" title="View Resume">
                 <FaEye /> Resume
               </a>
               <span className="resume-btn-divider"></span>
-              <a href="/resume.pdf" download="satyakiran_resume.pdf" className="resume-btn-dl" title="Download Resume PDF">
+              <a href="/resume.pdf" download="satyakiran_resume.pdf" className="resume-btn-dl" title="Download Resume">
                 <FaDownload />
               </a>
             </div>
             <a href="#projects" className="btn-secondary">
               View Work
             </a>
-            <a href="https://play.google.com/store/apps/dev?id=9166037782169864125" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+            <a href="https://play.google.com/store/apps/dev?id=9166037782169864125" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
               <FaGooglePlay /> Play Console
             </a>
           </div>

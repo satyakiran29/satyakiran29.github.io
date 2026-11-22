@@ -28,109 +28,64 @@
 
 /* Subtle glow node in center */
 .b_code-bg::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(127, 90, 240, 0.05) 0%, transparent 80%);
-  pointer-events: none;
+  display: none;
 }
 
 .b_code-particle {
-  position: absolute;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(13px, 1.2vw, 16px);
-  font-weight: 600;
-  color: rgba(127, 90, 240, 0.15);
-  /* Accent primary opacity */
-  user-select: none;
-  pointer-events: none;
-  animation: float-up infinite ease-in-out alternate;
+  display: none;
 }
 
-/* Color variations */
-.b_code-particle:nth-child(3n) {
-  color: rgba(44, 182, 125, 0.15);
-  /* Accent secondary (green) */
-}
-
-.b_code-particle:nth-child(4n) {
-  color: rgba(255, 255, 255, 0.08);
-  /* White code */
-}
-
-/* Profile Card matching website's glassmorphism */
+/* Profile Card */
 .b_card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  padding: 35px 30px;
-  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  padding: 32px 24px;
+  border-radius: var(--radius-card);
   text-align: center;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-  animation: b_fadeInUp var(--transition-slow);
 }
 
-/* Profile Picture & Glowing Ring */
+/* Profile Picture */
 .b_profile-image-container {
   position: relative;
-  width: 170px;
-  height: 170px;
-  margin: 0 auto 25px auto;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .b_profile-pic {
-  width: 160px;
-  height: 160px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   position: relative;
   z-index: 2;
-  border: 3px solid rgba(56, 189, 248, 0.5);
-  box-shadow: 0 0 25px rgba(56, 189, 248, 0.35), 0 0 50px rgba(59, 130, 246, 0.25);
-  transition: transform var(--transition-normal);
-}
-
-.b_profile-image-container:hover .b_profile-pic {
-  transform: scale(1.03);
+  border: 1px solid var(--border-hairline);
 }
 
 .b_glow-ring {
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  width: calc(100% + 8px);
-  height: calc(100% + 8px);
-  border-radius: 50%;
-  background: conic-gradient(from 180deg, #38bdf8, #818cf8, #3b82f6, #38bdf8);
-  animation: b-spin 6s linear infinite;
-  z-index: 1;
-  filter: blur(10px);
-  opacity: 0.8;
+  display: none;
 }
 
 /* Name & Title */
 .b_name {
   font-family: var(--font-heading);
-  font-size: 26px;
-  font-weight: 800;
-  margin-top: 15px;
-  margin-bottom: 5px;
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  color: var(--text-main);
 }
 
 .b_title {
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-family: var(--font-body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: 0;
 }
 
@@ -139,16 +94,16 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 24px;
+  gap: 8px;
+  margin-top: 20px;
 }
 
 .b_info-button {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--glass-border);
-  padding: 8px 16px;
-  border-radius: 20px;
-  color: var(--text-main);
+  background: var(--bg-raised);
+  border: 1px solid var(--border-hairline);
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
@@ -156,60 +111,54 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .b_info-button svg {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .b_info-button:hover {
-  background: var(--accent-primary);
-  color: var(--bg-primary);
-  border-color: transparent;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(127, 90, 240, 0.35);
+  color: var(--text-main);
+  border-color: var(--border-hover);
 }
 
 /* Social Links List */
 .b_social-links {
-  margin-top: 30px;
+  margin-top: 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 
 .b_social-button {
   display: flex;
   align-items: center;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  padding: 14px 20px;
-  border-radius: 12px;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-hairline);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
   color: var(--text-main);
   text-decoration: none;
-  font-family: var(--font-heading);
-  font-size: 15px;
+  font-family: var(--font-body);
+  font-size: 14px;
   font-weight: 500;
   gap: 12px;
-  transition: all var(--transition-fast);
+  transition: border-color var(--transition-fast);
 }
 
 .b_social-button svg {
-  font-size: 20px;
+  font-size: 18px;
   color: var(--text-muted);
   transition: color var(--transition-fast);
 }
 
 .b_social-button:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--accent-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(127, 90, 240, 0.15);
+  border-color: var(--border-hover);
 }
 
 .b_social-button:hover svg {
-  color: var(--accent-primary);
+  color: var(--text-main);
 }
 
 /* Play Store Specific Badge Styling */

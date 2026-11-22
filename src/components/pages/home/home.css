@@ -25,148 +25,111 @@
     animation: fadeInUp 1s ease-out;
 }
 
-/* Profile Image & Avatar Glow */
+/* Profile Image & Avatar */
 .hero-image-container {
     position: relative;
-    width: 250px;
-    height: 250px;
-    margin: 0 auto 40px auto;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 32px auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hero-img {
-    width: 240px;
-    height: 240px;
+    width: 190px;
+    height: 190px;
     border-radius: 50%;
     object-fit: cover;
     position: relative;
     z-index: 2;
-    border: 3px solid rgba(56, 189, 248, 0.5);
-    box-shadow: 0 0 35px rgba(56, 189, 248, 0.35), 0 0 65px rgba(59, 130, 246, 0.25);
-    transition: transform var(--transition-normal);
+    border: 1px solid var(--border-hairline);
+    background: var(--bg-card);
+    transition: opacity var(--transition-fast);
 }
 
 .hero-image-container:hover .hero-img {
-    transform: scale(1.03);
+    opacity: 0.95;
 }
 
 .glow-ring {
-    position: absolute;
-    top: -6px;
-    left: -6px;
-    width: calc(100% + 12px);
-    height: calc(100% + 12px);
-    border-radius: 50%;
-    background: conic-gradient(from 180deg, #38bdf8, #818cf8, #3b82f6, #38bdf8);
-    animation: spin 6s linear infinite;
-    z-index: 1;
-    filter: blur(14px);
-    opacity: 0.8;
+    display: none;
 }
 
-/* Open for Work Status Badge Overlay */
+/* Open for Work Status Badge */
 .status-badge {
     position: absolute;
-    bottom: -5px;
-    left: -20px;
+    bottom: -6px;
+    right: -10px;
     z-index: 10;
-    background: rgba(13, 18, 30, 0.94);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 16px;
-    padding: 9px 18px 9px 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    padding: 6px 12px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    gap: 8px;
     text-align: left;
     white-space: nowrap;
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    text-decoration: none;
+    transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
 .status-badge:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(34, 197, 94, 0.25);
+    background: var(--bg-raised);
+    border-color: var(--border-hover);
 }
 
 .status-dot-container {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(34, 197, 94, 0.15);
+    width: 14px;
+    height: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
     flex-shrink: 0;
 }
 
 .status-dot {
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 10px #22c55e;
-    animation: statusPulse 2s infinite;
+    background: var(--accent-positive);
 }
 
 .status-text-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .status-label {
-    color: #8e9bae;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 1;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
 }
 
 .status-text {
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 700;
+    color: var(--text-main);
+    font-size: 13px;
+    font-weight: 500;
     line-height: 1.2;
-    margin-top: 3px;
-}
-
-@keyframes statusPulse {
-    0% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
-    }
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
-    }
-    100% {
-        transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
-    }
 }
 
 /* Typography */
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    font-weight: 800;
-    margin-bottom: 20px;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 500;
+    margin-bottom: 16px;
     color: var(--text-main);
-    letter-spacing: -1px;
+    letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    color: var(--text-muted);
-    margin-bottom: 40px;
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    color: var(--text-secondary);
+    margin-bottom: 32px;
     font-family: var(--font-body);
-    height: 30px;
-    /* fixed height for typing animation */
+    height: 28px;
 }
 
 /* JS Typewriter */
@@ -185,7 +148,6 @@
     line-height: 1;
 }
 
-/* Slow the blink while erasing for a subtle visual cue */
 .tw-cursor--erasing {
     animation: tw-blink 0.4s step-end infinite;
     opacity: 0.7;
@@ -194,7 +156,7 @@
 /* Buttons */
 .hero-actions {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -204,13 +166,13 @@
 .btn-secondary,
 .btn-freelance,
 .resume-btn-group {
-    height: 48px;
-    border-radius: 50px;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    transition: all var(--transition-fast);
+    height: 44px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0;
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
     text-decoration: none;
     box-sizing: border-box;
     display: inline-flex;
@@ -218,88 +180,96 @@
     justify-content: center;
 }
 
+.btn-primary {
+    gap: 8px;
+    padding: 0 20px;
+    background: var(--text-main);
+    color: var(--bg-secondary);
+    border: 1px solid var(--text-main);
+}
+
+.btn-primary:hover {
+    background: #ffffff;
+    color: #000000;
+}
+
 .btn-freelance {
     gap: 8px;
-    padding: 0 24px;
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: #ffffff;
-    box-shadow: 0 8px 22px rgba(16, 185, 129, 0.35);
-    border: none;
+    padding: 0 20px;
+    background: var(--text-main);
+    color: var(--bg-secondary);
+    border: 1px solid var(--text-main);
 }
 
 .btn-freelance:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(16, 185, 129, 0.5);
-    color: #ffffff;
+    background: #ffffff;
+    color: #000000;
 }
 
 /* Split Resume Button Group */
 .resume-btn-group {
-    background: linear-gradient(135deg, var(--accent-primary), #6342d6);
-    box-shadow: 0 8px 22px rgba(127, 90, 240, 0.35);
+    background: var(--bg-raised);
+    border: 1px solid var(--border-hairline);
     overflow: hidden;
     padding: 0;
 }
 
 .resume-btn-group:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(127, 90, 240, 0.5);
+    border-color: var(--border-hover);
 }
 
 .resume-btn-main {
-    padding: 0 16px 0 20px;
-    color: #ffffff;
-    font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
+    padding: 0 14px;
+    color: var(--text-main);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 14px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     height: 100%;
     gap: 8px;
-    transition: background 0.2s ease;
+    transition: background var(--transition-fast);
 }
 
 .resume-btn-main:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .resume-btn-divider {
     width: 1px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.25);
+    height: 18px;
+    background: var(--border-hairline);
 }
 
 .resume-btn-dl {
-    padding: 0 16px;
-    color: #ffffff;
-    font-size: 0.95rem;
+    padding: 0 12px;
+    color: var(--text-secondary);
+    font-size: 13px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    transition: background 0.2s ease;
+    transition: color var(--transition-fast), background var(--transition-fast);
 }
 
 .resume-btn-dl:hover {
-    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .btn-secondary {
-    padding: 0 24px;
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text-main);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    padding: 0 18px;
+    background: var(--bg-raised);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-hairline);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.12);
-    border-color: rgba(255, 255, 255, 0.25);
-    transform: translateY(-2px);
+    color: var(--text-main);
+    background: var(--bg-card);
+    border-color: var(--border-hover);
 }
 
 

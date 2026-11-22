@@ -19,7 +19,7 @@ import {
 } from './Footer.elements';
 
 function Footer() {
-  const CURRENT_RELEASE_DATE = 'Sep 20, 2026, 02:48 PM';
+  const CURRENT_RELEASE_DATE = 'Nov 23, 2026, 04:35 AM';
   const [lastUpdated, setLastUpdated] = useState(CURRENT_RELEASE_DATE);
   const [currentTime, setCurrentTime] = useState('');
   const currentYear = new Date().getFullYear();
@@ -48,7 +48,7 @@ function Footer() {
           const commitDateStr = data.commit?.committer?.date || data.commit?.author?.date;
           if (commitDateStr) {
             const commitDate = new Date(commitDateStr);
-            const minimumDate = new Date('2026-09-20T14:48:00+05:30');
+            const minimumDate = new Date('2026-11-23T04:35:00+05:30');
             // Only update if remote GitHub commit is newer than the current update
             if (commitDate > minimumDate) {
               const formatted = commitDate.toLocaleString('en-US', {
