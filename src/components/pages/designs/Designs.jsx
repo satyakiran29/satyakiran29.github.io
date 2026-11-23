@@ -9,25 +9,25 @@ const images = Object.values(imageModules).map((mod) => mod.default);
 const Designs = () => {
     return (
         <div className="designs-section">
-            <center>
-                <h1>UI/UX <span style={{ color: "#7f5af0" }}>Designs</span></h1>
+            <div className="section-header-center">
+                <h1 className="designs-heading">UI/UX & Widget Designs</h1>
                 <p className="designs-subtitle">
-                    Showcasing my custom Aniset app widgets design.
+                    Home screen widget layouts, system UI cards, and personalization themes designed for the Aniset Android suite.
                     <br />
                     <a href="https://aniset.vercel.app/" target="_blank" rel="noopener noreferrer" className="aniset-link">
-                        Visit Aniset Website <FaExternalLinkAlt className="link-icon" />
+                        Explore Aniset Web Showcase <FaExternalLinkAlt className="link-icon" />
                     </a>
                 </p>
-            </center>
+            </div>
 
             <div className="designs-grid">
                 {images.map((imgSrc, index) => (
                     <div className="design-card" key={index}>
                         <div className="design-image-container">
-                            <img src={imgSrc} alt={`Aniset Widget Design ${index + 1}`} className="design-image" loading="lazy" />
+                            <img src={imgSrc} alt={`Aniset Widget Preset ${index + 1}`} className="design-image" loading="lazy" />
                         </div>
                         <div className="design-overlay">
-                            <span>Widget {index + 1}</span>
+                            <span>Preset {index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
                         </div>
                     </div>
                 ))}
