@@ -3,8 +3,27 @@ import anisetweb from "./imgs/Project/aniset_web.webp";
 import satyakiranimg from "./imgs/Project/satyakiran.webp";
 import student from "./imgs/Project/student.webp";
 import anify_bg from "./imgs/Project/anify_bg.png";
+import guardianaiimg from "./imgs/Project/guardianai.jpg";
 
 export const projects = [
+    {
+      title: "Anify - Ultimate Personalization",
+      description:
+        "Give your phone a complete makeover with Anify, the ultimate personalization app for Android. Get access to ready-to-use widgets, HD wallpapers, and trending ringtones—all in one app, with no KWGT required.",
+      tags: ["Android App", "Widgets", "Wallpapers", "Ringtones", "Published on Play Store"],
+      image: anify_bg,
+      projectLink: "https://play.google.com/store/apps/details?id=com.skdev.anify",
+      category: "Mobile",
+    },
+    {
+      title: "Aniset - Kwgt Widgets & Klwp",
+      description:
+        "Transform your Android Home Screen with Aniset - Anime KWGT Widgets & KLWP! Elevate your device customization to a whole new level with anime-inspired widgets and themes.",
+      tags: ["Android App", "Kotlin", "JSON", "Firebase", "UI/UX", "Published on Play Store"],
+      image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
+      projectLink: "https://play.google.com/store/apps/details?id=com.skdev.aniset",
+      category: "Mobile",
+    },
     {
       title: "SkDev App Showcase",
       description:
@@ -14,6 +33,16 @@ export const projects = [
       projectLink: "https://skdev.psatyakiran.in/",
       githubLink: "https://github.com/satyakiran29/skdev-web",
       category: "Web",
+    },
+    {
+      title: "GuardianAI",
+      description:
+        "Built as a B.Tech Full Stack Internship (FSI) project — an autonomous emergency safety and incident command ecosystem combining a native Android app (Java & XML) with a Django & Supabase cloud command center. Features multi-modal panic detection (shake & voice triggers), live GPS telemetry, guardian-ward radar, and real-time safety chat.",
+      tags: ["FSI Project", "Android", "Java", "Django", "Supabase", "REST API"],
+      image: guardianaiimg,
+      projectLink: "https://gai.psatyakiran.in/",
+      githubLink: "https://github.com/satyakiran29/GuardianAI",
+      category: "Mobile",
     },
     {
       title: "Anify Website",
@@ -26,13 +55,14 @@ export const projects = [
       category: "Web",
     },
     {
-      title: "Anify - Ultimate Personalization",
+      title: "Aniset - WebSite",
       description:
-        "Give your phone a complete makeover with Anify, the ultimate personalization app for Android. Get access to ready-to-use widgets, HD wallpapers, and trending ringtones—all in one app, with no KWGT required.",
-      tags: ["Android App", "Widgets", "Wallpapers", "Ringtones", "Published on Play Store"],
-      image: anify_bg,
-      projectLink: "https://play.google.com/store/apps/details?id=com.skdev.anify",
-      category: "Mobile",
+        "To Showcase About Aniset Android App and it's widgets website",
+      tags: ["Website", "ReactJs", "Css", "UI/UX"],
+      image: anisetweb,
+      projectLink: "https://aniset.vercel.app/",
+      githubLink: "https://github.com/satyakiran29/Aniset_Web",
+      category: "Web",
     },
     {
       title: "GMRIT Student Event Management System",
@@ -65,25 +95,6 @@ export const projects = [
       category: "Web",
     },
     {
-      title: "Aniset - Kwgt Widgets & Klwp",
-      description:
-        "Transform your Android Home Screen with Aniset - Anime KWGT Widgets & KLWP! Elevate your device customization to a whole new level with anime-inspired widgets and themes.",
-      tags: ["Android App", "Kotlin", "JSON", "Firebase", "UI/UX", "Published on Play Store"],
-      image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
-      projectLink: "https://play.google.com/store/apps/details?id=com.skdev.aniset",
-      category: "Mobile",
-    },
-    {
-      title: "Aniset - WebSite",
-      description:
-        "To Showcase About Aniset Android App and it's widgets website",
-      tags: ["Website", "ReactJs", "Css", "UI/UX"],
-      image: anisetweb,
-      projectLink: "https://aniset.vercel.app/",
-      githubLink: "https://github.com/satyakiran29/Aniset_Web",
-      category: "Web",
-    },
-    {
       title: "Student Results Management System",
       description:
         "A web application for managing student results, built using Php and Mysql. The application allows teachers to input and manage student results efficiently.",
@@ -96,8 +107,8 @@ export const projects = [
     {
       title: "Online Temple Information System",
       description:
-        "Developed a comprehensive information portal featuring a dynamic landing page and developer profiles. Implemented secure, role-based login functionality to manage access controls for various user tiers.",
-      tags: ["React.js", "Node.js", "Express.js"],
+        "Built as a B.Tech 3rd Year (6th Semester) Mini Project — a comprehensive information portal featuring a dynamic landing page and developer profiles, with secure role-based login functionality to manage access controls across user tiers.",
+      tags: ["Mini Project", "B.Tech 3rd Year • 6th Sem", "React.js", "Node.js", "Express.js"],
       image: otisimg,
       githubLink: "https://github.com/satyakiran29/OTIS",
       projectLink: "https://otis.psatyakiran.in/",

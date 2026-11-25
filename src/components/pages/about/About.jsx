@@ -99,7 +99,7 @@ const CetificateCard = ({ title, description, date, certificatelink, image }) =>
   );
 };
 
-const TimelineItem = ({ date, title, subtitle, description, link }) => (
+const TimelineItem = ({ date, title, subtitle, description, link, linkLabel = "Read Paper" }) => (
   <div className="timeline-item">
     <div className="timeline-marker"></div>
     <div className="timeline-content card">
@@ -109,7 +109,7 @@ const TimelineItem = ({ date, title, subtitle, description, link }) => (
       <p>{description}</p>
       {link && (
         <a href={link} target="_blank" rel="noreferrer" className="link-button" style={{ marginTop: '15px', display: 'inline-block', textDecoration: 'none' }}>
-          Read Paper
+          {linkLabel}
         </a>
       )}
     </div>
@@ -125,13 +125,22 @@ const App = () => {
   const internships = [
     {
       id: 1,
+      title: "Full Stack Internship (FSI) — GuardianAI",
+      subtitle: "B.Tech Internship (FSI)",
+      date: "2026",
+      description: "Developed GuardianAI as the B.Tech Full Stack Internship (FSI) project — an autonomous emergency safety and incident command ecosystem combining a native Android app (Java & XML) with a Django & Supabase cloud command center, featuring multi-modal panic detection, live GPS telemetry, guardian-ward radar, and real-time safety chat.",
+      link: "https://gai.psatyakiran.in/",
+      linkLabel: "View Project"
+    },
+    {
+      id: 2,
       title: "Django Developer Intern",
       subtitle: "Hippocloud, Visakhapatnam",
       date: "2025",
       description: "Developed and enhanced scalable web applications utilizing the Django framework. Designed, built, and successfully implemented robust RESTful APIs for data handling."
     },
     {
-      id: 2,
+      id: 3,
       title: "Java & Python Trainee",
       subtitle: "Sdvvl, Kakinada",
       date: "2024",

@@ -374,6 +374,7 @@
     .status-badge {
         bottom: -15px;
         left: 50%;
+        right: auto;
         transform: translateX(-50%);
         padding: 6px 14px;
         gap: 10px;
@@ -414,13 +415,13 @@
     }
 
     .status-dot-container {
-        width: 26px;
-        height: 26px;
+        width: 14px;
+        height: 14px;
     }
 
     .status-dot {
-        width: 9px;
-        height: 9px;
+        width: 8px;
+        height: 8px;
     }
 
     .status-label {
