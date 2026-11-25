@@ -117,4 +117,40 @@ export const initialGames = [
     review:
       "Relaxing pixel-art farming and town-life RPG — played 4.9 hrs and not completed yet.",
   },
+  {
+    id: "the-walking-dead-definitive-series",
+    title: "The Walking Dead: The Telltale Definitive Series",
+    status: "Plan to Play",
+    platform: "PC",
+    genre: "Adventure • Narrative",
+    updatedAt: "Backlog • Nov 2026",
+    image:
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1449690/header.jpg?t=1760651835",
+    review:
+      "All four seasons plus 400 Days and Michonne bundled with enhanced visuals — next up for a story-driven playthrough.",
+  },
+  {
+    id: "doom-2016",
+    title: "DOOM",
+    status: "Plan to Play",
+    platform: "PC",
+    genre: "FPS • Action",
+    updatedAt: "Backlog • Nov 2026",
+    image:
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/379720/header.jpg?t=1750784856",
+    review:
+      "Relentless fast-paced arena shooter with heavy metal soundtrack and brutal glory kills — queued up to play next.",
+  },
+  {
+    id: "gta-4-complete-edition",
+    title: "Grand Theft Auto IV: The Complete Edition",
+    status: "On Hold",
+    platform: "PC",
+    genre: "Open World • Action • Adventure",
+    updatedAt: "On Hold • Nov 2026",
+    image:
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/12210/header.jpg?t=1721061564",
+    review:
+      "Gritty Liberty City crime drama with Niko Bellic plus The Lost and Damned and The Ballad of Gay Tony — currently on hold.",
+  },
 ];
