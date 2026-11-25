@@ -153,4 +153,28 @@ export const initialGames = [
     review:
       "Gritty Liberty City crime drama with Niko Bellic plus The Lost and Damned and The Ballad of Gay Tony — currently on hold.",
   },
+  {
+    id: "life-is-strange-2",
+    title: "Life is Strange 2",
+    status: "Plan to Play",
+    platform: "PC",
+    genre: "Adventure • Narrative",
+    updatedAt: "Backlog • Nov 2026",
+    image:
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/532210/header.jpg?t=1771868183",
+    review:
+      "Road-trip choice-driven story following Sean and Daniel Diaz across America — queued in Plan to Play.",
+  },
+  {
+    id: "life-is-strange-reunion",
+    title: "Life is Strange: Reunion",
+    status: "Plan to Play",
+    platform: "PC",
+    genre: "Adventure • Narrative",
+    updatedAt: "Backlog • Nov 2026",
+    image:
+      "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2624870/09c486f1ebf7c30ebf3abf5df054833b03c3367d/header.jpg?t=1777999087",
+    review:
+      "Dual-protagonist finale bringing Max and Chloe back together at Caledon — queued up on the backlog.",
+  },
 ];
