@@ -121,6 +121,36 @@
   border-color: var(--border-hover);
 }
 
+.nav-cmd-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 4px;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.nav-cmd-btn kbd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.nav-cmd-btn:hover {
+  background: var(--bg-raised);
+  border-color: var(--border-hover);
+}
+
+.nav-cmd-btn:hover kbd {
+  color: var(--text-main);
+}
+
 /* Hamburger trigger */
 .nav-icon {
   display: none;

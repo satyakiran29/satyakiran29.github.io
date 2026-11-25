@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <rect width="600" height="400" fill="#141415"/>
+  <path d="M0 80H600M0 160H600M0 240H600M0 320H600M120 0V400M240 0V400M360 0V400M480 0V400" stroke="#232325" stroke-width="1"/>
+  <rect x="48" y="48" width="504" height="304" rx="14" fill="#19191b" stroke="#2d2d30"/>
+  <rect x="74" y="96" width="116" height="24" rx="6" fill="#232325" stroke="#3b82f6" stroke-opacity="0.45"/>
+  <text x="132" y="112" fill="#3b82f6" font-family="monospace" font-size="12" text-anchor="middle">MERN Stack</text>
+  <text x="74" y="170" fill="#ededed" font-family="sans-serif" font-size="30" font-weight="600">Foodscape App</text>
+  <text x="74" y="204" fill="#85858b" font-family="sans-serif" font-size="15">Reels-Style Video Feed • REST APIs • Social</text>
+  <rect x="74" y="256" width="108" height="28" rx="6" fill="#232325"/>
+  <text x="128" y="274" fill="#a1a1a6" font-family="monospace" font-size="12" text-anchor="middle">MongoDB</text>
+  <rect x="192" y="256" width="108" height="28" rx="6" fill="#232325"/>
+  <text x="246" y="274" fill="#a1a1a6" font-family="monospace" font-size="12" text-anchor="middle">Express</text>
+  <rect x="310" y="256" width="96" height="28" rx="6" fill="#232325"/>
+  <text x="358" y="274" fill="#a1a1a6" font-family="monospace" font-size="12" text-anchor="middle">React</text>
+</svg>

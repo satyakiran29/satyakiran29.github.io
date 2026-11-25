@@ -148,6 +148,17 @@ const Home = () => {
               <FaGooglePlay /> Play Console
             </a>
           </div>
+
+          <div className="hero-proof-strip" aria-label="Highlights">
+            <div className="proof-item">
+              <span className="proof-value">2+</span>
+              <span className="proof-label">Play Store Apps</span>
+            </div>
+            <div className="proof-item">
+              <span className="proof-value proof-value--positive">Open</span>
+              <span className="proof-label">Freelance &amp; Collab</span>
+            </div>
+          </div>
         </div>
 
 

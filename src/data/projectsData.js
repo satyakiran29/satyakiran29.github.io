@@ -4,6 +4,11 @@ import satyakiranimg from "./imgs/Project/satyakiran.webp";
 import student from "./imgs/Project/student.webp";
 import anify_bg from "./imgs/Project/anify_bg.png";
 import guardianaiimg from "./imgs/Project/guardianai.jpg";
+import skdevWebImg from "./imgs/Project/skdev_web.svg";
+import anifyWebImg from "./imgs/Project/anify_web.svg";
+import gmritEventsImg from "./imgs/Project/gmrit_events.svg";
+import mernshopImg from "./imgs/Project/mernshop.svg";
+import foodscapeImg from "./imgs/Project/foodscape.svg";
 
 export const projects = [
     {
@@ -29,7 +34,7 @@ export const projects = [
       description:
         "A modern, responsive web application serving as a centralized hub to showcase Android applications published on the Google Play Store. It also features news updates, FAQs, and a support/donation platform.",
       tags: ["React", "Vite", "React Router", "UI/UX"],
-      image: "https://placehold.co/600x400?text=SkDev+Apps",
+      image: skdevWebImg,
       projectLink: "https://skdev.psatyakiran.in/",
       githubLink: "https://github.com/satyakiran29/skdev-web",
       category: "Web",
@@ -49,7 +54,7 @@ export const projects = [
       description:
         "A sleek, premium, and dynamic landing page website for Anify Widgets showcasing beautifully crafted widget designs. Built with React and Vite, the website features a modern glassmorphic aesthetic, smooth animations, and a fully responsive layout.",
       tags: ["React.js", "Vite", "Web", "UI/UX"],
-      image: "https://placehold.co/600x400?text=Anify+Web",
+      image: anifyWebImg,
       projectLink: "https://anify.psatyakiran.in/",
       githubLink: "https://github.com/satyakiran29/Anify_web",
       category: "Web",
@@ -69,7 +74,7 @@ export const projects = [
       description:
         "The GMRIT Student Event Management System is a lightweight, web-based platform tailored for tracking, managing, and registering for events across various student chapters. Built using PHP and MySQL, it provides a centralized portal for students to discover opportunities and for administrators to oversee chapter activities.",
       tags: ["PHP", "MySQL", "Web", "Hackathon 2025"],
-      image: "https://placehold.co/600x400?text=GMRIT+Event+System",
+      image: gmritEventsImg,
       projectLink: "#",
       githubLink: "https://github.com/satyakiran29/hackthon_2025_Web",
       category: "Web",
@@ -79,7 +84,7 @@ export const projects = [
       description:
         "A modern, responsive, and feature-rich complete MERN-stack eCommerce platform. Built with React.js, Tailwind CSS, Vite for the frontend, and Node.js, Express.js, MongoDB for the backend. It offers an exceptionally fast, fluid, and premium shopping experience for both customers and administrators.",
       tags: ["React.js", "Tailwind CSS", "Vite", "Node.js", "Express.js", "MongoDB"],
-      image: "https://placehold.co/600x400?text=MernShop",
+      image: mernshopImg,
       projectLink: "https://mernshop.psatyakiran.in/",
       githubLink: "https://github.com/satyakiran29/MernShop",
       category: "Web",
@@ -119,7 +124,7 @@ export const projects = [
       description:
         "Developed a MERN stack web application featuring a highly engaging reels-style video feed integration. Built efficient RESTful APIs to manage content delivery and user interactions in projects.",
       tags: ["MongoDB", "Express.js", "React.js", "Node.js"],
-      image: "https://placehold.co/600x400?text=Foodscape+App",
+      image: foodscapeImg,
       githubLink: "#",
       category: "Web",
     }

@@ -162,6 +162,17 @@ function NavBar() {
                 Bio
               </NavLink>
             </li>
+            <li className="nav-item">
+              <button
+                type="button"
+                className="nav-cmd-btn"
+                onClick={() => window.dispatchEvent(new Event("open-command-palette"))}
+                title="Open Command Palette (Ctrl+K)"
+                aria-label="Open Command Palette"
+              >
+                <kbd>Ctrl K</kbd>
+              </button>
+            </li>
           </ul>
 
           {/* Hamburger trigger for mobile */}
