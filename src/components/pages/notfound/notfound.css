@@ -2,66 +2,127 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
-    padding: clamp(30px, 5vw, 60px) 16px;
+    min-height: 82vh;
+    padding: 96px 16px 48px;
     background-color: var(--bg-primary);
-    background: radial-gradient(circle at center, rgba(127, 90, 240, 0.05), var(--bg-primary) 60%);
     width: 100%;
     box-sizing: border-box;
 }
 
 .notfound-content {
     text-align: center;
-    max-width: 500px;
+    max-width: 480px;
     width: 100%;
-    padding: clamp(30px, 5vw, 50px) clamp(20px, 4vw, 30px);
+    padding: clamp(28px, 5vw, 44px) clamp(20px, 4vw, 36px);
+    background: var(--bg-card);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-card);
+}
+
+.notfound-eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    background: var(--bg-raised);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-sm);
+    padding: 4px 10px;
+    margin-bottom: 16px;
 }
 
 .notfound-code {
-    font-size: clamp(4.5rem, 15vw, 8rem);
-    font-family: var(--font-heading);
-    font-weight: 800;
-    color: var(--accent-primary);
-    margin: 0;
+    font-size: clamp(4rem, 14vw, 6.25rem);
+    font-family: 'Syne', var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--text-main);
+    margin: 0 0 8px;
     line-height: 1;
-    text-shadow: 0 0 20px rgba(127, 90, 240, 0.5);
-    animation: float 4s ease-in-out infinite;
 }
 
 .notfound-title {
-    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-size: clamp(1.25rem, 3.5vw, 1.55rem);
     font-family: var(--font-heading);
+    font-weight: 500;
     color: var(--text-main);
-    margin: 10px 0 15px;
+    margin: 0 0 10px;
 }
 
 .notfound-description {
-    font-size: clamp(14px, 3vw, 1.1rem);
-    color: var(--text-muted);
-    margin-bottom: 30px;
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    margin-bottom: 28px;
     line-height: 1.6;
 }
 
-.back-home-btn {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 12px 30px;
-    max-width: 250px;
-    width: 100%;
+.notfound-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-/* Floating animation for the 404 text */
-@keyframes float {
-    0% {
-        transform: translateY(0px);
+.notfound-btn {
+    height: 42px;
+    padding: 0 18px;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.notfound-btn--primary {
+    background: var(--text-main);
+    color: var(--bg-secondary);
+    border: 1px solid var(--text-main);
+}
+
+.notfound-btn--primary:hover {
+    background: var(--btn-primary-hover-bg);
+    color: var(--btn-primary-hover-text);
+    border-color: var(--btn-primary-hover-bg);
+}
+
+.notfound-btn--secondary {
+    background: var(--bg-raised);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-hairline);
+}
+
+.notfound-btn--secondary:hover {
+    color: var(--text-main);
+    border-color: var(--border-hover);
+}
+
+.notfound-btn--secondary kbd {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 1px 5px;
+    border-radius: 4px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-hairline);
+    color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+    .notfound-actions {
+        flex-direction: column;
+        width: 100%;
     }
 
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
+    .notfound-btn {
+        width: 100%;
     }
 }

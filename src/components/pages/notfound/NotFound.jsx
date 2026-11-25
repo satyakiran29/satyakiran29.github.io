@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { FaHome, FaSearch } from 'react-icons/fa';
 import './notfound.css';
 
 const NotFound = () => {
@@ -10,19 +11,28 @@ const NotFound = () => {
                 <title>404 - Page Not Found | Satyakiran</title>
                 <meta name="robots" content="noindex, nofollow" />
             </Helmet>
-            <div className="notfound-content card">
+            <div className="notfound-content">
+                <span className="notfound-eyebrow">Error 404 • Route Not Found</span>
                 <h1 className="notfound-code">404</h1>
-                <h2 className="notfound-title">Page Not Found</h2>
+                <h2 className="notfound-title">This page couldn't be found</h2>
                 <p className="notfound-description">
-                    Oops! The page you are looking for doesn't exist or has been moved.
+                    The link you followed may be broken, or the page may have been moved.
                 </p>
-                <Link to="/" className="link-button back-home-btn">
-                    Back to Home
-                </Link>
+                <div className="notfound-actions">
+                    <Link to="/" className="notfound-btn notfound-btn--primary">
+                        <FaHome /> Back to Home
+                    </Link>
+                    <button
+                        type="button"
+                        className="notfound-btn notfound-btn--secondary"
+                        onClick={() => window.dispatchEvent(new Event('open-command-palette'))}
+                    >
+                        <FaSearch /> Jump with <kbd>Ctrl K</kbd>
+                    </button>
+                </div>
             </div>
         </div>
     );
 };
 
 export default NotFound;
-

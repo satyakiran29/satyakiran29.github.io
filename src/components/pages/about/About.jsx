@@ -1,13 +1,5 @@
-import React, { useEffect, useState } from "react";
-import LoaderComponent from "../../loader/Loader";
+import React, { Suspense, lazy, useEffect, useRef, useState } from "react";
 import "../about/about.css";
-
-import { Document, Page, pdfjs } from "react-pdf";
-import "react-pdf/dist/Page/AnnotationLayer.css";
-import "react-pdf/dist/Page/TextLayer.css";
-
-// Configure pdfjs worker for react-pdf
-pdfjs.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 // Import local certificates
 import cert1 from "../../../data/Certificate/Full-Stack Web Dev Bootcamp_ HTML, CSS, JS, PHP, & WordPress.pdf";
@@ -17,37 +9,52 @@ import cert4 from "../../../data/Certificate/Next-Level Git with Expert Version 
 import cert5 from "../../../data/Certificate/React & .NET API Bootcamp_ Next.js, Redux, and Advanced Hooks.pdf";
 import { FaCertificate, FaEye, FaDownload, FaFileAlt } from "react-icons/fa";
 
+const LazyPdfPreviewModule = lazy(() => import("./PdfPreview"));
+
+const PdfPreviewFallback = () => (
+  <div className="pdf-preview-container">
+    <div className="pdf-preview-loading">
+      <FaFileAlt className="pdf-loading-icon" />
+      <span>PDF Preview</span>
+    </div>
+  </div>
+);
+
 const PdfPreview = ({ file }) => {
-  const [error, setError] = useState(false);
+  const containerRef = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el || shouldLoad) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "250px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [shouldLoad]);
 
   return (
-    <div className="pdf-preview-container">
-      {!error ? (
-        <Document
-          file={file}
-          onLoadError={(err) => {
-            console.error("PDF load error:", err);
-            setError(true);
-          }}
-          loading={
-            <div className="pdf-preview-loading">
-              <LoaderComponent />
-            </div>
-          }
-        >
-          <Page
-            pageNumber={1}
-            width={280}
-            renderTextLayer={false}
-            renderAnnotationLayer={false}
-          />
-        </Document>
+    <div ref={containerRef} className="pdf-preview-mount">
+      {shouldLoad ? (
+        <Suspense fallback={<PdfPreviewFallback />}>
+          <LazyPdfPreviewModule file={file} />
+        </Suspense>
       ) : (
-        <div className="pdf-preview-fallback">
-          <div className="certificate-icon-container">
-            <FaCertificate className="certificate-icon" />
-          </div>
-        </div>
+        <PdfPreviewFallback />
       )}
     </div>
   );
@@ -255,14 +262,17 @@ const App = () => {
 
   if (loading) {
     return (
-      <div className="loader" style={{ height: '50vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <LoaderComponent />
+      <div className="about-page">
+        <div className="section-header-center">
+          <h1>Experience & Education</h1>
+          <p className="subtitle">Loading experience and credentials...</p>
+        </div>
       </div>
     );
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    console.warn("Certificates API unavailable:", error);
   }
 
   return (

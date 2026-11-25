@@ -7,9 +7,6 @@ export default defineConfig({
         rollupOptions: {
             output: {
                 manualChunks(id) {
-                    if (id.includes('node_modules/pdfjs-dist') || id.includes('node_modules/react-pdf')) {
-                        return 'pdf-viewer';
-                    }
                     if (id.includes('node_modules/react-icons')) {
                         return 'icons';
                     }
