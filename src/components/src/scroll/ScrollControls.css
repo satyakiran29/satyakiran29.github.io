@@ -1,0 +1,68 @@
+.scroll-progress-track {
+  position: fixed;
+  top: 58px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  z-index: 51;
+  pointer-events: none;
+  background: transparent;
+}
+
+.scroll-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: var(--accent-primary);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.back-to-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: max(20px, env(safe-area-inset-bottom, 20px));
+  z-index: 45;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top-btn:hover {
+  background: var(--bg-raised);
+  border-color: var(--border-hover);
+  color: var(--text-main);
+}
+
+@media screen and (max-width: 1080px) {
+  .scroll-progress-track {
+    top: 68px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .back-to-top-btn {
+    right: 14px;
+    bottom: max(16px, env(safe-area-inset-bottom, 16px));
+    width: 38px;
+    height: 38px;
+  }
+}

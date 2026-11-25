@@ -8,6 +8,7 @@ import Contact from "./components/pages/contact/Contact";
 import Footer from "./components/src/footer/Footer";
 import Nav from "./components/src/nav/nav";
 import CommandPalette from "./components/src/command/CommandPalette";
+import ScrollControls from "./components/src/scroll/ScrollControls";
 import LoaderComponent from "./components/loader/Loader";
 import ExternalRedirect from './components/pages/ExternalRedirect';
 import NotFound from "./components/pages/notfound/NotFound";
@@ -54,6 +55,7 @@ function AppContent() {
   return (
     <div>
       {shouldShowNav && <Nav />} {/* Conditionally render Nav */}
+      {shouldShowNav && <ScrollControls />}
       <CommandPalette />
       <Suspense fallback={<LoaderComponent />}>
         <Routes>
