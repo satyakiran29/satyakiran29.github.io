@@ -3,7 +3,8 @@ import anisetweb from "./imgs/Project/aniset_web.webp";
 import satyakiranimg from "./imgs/Project/satyakiran.webp";
 import student from "./imgs/Project/student.webp";
 import anify_bg from "./imgs/Project/anify_bg.webp";
-import guardianaiimg from "./imgs/Project/guardianai.jpg";
+import anisetAppImg from "./imgs/Project/aniset_app.webp";
+import guardianaiimg from "./imgs/Project/guardianai.webp";
 import skdevWebImg from "./imgs/Project/skdev_web.svg";
 import anifyWebImg from "./imgs/Project/anify_web.svg";
 import gmritEventsImg from "./imgs/Project/gmrit_events.svg";
@@ -53,7 +54,7 @@ export const projects = [
         architecture: "Kotlin-based Android client backed by Firebase cloud storage & JSON manifests for over-the-air preset additions.",
         outcome: "Published on Google Play Store with 5-star user reviews and active long-term users."
       },
-      image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
+      image: anisetAppImg,
       projectLink: "https://play.google.com/store/apps/details?id=com.skdev.aniset",
       category: "Mobile",
     },

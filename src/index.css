@@ -258,4 +258,40 @@ footer {
     padding: 1.5rem 16px;
     margin-top: 2rem;
   }
+}
+
+/* Live IST Availability Pill */
+.ist-availability-pill {
+  margin-top: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.ist-availability-pill--contact {
+  margin-top: 0;
+  margin-bottom: 22px;
+}
+
+.ist-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--text-muted);
+}
+
+.ist-dot--online {
+  background: var(--accent-positive);
+}
+
+.ist-sep {
+  opacity: 0.45;
 }

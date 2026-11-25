@@ -16,6 +16,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 
 const Bio = lazy(() => import("./components/pages/bio/Bio"));
 const Freelance = lazy(() => import("./components/pages/freelance/Freelance"));
+const MyGameList = lazy(() => import("./components/pages/mygamelist/MyGameList"));
 
 function App() {
   const [Loading, SetLoading] = useState(true);
@@ -75,6 +76,8 @@ function AppContent() {
           <Route path="/bio" element={<Bio />} />
           <Route path="/freelance" element={<Freelance />} />
           <Route path="/Freelance" element={<Freelance />} />
+          <Route path="/mygamelist" element={<MyGameList />} />
+          <Route path="/MyGameList" element={<MyGameList />} />
           <Route
             path="/Blog"
             element={<ExternalRedirect to="https://satyakiran-blog.vercel.app/" />}

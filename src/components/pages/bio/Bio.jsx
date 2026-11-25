@@ -18,8 +18,14 @@ import {
   FaDownload,
   FaBriefcase,
   FaSun,
-  FaMoon
+  FaMoon,
+  FaQrcode,
+  FaTimes,
+  FaCopy,
+  FaCheck,
+  FaGamepad
 } from "react-icons/fa";
+import bioQrSvg from "./bio-qr.svg";
 
 const CodingBackground = () => {
   const particles = [
@@ -62,6 +68,17 @@ const CodingBackground = () => {
 const ProfileCard = () => {
   const { theme, toggleTheme } = useTheme();
   const [showSteamCard, setShowSteamCard] = React.useState(false);
+  const [qrOpen, setQrOpen] = React.useState(false);
+  const [copiedBioLink, setCopiedBioLink] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!qrOpen) return;
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setQrOpen(false);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [qrOpen]);
   const [steamStatus, setSteamStatus] = React.useState({
     state: "loading",
     message: "Loading...",
@@ -181,6 +198,15 @@ const ProfileCard = () => {
         <div className="b_card">
           <button
             type="button"
+            className="b_qr-toggle"
+            onClick={() => setQrOpen(true)}
+            title="Show QR Code for /bio"
+            aria-label="Show QR Code for Bio"
+          >
+            <FaQrcode />
+          </button>
+          <button
+            type="button"
             className="b_theme-toggle"
             onClick={toggleTheme}
             title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
@@ -214,6 +240,9 @@ const ProfileCard = () => {
             </a>
             <a href="/freelance" className="b_info-button b_info-button--accent">
               <FaBriefcase /> Freelance Services
+            </a>
+            <a href="/mygamelist" className="b_info-button">
+              <FaGamepad /> MyGameList
             </a>
             <a href="https://satyakiran-blog.vercel.app" className="b_info-button">
               <FaBookOpen /> Blog Website
@@ -313,6 +342,59 @@ const ProfileCard = () => {
           </div>
         </div>
       </div>
+
+      {qrOpen && (
+        <div
+          className="b_qr-overlay"
+          onClick={() => setQrOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Bio QR Code"
+        >
+          <div className="b_qr-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="b_qr-header">
+              <span className="b_qr-title">Scan to Connect</span>
+              <button
+                type="button"
+                className="b_qr-close"
+                onClick={() => setQrOpen(false)}
+                aria-label="Close QR modal"
+              >
+                <FaTimes />
+              </button>
+            </div>
+            <div className="b_qr-frame">
+              <img
+                src={bioQrSvg}
+                alt="QR code for satyakiran.vercel.app/bio"
+                className="b_qr-img"
+              />
+            </div>
+            <p className="b_qr-url">satyakiran.vercel.app/bio</p>
+            <div className="b_qr-actions">
+              <button
+                type="button"
+                className="b_info-button"
+                onClick={() => {
+                  navigator.clipboard?.writeText("https://satyakiran.vercel.app/bio");
+                  setCopiedBioLink(true);
+                  setTimeout(() => setCopiedBioLink(false), 1800);
+                }}
+              >
+                {copiedBioLink ? <FaCheck /> : <FaCopy />}
+                <span>{copiedBioLink ? "Copied!" : "Copy URL"}</span>
+              </button>
+              <a
+                href="/bio-qr.png"
+                download="satyakiran-bio-qr.png"
+                className="b_info-button b_info-button--accent"
+              >
+                <FaDownload /> Save PNG
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

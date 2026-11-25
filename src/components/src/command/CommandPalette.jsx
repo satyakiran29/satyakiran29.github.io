@@ -18,7 +18,8 @@ import {
   FaExternalLinkAlt,
   FaTimes,
   FaSun,
-  FaMoon
+  FaMoon,
+  FaGamepad
 } from "react-icons/fa";
 import { projects } from "../../../data/projectsData";
 import { useTheme } from "../../../context/ThemeContext";
@@ -144,6 +145,17 @@ const CommandPalette = () => {
         action: () => {
           setOpen(false);
           navigate("/bio");
+        },
+      },
+      {
+        id: "nav-mygamelist",
+        group: "Navigation",
+        label: "MyGameList (Gaming Log)",
+        hint: "/mygamelist",
+        icon: <FaGamepad />,
+        action: () => {
+          setOpen(false);
+          navigate("/mygamelist");
         },
       },
     ];

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FaEnvelope, FaCopy, FaCheck } from "react-icons/fa";
+import { useIstStatus } from "../../../utils/useIstStatus";
 import "./contact.css";
 
 const EMAIL = "satyakiran296@gmail.com";
 
 const Contact = () => {
     const [copied, setCopied] = useState(false);
+    const ist = useIstStatus();
 
     const handleCopyEmail = async () => {
         try {
@@ -34,6 +36,12 @@ const Contact = () => {
             <p className="contact-desc">
                 Have a project in mind, need a native Android or web application built, or want to discuss an engineering role? Send a message and I'll get back to you within one business day.
             </p>
+            <div className="ist-availability-pill ist-availability-pill--contact" title="India Standard Time (UTC+5:30)">
+                <span className={`ist-dot${ist.isOnlineHours ? " ist-dot--online" : ""}`} aria-hidden="true"></span>
+                <span>India (IST) • {ist.timeText}</span>
+                <span className="ist-sep">•</span>
+                <span>{ist.statusLabel}</span>
+            </div>
             <div className="contact-actions">
                 <a href={`mailto:${EMAIL}`} className="contact-btn">
                     <FaEnvelope /> Send an email

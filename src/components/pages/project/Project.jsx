@@ -33,6 +33,7 @@ const ProjectCard = ({
   playStore,
   apkLink,
   repoStats,
+  highlightQuery,
   onSelect
 }) => {
   return (
@@ -65,14 +66,20 @@ const ProjectCard = ({
         </div>
 
         <div className="project-tags">
-          {tags.map((tag, idx) => (
-            <span 
-              key={idx} 
-              className={`project-tag ${tag.toLowerCase().includes("play store") ? "project-tag-playstore" : ""}`}
-            >
-              {tag}
-            </span>
-          ))}
+          {tags.map((tag, idx) => {
+            const isPlayStore = tag.toLowerCase().includes("play store");
+            const isMatch =
+              Boolean(highlightQuery) &&
+              tag.toLowerCase().includes(highlightQuery);
+            return (
+              <span
+                key={idx}
+                className={`project-tag${isPlayStore ? " project-tag-playstore" : ""}${isMatch ? " project-tag--match" : ""}`}
+              >
+                {tag}
+              </span>
+            );
+          })}
         </div>
 
         <div className="project-links" onClick={(e) => e.stopPropagation()}>
@@ -247,17 +254,28 @@ const Project = () => {
     return () => window.removeEventListener("filter-projects-by-skill", handleSkillFilter);
   }, []);
 
-  // Filter projects by category AND search term (title, description, or tags)
+  // Filter projects by search term first so category badges show live matching counts
   const normalizedSearch = searchTerm.trim().toLowerCase();
-  const filteredProjects = projects.filter(p => {
-    const matchesCategory = selectedCategory === "All" || p.category === selectedCategory;
-    const matchesSearch =
+  const searchMatchedProjects = projects.filter(p => {
+    return (
       !normalizedSearch ||
       p.title.toLowerCase().includes(normalizedSearch) ||
       p.description.toLowerCase().includes(normalizedSearch) ||
-      p.tags.some(tag => tag.toLowerCase().includes(normalizedSearch));
-    return matchesCategory && matchesSearch;
+      p.tags.some(tag => tag.toLowerCase().includes(normalizedSearch))
+    );
   });
+
+  const categoryCounts = categories.reduce((acc, cat) => {
+    acc[cat] =
+      cat === "All"
+        ? searchMatchedProjects.length
+        : searchMatchedProjects.filter((p) => p.category === cat).length;
+    return acc;
+  }, {});
+
+  const filteredProjects = searchMatchedProjects.filter(
+    (p) => selectedCategory === "All" || p.category === selectedCategory
+  );
 
   return (
     <div className="projects-section">
@@ -295,7 +313,8 @@ const Project = () => {
               onClick={() => setSelectedCategory(category)}
               className={`category-btn${selectedCategory === category ? ' active' : ''}`}
             >
-              {category}
+              <span>{category}</span>
+              <span className="category-count">{categoryCounts[category]}</span>
             </button>
           ))}
         </div>
@@ -322,6 +341,7 @@ const Project = () => {
               index={index}
               {...project}
               repoStats={project.githubRepo ? repoMetrics[project.githubRepo] : undefined}
+              highlightQuery={normalizedSearch}
               onSelect={() => openProjectModal(project)}
             />
           ))

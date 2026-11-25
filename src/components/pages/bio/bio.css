@@ -65,9 +65,28 @@
   transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
 
-.b_theme-toggle:hover {
+.b_theme-toggle:hover,
+.b_qr-toggle:hover {
   color: var(--text-main);
   border-color: var(--border-hover);
+}
+
+.b_qr-toggle {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-raised);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
 
 /* Profile Picture */
@@ -719,4 +738,90 @@
 :root[data-theme="light"] .b_steam-badge.offline {
   background: var(--bg-card);
   border-color: var(--border-hairline);
+}
+
+/* QR Code Modal */
+.b_qr-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.b_qr-modal {
+  width: 100%;
+  max-width: 340px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 18px;
+  text-align: center;
+}
+
+.b_qr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.b_qr-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.b_qr-close {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-raised);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.b_qr-close:hover {
+  color: var(--text-main);
+  border-color: var(--border-hover);
+}
+
+.b_qr-frame {
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-hairline);
+}
+
+.b_qr-img {
+  width: 210px;
+  height: 210px;
+  display: block;
+}
+
+.b_qr-url {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 12px 0 14px;
+}
+
+.b_qr-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
 }

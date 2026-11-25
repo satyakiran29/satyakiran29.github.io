@@ -6,6 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Skills from "./Skills";
 import { FaGooglePlay, FaEye, FaDownload, FaBriefcase, FaTimes, FaExternalLinkAlt } from "react-icons/fa";
 import { Link, useSearchParams } from "react-router-dom";
+import { useIstStatus } from "../../../utils/useIstStatus";
 
 const PHRASES = [
   "Web Developer",
@@ -77,6 +78,7 @@ function useTypewriter(phrases) {
 
 const Home = () => {
   const { displayed, erasing } = useTypewriter(PHRASES);
+  const ist = useIstStatus();
   const [searchParams, setSearchParams] = useSearchParams();
   const [resumeOpen, setResumeOpen] = useState(false);
 
@@ -204,6 +206,13 @@ const Home = () => {
               <span className="proof-value proof-value--positive">Open</span>
               <span className="proof-label">Freelance &amp; Collab</span>
             </div>
+          </div>
+
+          <div className="ist-availability-pill" title="India Standard Time (UTC+5:30)">
+            <span className={`ist-dot${ist.isOnlineHours ? " ist-dot--online" : ""}`} aria-hidden="true"></span>
+            <span>IST {ist.timeText} (UTC+5:30)</span>
+            <span className="ist-sep">•</span>
+            <span>{ist.statusLabel}</span>
           </div>
         </div>
 
