@@ -19,8 +19,8 @@
   height: 100vh;
   background-color: var(--bg-primary);
   background-image:
-    linear-gradient(rgba(127, 90, 240, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(127, 90, 240, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
   background-size: 50px 50px;
   z-index: -1;
   overflow: hidden;
@@ -145,6 +145,17 @@
 .b_info-button:hover {
   color: var(--text-main);
   border-color: var(--border-hover);
+}
+
+.b_info-button--accent {
+  border-color: rgba(59, 130, 246, 0.35);
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--text-main);
+}
+
+.b_info-button--accent:hover {
+  border-color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.14);
 }
 
 /* Social Links List */

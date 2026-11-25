@@ -2,7 +2,7 @@ import otisimg from "./imgs/Project/otis.webp";
 import anisetweb from "./imgs/Project/aniset_web.webp";
 import satyakiranimg from "./imgs/Project/satyakiran.webp";
 import student from "./imgs/Project/student.webp";
-import anify_bg from "./imgs/Project/anify_bg.png";
+import anify_bg from "./imgs/Project/anify_bg.webp";
 import guardianaiimg from "./imgs/Project/guardianai.jpg";
 import skdevWebImg from "./imgs/Project/skdev_web.svg";
 import anifyWebImg from "./imgs/Project/anify_web.svg";

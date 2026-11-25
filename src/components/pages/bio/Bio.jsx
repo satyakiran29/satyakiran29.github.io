@@ -141,8 +141,8 @@ const ProfileCard = () => {
             gameLogo
           });
           return;
-        } catch (err) {
-          console.warn("Failed to fetch steam status from", url, err);
+        } catch {
+          // Proxy unavailable or blocked; try next source or fall back to offline
         }
       }
       setSteamStatus({ state: "offline", message: "Offline", steamID: "skdev", hoursPlayed2Wk: "0.0" });
@@ -212,7 +212,7 @@ const ProfileCard = () => {
             <a href="https://satyakiran.vercel.app" className="b_info-button">
               <FaGlobe /> Website
             </a>
-            <a href="/freelance" className="b_info-button" style={{ border: '1px solid rgba(138, 43, 226, 0.4)', background: 'rgba(138, 43, 226, 0.1)' }}>
+            <a href="/freelance" className="b_info-button b_info-button--accent">
               <FaBriefcase /> Freelance Services
             </a>
             <a href="https://satyakiran-blog.vercel.app" className="b_info-button">
