@@ -13,7 +13,9 @@ import {
   FaLaptop,
   FaTrophy,
   FaCalendarAlt,
-  FaHourglassHalf
+  FaHourglassHalf,
+  FaThLarge,
+  FaLayerGroup
 } from "react-icons/fa";
 import { GAMING_PROFILE, LAPTOP_SPECS, initialGames } from "../../../data/gamesData";
 import { useIstStatus } from "../../../utils/useIstStatus";
@@ -21,6 +23,33 @@ import "./mygamelist.css";
 
 const STATUS_TABS = ["All", "Playing", "Completed", "On Hold", "Plan to Play"];
 const GENRE_FILTERS = ["All", "Action RPG", "Open World", "FPS", "Adventure"];
+
+const TIER_GROUPS = [
+  {
+    key: "S",
+    label: "S",
+    sub: "9.5 – 10",
+    match: (g) => typeof g.rating === "number" && g.rating >= 9.5,
+  },
+  {
+    key: "A",
+    label: "A",
+    sub: "9.0 – 9.4",
+    match: (g) => typeof g.rating === "number" && g.rating >= 9.0 && g.rating < 9.5,
+  },
+  {
+    key: "B",
+    label: "B",
+    sub: "8.0 – 8.9",
+    match: (g) => typeof g.rating === "number" && g.rating > 0 && g.rating < 9.0,
+  },
+  {
+    key: "Unrated",
+    label: "—",
+    sub: "Unrated",
+    match: (g) => typeof g.rating !== "number" || g.rating <= 0,
+  },
+];
 
 const matchesGenre = (game, genre) => {
   if (genre === "All") return true;
@@ -33,6 +62,7 @@ const MyGameList = () => {
   const [selectedGenre, setSelectedGenre] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("default");
+  const [viewMode, setViewMode] = useState("grid");
   const [selectedGame, setSelectedGame] = useState(null);
   const [copiedId, setCopiedId] = useState("");
 
@@ -134,6 +164,14 @@ const MyGameList = () => {
     }
     return filtered;
   }, [statusScopedMatches, selectedGenre, sortBy]);
+
+  const tierRows = useMemo(() => {
+    const base = [...visibleGames].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    return TIER_GROUPS.map((tier) => ({
+      ...tier,
+      games: base.filter(tier.match),
+    })).filter((tier) => tier.games.length > 0);
+  }, [visibleGames]);
 
   const handleCopyText = (key, value) => {
     navigator.clipboard?.writeText(value);
@@ -420,6 +458,27 @@ const MyGameList = () => {
                 <option value="rating">Sort: Score (High → Low)</option>
                 <option value="title">Sort: Title (A–Z)</option>
               </select>
+
+              <div className="mgl-view-toggle" role="group" aria-label="View mode">
+                <button
+                  type="button"
+                  className={`mgl-view-btn${viewMode === "grid" ? " active" : ""}`}
+                  onClick={() => setViewMode("grid")}
+                  aria-pressed={viewMode === "grid"}
+                  title="Grid view"
+                >
+                  <FaThLarge /> Grid
+                </button>
+                <button
+                  type="button"
+                  className={`mgl-view-btn${viewMode === "tier" ? " active" : ""}`}
+                  onClick={() => setViewMode("tier")}
+                  aria-pressed={viewMode === "tier"}
+                  title="Tier List view"
+                >
+                  <FaLayerGroup /> Tier List
+                </button>
+              </div>
             </div>
           </div>
 
@@ -442,9 +501,9 @@ const MyGameList = () => {
           </div>
         </div>
 
-        {/* Games Grid */}
-        <div className="mgl-grid">
-          {visibleGames.length === 0 ? (
+        {/* Games Grid or Tier List */}
+        {visibleGames.length === 0 ? (
+          <div className="mgl-grid">
             <div className="mgl-empty">
               <p>No games match the current filter.</p>
               <button
@@ -459,8 +518,70 @@ const MyGameList = () => {
                 Reset Filters
               </button>
             </div>
-          ) : (
-            visibleGames.map((game) => (
+          </div>
+        ) : viewMode === "tier" ? (
+          <div className="mgl-tier-board" aria-label="Games Tier List">
+            {tierRows.map((tier) => (
+              <section key={tier.key} className="mgl-tier-row">
+                <div className={`mgl-tier-badge mgl-tier-badge--${tier.key.toLowerCase()}`}>
+                  <span className="mgl-tier-letter">{tier.label}</span>
+                  <span className="mgl-tier-sub">{tier.sub}</span>
+                </div>
+                <div className="mgl-tier-items">
+                  {tier.games.map((game) => (
+                    <div
+                      key={game.id}
+                      className="mgl-tier-tile"
+                      onClick={() => setSelectedGame(game)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setSelectedGame(game);
+                        }
+                      }}
+                    >
+                      <div className="mgl-tier-cover-wrap">
+                        {game.image ? (
+                          <img
+                            src={game.image}
+                            alt={game.title}
+                            className="mgl-tier-cover"
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        ) : (
+                          <div className="mgl-cover-fallback">
+                            <FaGamepad />
+                          </div>
+                        )}
+                        {typeof game.rating === "number" && game.rating > 0 ? (
+                          <span className="mgl-score-badge">
+                            <FaStar /> {game.rating.toFixed(1)}
+                          </span>
+                        ) : (
+                          <span className={`mgl-status-pill ${getStatusClass(game.status)}`}>
+                            {game.status}
+                          </span>
+                        )}
+                      </div>
+                      <div className="mgl-tier-tile-body">
+                        <h3 className="mgl-tier-tile-title">{game.title}</h3>
+                        <div className="mgl-tier-tile-meta">
+                          <span className="mgl-pill">{game.platform}</span>
+                          {game.hours && <span className="mgl-meta-chip">{game.hours}</span>}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <div className="mgl-grid">
+            {visibleGames.map((game) => (
               <article
                 key={game.id}
                 className="mgl-card"
@@ -526,9 +647,9 @@ const MyGameList = () => {
                   </div>
                 </div>
               </article>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Game Review Detail Modal */}

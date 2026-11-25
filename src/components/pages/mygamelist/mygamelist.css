@@ -812,6 +812,184 @@
   cursor: pointer;
 }
 
+.mgl-view-toggle {
+  display: inline-flex;
+  align-items: center;
+  background: var(--steam-card);
+  border: 1px solid var(--steam-border);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  height: 38px;
+  gap: 3px;
+}
+
+.mgl-view-btn {
+  height: 100%;
+  padding: 0 11px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--steam-text-muted);
+  font-size: 12.5px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.mgl-view-btn:hover {
+  color: var(--steam-text);
+}
+
+.mgl-view-btn.active {
+  background: var(--steam-raised);
+  color: var(--steam-blue);
+}
+
+/* Tier List Board */
+.mgl-tier-board {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mgl-tier-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  background: var(--steam-card);
+  border: 1px solid var(--steam-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.mgl-tier-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 14px 8px;
+  border-right: 1px solid var(--steam-border);
+  background: var(--steam-raised);
+  text-align: center;
+}
+
+.mgl-tier-letter {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.mgl-tier-sub {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--steam-text-muted);
+}
+
+.mgl-tier-badge--s {
+  background: rgba(250, 204, 21, 0.12);
+}
+
+.mgl-tier-badge--s .mgl-tier-letter {
+  color: #facc15;
+}
+
+.mgl-tier-badge--a {
+  background: rgba(102, 192, 244, 0.12);
+}
+
+.mgl-tier-badge--a .mgl-tier-letter {
+  color: var(--steam-blue);
+}
+
+.mgl-tier-badge--b {
+  background: rgba(164, 208, 7, 0.12);
+}
+
+.mgl-tier-badge--b .mgl-tier-letter {
+  color: var(--steam-green);
+}
+
+.mgl-tier-badge--unrated .mgl-tier-letter {
+  color: var(--steam-text-muted);
+}
+
+.mgl-tier-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+  padding: 12px;
+}
+
+.mgl-tier-tile {
+  background: var(--steam-raised);
+  border: 1px solid var(--steam-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.mgl-tier-tile:hover {
+  border-color: var(--steam-blue);
+  transform: translateY(-2px);
+}
+
+.mgl-tier-cover-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 460 / 215;
+  background: var(--steam-bg-deep);
+  border-bottom: 1px solid var(--steam-border);
+}
+
+.mgl-tier-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mgl-tier-cover-wrap .mgl-score-badge,
+.mgl-tier-cover-wrap .mgl-status-pill {
+  top: 7px;
+  font-size: 10.5px;
+  padding: 2px 7px;
+}
+
+.mgl-tier-cover-wrap .mgl-score-badge {
+  right: 7px;
+}
+
+.mgl-tier-cover-wrap .mgl-status-pill {
+  left: 7px;
+}
+
+.mgl-tier-tile-body {
+  padding: 10px 12px;
+}
+
+.mgl-tier-tile-title {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--steam-text);
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mgl-tier-tile-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
 /* Steam Library Shelf Grid & Cards */
 .mgl-grid {
   display: grid;
@@ -1160,5 +1338,17 @@
   .mgl-search-box {
     width: 100%;
     min-width: 0;
+  }
+
+  .mgl-tier-row {
+    grid-template-columns: 1fr;
+  }
+
+  .mgl-tier-badge {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-right: none;
+    border-bottom: 1px solid var(--steam-border);
   }
 }
