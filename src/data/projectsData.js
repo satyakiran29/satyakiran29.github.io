@@ -24,6 +24,12 @@ export const projects = [
         "Curated HD wallpapers and trending ringtones",
         "Production Android release on Google Play Store"
       ],
+      caseStudy: {
+        role: "Creator & Android Developer",
+        problem: "Most Android home-screen widget packs require paid third-party apps like KWGT, creating friction for casual users.",
+        architecture: "Native Android app with built-in widget providers, optimized image caching for HD wallpapers, and cloud-synced ringtone/preset assets.",
+        outcome: "Published on Google Play Store with zero external dependencies required for end users."
+      },
       image: anify_bg,
       projectLink: "https://play.google.com/store/apps/details?id=com.skdev.anify",
       category: "Mobile",
@@ -41,6 +47,12 @@ export const projects = [
         "Anime-inspired KWGT widgets & KLWP setups",
         "Production Android release on Google Play Store"
       ],
+      caseStudy: {
+        role: "Creator & Android Developer",
+        problem: "Anime customization fans lacked a unified, regularly updated pack of cohesive KWGT widgets and KLWP themes.",
+        architecture: "Kotlin-based Android client backed by Firebase cloud storage & JSON manifests for over-the-air preset additions.",
+        outcome: "Published on Google Play Store with 5-star user reviews and active long-term users."
+      },
       image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
       projectLink: "https://play.google.com/store/apps/details?id=com.skdev.aniset",
       category: "Mobile",
@@ -58,6 +70,12 @@ export const projects = [
         "Release updates, FAQs, and community support links",
         "Responsive React + Vite single-page web app"
       ],
+      caseStudy: {
+        role: "Full-Stack Web Developer",
+        problem: "Users across Anify and Aniset needed one central portal for app updates, FAQs, and support links.",
+        architecture: "Modular React + Vite SPA with React Router navigation and responsive product showcase sections.",
+        outcome: "Deployed live at skdev.psatyakiran.in as the official hub for SkDev Android apps."
+      },
       image: skdevWebImg,
       projectLink: "https://skdev.psatyakiran.in/",
       githubLink: "https://github.com/satyakiran29/skdev-web",
@@ -76,6 +94,12 @@ export const projects = [
         "Android prototype client (Java & XML) + Django & Supabase backend",
         "Demonstrates shake/voice triggers, GPS telemetry, and safety chat"
       ],
+      caseStudy: {
+        role: "Lead Architect (B.Tech FSI Demo Prototype)",
+        problem: "Explore a unified prototype linking instant mobile SOS triggers with role-isolated guardian tracking and incident dispatch.",
+        architecture: "Android client (Java + XML) streaming telemetry and panic events to a Django REST backend backed by Supabase Realtime.",
+        outcome: "Built and verified end-to-end as a B.Tech Full Stack Internship (FSI) prototype (not for public release)."
+      },
       image: guardianaiimg,
       projectLink: "https://gai.psatyakiran.in/",
       githubLink: "https://github.com/satyakiran29/GuardianAI",
@@ -116,6 +140,12 @@ export const projects = [
       description:
         "A modern, responsive, and feature-rich complete MERN-stack eCommerce platform. Built with React.js, Tailwind CSS, Vite for the frontend, and Node.js, Express.js, MongoDB for the backend. It offers an exceptionally fast, fluid, and premium shopping experience for both customers and administrators.",
       tags: ["React.js", "Tailwind CSS", "Vite", "Node.js", "Express.js", "MongoDB"],
+      caseStudy: {
+        role: "Full-Stack Developer",
+        problem: "Build a fast end-to-end storefront and admin inventory system with clean separation between customer and admin workflows.",
+        architecture: "React + Tailwind CSS + Vite frontend paired with Express.js REST APIs and MongoDB persistence.",
+        outcome: "Deployed live at mernshop.psatyakiran.in with full product catalog, cart, and admin management."
+      },
       image: mernshopImg,
       projectLink: "https://mernshop.psatyakiran.in/",
       githubLink: "https://github.com/satyakiran29/MernShop",
@@ -146,6 +176,12 @@ export const projects = [
       description:
         "Built as a B.Tech 3rd Year (6th Semester) Mini Project — a comprehensive information portal featuring a dynamic landing page and developer profiles, with secure role-based login functionality to manage access controls across user tiers.",
       tags: ["Mini Project", "B.Tech 3rd Year • 6th Sem", "React.js", "Node.js", "Express.js"],
+      caseStudy: {
+        role: "Full-Stack Developer (B.Tech 6th Sem Mini Project)",
+        problem: "Provide visitors and temple administrators with structured schedules, information pages, and tiered role-based portal access.",
+        architecture: "React.js frontend integrated with a Node.js + Express.js backend handling authenticated role-based routes.",
+        outcome: "Delivered as a B.Tech 3rd Year (6th Semester) Mini Project and hosted at otis.psatyakiran.in."
+      },
       image: otisimg,
       githubLink: "https://github.com/satyakiran29/OTIS",
       projectLink: "https://otis.psatyakiran.in/",

@@ -363,7 +363,26 @@ const Project = () => {
                 )}
               </div>
               <h2 className="project-modal-title">{selectedProject.title}</h2>
+              {selectedProject.caseStudy?.role && (
+                <p className="project-modal-role">{selectedProject.caseStudy.role}</p>
+              )}
               <p className="project-modal-desc">{selectedProject.description}</p>
+              {selectedProject.caseStudy && (
+                <div className="project-case-study-grid">
+                  <div className="case-study-block">
+                    <span className="case-study-label">Problem</span>
+                    <p>{selectedProject.caseStudy.problem}</p>
+                  </div>
+                  <div className="case-study-block">
+                    <span className="case-study-label">Architecture</span>
+                    <p>{selectedProject.caseStudy.architecture}</p>
+                  </div>
+                  <div className="case-study-block case-study-block--wide">
+                    <span className="case-study-label">Outcome</span>
+                    <p>{selectedProject.caseStudy.outcome}</p>
+                  </div>
+                </div>
+              )}
               {selectedProject.highlights && selectedProject.highlights.length > 0 && (
                 <ul className="project-modal-highlights">
                   {selectedProject.highlights.map((item, idx) => (
