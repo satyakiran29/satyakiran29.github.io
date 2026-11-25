@@ -92,14 +92,14 @@ const Home = () => {
         <meta property="og:url" content="https://satyakiran.vercel.app/" />
         <meta property="og:title" content="Satyakiran | Full-Stack Web Developer & Android Dev" />
         <meta property="og:description" content="Discover projects, experience, and certifications on the official portfolio site of Satyakiran." />
-        <meta property="og:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta property="og:image" content="https://satyakiran.vercel.app/og-card.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://satyakiran.vercel.app/" />
         <meta name="twitter:title" content="Satyakiran | Full-Stack Web Developer & Android Dev" />
         <meta name="twitter:description" content="Discover projects, experience, and certifications on the official portfolio site of Satyakiran." />
-        <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta name="twitter:image" content="https://satyakiran.vercel.app/og-card.png" />
         <meta name="twitter:creator" content="@satyakiran29" />
       </Helmet>
       <Analytics />

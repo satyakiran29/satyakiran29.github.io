@@ -165,14 +165,14 @@ const ProfileCard = () => {
         <meta property="og:url" content="https://satyakiran.vercel.app/bio" />
         <meta property="og:title" content="Satyakiran | Links & Bio" />
         <meta property="og:description" content="Connect with Satyakiran – Full-Stack & Android Developer, Gamer, and Freelance Engineer. Access developer portfolio, freelance services, blog, and social links." />
-        <meta property="og:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta property="og:image" content="https://satyakiran.vercel.app/og-card.png" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:url" content="https://satyakiran.vercel.app/bio" />
         <meta name="twitter:title" content="Bio & Links | Satyakiran" />
         <meta name="twitter:description" content="Explore social links, gaming profiles, freelance services, and developer portfolio of Satyakiran." />
-        <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta name="twitter:image" content="https://satyakiran.vercel.app/og-card.png" />
         <meta name="twitter:creator" content="@satyakiran29" />
       </Helmet>
 

@@ -635,7 +635,7 @@ const Freelance = () => {
           property="og:description"
           content="Hire Satyakiran for high-performance full-stack web applications, native Android development, and UI/UX design. Published Play Store apps and fast turnaround."
         />
-        <meta property="og:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta property="og:image" content="https://satyakiran.vercel.app/og-card.png" />
         <meta property="og:locale" content="en_US" />
 
         {/* Twitter */}
@@ -646,7 +646,7 @@ const Freelance = () => {
           name="twitter:description"
           content="Hire Satyakiran for high-performance full-stack web applications, native Android development, and UI/UX design. Published Play Store apps and fast turnaround."
         />
-        <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/87798342?v=4" />
+        <meta name="twitter:image" content="https://satyakiran.vercel.app/og-card.png" />
         <meta name="twitter:creator" content="@satyakiran29" />
 
         {/* Structured Data */}
