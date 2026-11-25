@@ -108,7 +108,7 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-content">
           <div className="hero-image-container">
-            <img src="https://avatars.githubusercontent.com/u/87798342?v=4" alt="Profile" className="hero-img" />
+            <img src="https://avatars.githubusercontent.com/u/87798342?v=4" alt="Profile" className="hero-img" fetchPriority="high" decoding="async" />
             <Link to="/freelance" className="status-badge" title="Available for Freelance">
               <div className="status-dot-container">
                 <div className="status-dot"></div>

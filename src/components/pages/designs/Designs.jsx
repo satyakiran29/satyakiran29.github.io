@@ -24,7 +24,7 @@ const Designs = () => {
                 {images.map((imgSrc, index) => (
                     <div className="design-card" key={index}>
                         <div className="design-image-container">
-                            <img src={imgSrc} alt={`Aniset Widget Preset ${index + 1}`} className="design-image" loading="lazy" />
+                            <img src={imgSrc} alt={`Aniset Widget Preset ${index + 1}`} className="design-image" loading="lazy" decoding="async" />
                         </div>
                         <div className="design-overlay">
                             <span>Preset {index + 1 < 10 ? `0${index + 1}` : index + 1}</span>

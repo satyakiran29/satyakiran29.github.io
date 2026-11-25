@@ -18,7 +18,7 @@ const ProjectCard = ({ title, description, tags, image, projectLink, githubLink,
       }}
     >
       <div className="project-image-container">
-        <img src={image} alt={title} className="project-image" />
+        <img src={image} alt={title} className="project-image" loading="lazy" decoding="async" />
       </div>
 
       <div className="project-content">
@@ -72,7 +72,7 @@ const TestimonyCard = ({ title, description, tags, image }) => (
     </div>
 
     <div className="testimony-footer">
-      <img src={image} alt={title} className="testimony-image" />
+      <img src={image} alt={title} className="testimony-image" loading="lazy" decoding="async" />
       <h2 className="testimony-title">{title}</h2>
     </div>
   </div>
