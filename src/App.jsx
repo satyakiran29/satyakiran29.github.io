@@ -23,7 +23,7 @@ function App() {
     SetLoading(true);
     const t = setTimeout(() => {
       SetLoading(false);
-    }, 400);
+    }, 700);
     return () => clearTimeout(t);
   }, []);
 

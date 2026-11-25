@@ -1,68 +1,126 @@
-.custom-loader-wrapper {
+.sk-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    height: 100dvh;
-    width: 100%;
+    justify-content: center;
     background-color: var(--bg-primary);
+    color: var(--text-main);
 }
 
-.hex-svg {
-    width: 100px;
-    height: 100px;
+.sk-loader-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-.hex-polygon {
-    fill: none;
-    stroke: #40ff66;
-    /* Neon primary/accent from previously used colors */
-    stroke-width: 4;
-    stroke-dasharray: 300;
-    stroke-dashoffset: 300;
-    animation: drawHex 2s ease forwards, glowHex 2s ease-in-out infinite alternate;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+.sk-loader-wordmark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    user-select: none;
+    overflow: hidden;
+    padding: 4px 6px;
 }
 
-.hex-text {
-    fill: #40ff66;
-    font-family: var(--font-heading), 'Outfit', sans-serif;
-    font-size: 40px;
+.sk-word-satya {
+    font-family: 'Syne', var(--font-heading), sans-serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--text-main);
+    animation: skWordReveal 0.45s var(--ease-standard) both;
+}
+
+.sk-word-kiran {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(2.25rem, 6.6vw, 3.35rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--accent-primary);
+    animation: skWordReveal 0.45s var(--ease-standard) 0.08s both;
+}
+
+.sk-word-dot {
+    font-family: 'Syne', var(--font-heading), sans-serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent-positive);
+    margin-left: -6px;
+    animation: skDotPop 0.35s var(--ease-standard) 0.2s both;
+}
+
+.sk-loader-tagline {
+    font-family: var(--font-mono);
+    font-size: 11px;
     font-weight: 500;
-    opacity: 0;
-    animation: fadeInText 1s ease forwards 1.5s;
-    /* Fade in after hex draws */
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    animation: skFadeIn 0.4s var(--ease-standard) 0.15s both;
 }
 
-@keyframes drawHex {
-    0% {
-        stroke-dashoffset: 300;
-    }
-
-    100% {
-        stroke-dashoffset: 0;
-    }
+.sk-loader-track {
+    width: 150px;
+    height: 2px;
+    margin-top: 6px;
+    border-radius: 999px;
+    background: var(--border-hairline);
+    overflow: hidden;
 }
 
-@keyframes glowHex {
-    0% {
-        filter: drop-shadow(0 0 2px #40ff66);
-    }
-
-    100% {
-        filter: drop-shadow(0 0 10px #40ff66);
-    }
+.sk-loader-bar {
+    width: 55%;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--accent-primary);
+    animation: skBarSweep 0.9s var(--ease-standard) infinite;
 }
 
-@keyframes fadeInText {
-    0% {
+@keyframes skWordReveal {
+    from {
         opacity: 0;
-        transform: scale(0.8);
+        transform: translateY(16px);
     }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-    100% {
+@keyframes skDotPop {
+    from {
+        opacity: 0;
+        transform: scale(0.4);
+    }
+    to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes skFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes skBarSweep {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(220%);
     }
 }
