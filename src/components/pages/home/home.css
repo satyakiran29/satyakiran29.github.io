@@ -510,3 +510,154 @@
         font-size: 0.95rem;
     }
 }
+
+.resume-btn-main {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Inline Resume Preview Modal */
+.resume-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.resume-modal {
+    width: 100%;
+    max-width: 880px;
+    height: min(86vh, 820px);
+    background: var(--bg-card);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.resume-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-hairline);
+    flex-wrap: wrap;
+}
+
+.resume-modal-title-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.resume-modal-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.resume-modal-file {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--bg-raised);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-sm);
+    padding: 2px 8px;
+}
+
+.resume-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.resume-modal-action {
+    height: 32px;
+    padding: 0 12px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-raised);
+    border: 1px solid var(--border-hairline);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.resume-modal-action:hover {
+    color: var(--text-main);
+    border-color: var(--border-hover);
+}
+
+.resume-modal-action--primary {
+    background: var(--text-main);
+    color: var(--bg-secondary);
+    border-color: var(--text-main);
+}
+
+.resume-modal-action--primary:hover {
+    background: var(--btn-primary-hover-bg);
+    color: var(--btn-primary-hover-text);
+    border-color: var(--btn-primary-hover-bg);
+}
+
+.resume-modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-raised);
+    border: 1px solid var(--border-hairline);
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    cursor: pointer;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.resume-modal-close:hover {
+    color: var(--text-main);
+    border-color: var(--border-hover);
+}
+
+.resume-modal-body {
+    flex: 1;
+    min-height: 0;
+    background: var(--bg-secondary);
+}
+
+.resume-modal-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .resume-modal-overlay {
+        padding: 10px;
+    }
+
+    .resume-modal {
+        height: 82vh;
+    }
+
+    .resume-modal-file {
+        display: none;
+    }
+}

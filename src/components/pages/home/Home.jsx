@@ -4,7 +4,7 @@ import "../home/home.css";
 
 import { Analytics } from '@vercel/analytics/react';
 import Skills from "./Skills";
-import { FaGooglePlay, FaEye, FaDownload, FaBriefcase } from "react-icons/fa";
+import { FaGooglePlay, FaEye, FaDownload, FaBriefcase, FaTimes, FaExternalLinkAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const PHRASES = [
@@ -77,6 +77,24 @@ function useTypewriter(phrases) {
 
 const Home = () => {
   const { displayed, erasing } = useTypewriter(PHRASES);
+  const [resumeOpen, setResumeOpen] = useState(false);
+
+  useEffect(() => {
+    if (!resumeOpen) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    document.body.style.overflow = "hidden";
+    const handleEsc = (e) => {
+      if (e.key === "Escape") setResumeOpen(false);
+    };
+    window.addEventListener("keydown", handleEsc);
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+      document.body.style.overflow = "";
+    };
+  }, [resumeOpen]);
 
   return (
     <div className="home-wrapper">
@@ -133,9 +151,14 @@ const Home = () => {
               <FaBriefcase /> Hire Me
             </Link>
             <div className="resume-btn-group">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="resume-btn-main" title="View Resume">
+              <button
+                type="button"
+                onClick={() => setResumeOpen(true)}
+                className="resume-btn-main"
+                title="Preview Resume"
+              >
                 <FaEye /> Resume
-              </a>
+              </button>
               <span className="resume-btn-divider"></span>
               <a href="/resume.pdf" download="satyakiran_resume.pdf" className="resume-btn-dl" title="Download Resume">
                 <FaDownload />
@@ -166,6 +189,57 @@ const Home = () => {
 
       {/* Skills Section */}
       <Skills />
+
+      {resumeOpen && (
+        <div
+          className="resume-modal-overlay"
+          onClick={() => setResumeOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Resume Preview"
+        >
+          <div className="resume-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="resume-modal-header">
+              <div className="resume-modal-title-group">
+                <span className="resume-modal-title">Resume Preview</span>
+                <span className="resume-modal-file">satyakiran_resume.pdf</span>
+              </div>
+              <div className="resume-modal-actions">
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="resume-modal-action"
+                >
+                  <FaExternalLinkAlt /> Open Tab
+                </a>
+                <a
+                  href="/resume.pdf"
+                  download="satyakiran_resume.pdf"
+                  className="resume-modal-action resume-modal-action--primary"
+                >
+                  <FaDownload /> Download
+                </a>
+                <button
+                  type="button"
+                  className="resume-modal-close"
+                  onClick={() => setResumeOpen(false)}
+                  aria-label="Close resume preview"
+                >
+                  <FaTimes />
+                </button>
+              </div>
+            </div>
+            <div className="resume-modal-body">
+              <iframe
+                src="/resume.pdf#view=FitH"
+                title="Satyakiran Resume PDF"
+                className="resume-modal-frame"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
