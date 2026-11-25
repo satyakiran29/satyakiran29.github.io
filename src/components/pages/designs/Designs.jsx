@@ -1,27 +1,65 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useSearchParams } from "react-router-dom";
 import "./designs.css";
-import { FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaExternalLinkAlt, FaTimes, FaChevronLeft, FaChevronRight, FaLink, FaCheck } from "react-icons/fa";
 
 // Import all images from the desgins folder
 const imageModules = import.meta.glob("../../../data/desgins/*.webp", { eager: true });
 const images = Object.values(imageModules).map((mod) => mod.default);
 
 const Designs = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [activeIndex, setActiveIndex] = useState(null);
+    const [copiedPresetLink, setCopiedPresetLink] = useState(false);
 
-    const closeLightbox = useCallback(() => setActiveIndex(null), []);
+    const openLightbox = useCallback((idx) => {
+        setActiveIndex(idx);
+        setCopiedPresetLink(false);
+        const next = new URLSearchParams(searchParams);
+        next.set("preset", String(idx + 1));
+        setSearchParams(next, { replace: true });
+    }, [searchParams, setSearchParams]);
+
+    const closeLightbox = useCallback(() => {
+        setActiveIndex(null);
+        setCopiedPresetLink(false);
+        if (searchParams.has("preset")) {
+            const next = new URLSearchParams(searchParams);
+            next.delete("preset");
+            setSearchParams(next, { replace: true });
+        }
+    }, [searchParams, setSearchParams]);
 
     const showPrev = useCallback(() => {
-        setActiveIndex((prev) =>
-            prev === null ? null : (prev - 1 + images.length) % images.length
-        );
-    }, []);
+        setActiveIndex((prev) => {
+            if (prev === null) return null;
+            const nextIdx = (prev - 1 + images.length) % images.length;
+            const next = new URLSearchParams(searchParams);
+            next.set("preset", String(nextIdx + 1));
+            setSearchParams(next, { replace: true });
+            return nextIdx;
+        });
+    }, [searchParams, setSearchParams]);
 
     const showNext = useCallback(() => {
-        setActiveIndex((prev) =>
-            prev === null ? null : (prev + 1) % images.length
-        );
-    }, []);
+        setActiveIndex((prev) => {
+            if (prev === null) return null;
+            const nextIdx = (prev + 1) % images.length;
+            const next = new URLSearchParams(searchParams);
+            next.set("preset", String(nextIdx + 1));
+            setSearchParams(next, { replace: true });
+            return nextIdx;
+        });
+    }, [searchParams, setSearchParams]);
+
+    useEffect(() => {
+        const param = searchParams.get("preset");
+        if (!param) return;
+        const parsed = parseInt(param, 10);
+        if (!Number.isNaN(parsed) && parsed >= 1 && parsed <= images.length) {
+            setActiveIndex(parsed - 1);
+        }
+    }, [searchParams]);
 
     useEffect(() => {
         if (activeIndex === null) {
@@ -63,14 +101,14 @@ const Designs = () => {
                     <div
                         className="design-card design-card--clickable"
                         key={index}
-                        onClick={() => setActiveIndex(index)}
+                        onClick={() => openLightbox(index)}
                         role="button"
                         tabIndex={0}
                         aria-label={`View Aniset Widget Preset ${index + 1}`}
                         onKeyDown={(e) => {
                             if (e.key === "Enter" || e.key === " ") {
                                 e.preventDefault();
-                                setActiveIndex(index);
+                                openLightbox(index);
                             }
                         }}
                     >
@@ -100,14 +138,29 @@ const Designs = () => {
                                     {formatNum(activeIndex + 1)} / {formatNum(images.length)}
                                 </span>
                             </span>
-                            <button
-                                type="button"
-                                className="design-lightbox-close"
-                                onClick={closeLightbox}
-                                aria-label="Close lightbox"
-                            >
-                                <FaTimes />
-                            </button>
+                            <div className="design-lightbox-actions">
+                                <button
+                                    type="button"
+                                    className="design-lightbox-share"
+                                    onClick={() => {
+                                        navigator.clipboard?.writeText(window.location.href);
+                                        setCopiedPresetLink(true);
+                                        setTimeout(() => setCopiedPresetLink(false), 1800);
+                                    }}
+                                    aria-label="Copy shareable preset link"
+                                >
+                                    {copiedPresetLink ? <FaCheck /> : <FaLink />}
+                                    <span>{copiedPresetLink ? "Copied" : "Share"}</span>
+                                </button>
+                                <button
+                                    type="button"
+                                    className="design-lightbox-close"
+                                    onClick={closeLightbox}
+                                    aria-label="Close lightbox"
+                                >
+                                    <FaTimes />
+                                </button>
+                            </div>
                         </div>
 
                         <div className="design-lightbox-stage">

@@ -1,9 +1,40 @@
 import React, { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import "../project/project.css";
-import { FaGithub, FaExternalLinkAlt, FaSearch, FaQuoteLeft, FaStar, FaTimes } from "react-icons/fa";
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+  FaSearch,
+  FaQuoteLeft,
+  FaStar,
+  FaTimes,
+  FaGooglePlay,
+  FaDownload,
+  FaCheckCircle,
+  FaLink,
+  FaCheck
+} from "react-icons/fa";
+
+const getProjectSlug = (title) =>
+  title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
 import { projects, testimonies } from "../../../data/projectsData";
-const ProjectCard = ({ title, description, tags, image, projectLink, githubLink, onSelect }) => {
+const ProjectCard = ({
+  title,
+  description,
+  tags,
+  image,
+  projectLink,
+  githubLink,
+  badge,
+  playStore,
+  apkLink,
+  repoStats,
+  onSelect
+}) => {
   return (
     <div
       className="project-wrapper project-wrapper--clickable"
@@ -19,6 +50,12 @@ const ProjectCard = ({ title, description, tags, image, projectLink, githubLink,
     >
       <div className="project-image-container">
         <img src={image} alt={title} className="project-image" loading="lazy" decoding="async" />
+        {badge && (
+          <span className={`project-badge${playStore ? " project-badge--playstore" : ""}`}>
+            {playStore && <FaGooglePlay />}
+            <span>{badge}</span>
+          </span>
+        )}
       </div>
 
       <div className="project-content">
@@ -45,9 +82,37 @@ const ProjectCard = ({ title, description, tags, image, projectLink, githubLink,
             </a>
           )}
           {projectLink && projectLink !== "#" && (
-            <a href={projectLink} target="_blank" rel="noopener noreferrer" aria-label="External Link">
-              <FaExternalLinkAlt className="project-icon" />
+            <a
+              href={projectLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={playStore ? "View on Google Play" : "External Link"}
+              className={playStore ? "project-pill-link project-pill-link--play" : undefined}
+            >
+              {playStore ? (
+                <>
+                  <FaGooglePlay /> <span>Google Play</span>
+                </>
+              ) : (
+                <FaExternalLinkAlt className="project-icon" />
+              )}
             </a>
+          )}
+          {apkLink && (
+            <a
+              href={apkLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-pill-link"
+              aria-label="Download Android APK"
+            >
+              <FaDownload /> <span>APK</span>
+            </a>
+          )}
+          {repoStats && repoStats.stars > 0 && (
+            <span className="project-metric-pill" title={`${repoStats.stars} GitHub stars`}>
+              <FaStar /> {repoStats.stars}
+            </span>
           )}
         </div>
       </div>
@@ -83,14 +148,82 @@ const Project = () => {
   // Generate unique categories
   const categories = ["All", ...Array.from(new Set(projects.map(p => p.category)))];
 
-  // State for selected category, search term, and case-study modal
+  // State for selected category, search term, case-study modal, and live repo metrics
+  const [searchParams, setSearchParams] = useSearchParams();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedProject, setSelectedProject] = useState(null);
+  const [copiedProjectLink, setCopiedProjectLink] = useState(false);
+  const [repoMetrics, setRepoMetrics] = useState({});
+
+  const openProjectModal = (project) => {
+    setSelectedProject(project);
+    setCopiedProjectLink(false);
+    const next = new URLSearchParams(searchParams);
+    next.set("project", getProjectSlug(project.title));
+    setSearchParams(next, { replace: true });
+  };
+
+  const closeProjectModal = () => {
+    setSelectedProject(null);
+    setCopiedProjectLink(false);
+    if (searchParams.has("project")) {
+      const next = new URLSearchParams(searchParams);
+      next.delete("project");
+      setSearchParams(next, { replace: true });
+    }
+  };
+
+  useEffect(() => {
+    const param = searchParams.get("project");
+    if (!param) return;
+    const normalized = param.toLowerCase().trim();
+    const match =
+      projects.find((p) => getProjectSlug(p.title) === normalized) ||
+      projects.find((p) => getProjectSlug(p.title).startsWith(normalized));
+    if (match) {
+      setSelectedProject(match);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    const repos = projects.map((p) => p.githubRepo).filter(Boolean);
+    if (!repos.length) return;
+
+    const loadMetrics = async () => {
+      const next = {};
+      await Promise.all(
+        repos.map(async (repo) => {
+          const cacheKey = `gh_repo_${repo}`;
+          try {
+            const cached = sessionStorage.getItem(cacheKey);
+            if (cached) {
+              next[repo] = JSON.parse(cached);
+              return;
+            }
+            const res = await fetch(`https://api.github.com/repos/${repo}`);
+            if (!res.ok) return;
+            const data = await res.json();
+            const entry = {
+              stars: data.stargazers_count || 0,
+              language: data.language || "",
+            };
+            next[repo] = entry;
+            sessionStorage.setItem(cacheKey, JSON.stringify(entry));
+          } catch {
+            // Ignore rate limit / network issues silently
+          }
+        })
+      );
+      if (Object.keys(next).length) setRepoMetrics(next);
+    };
+
+    loadMetrics();
+  }, []);
 
   useEffect(() => {
     const handleEsc = (e) => {
-      if (e.key === "Escape") setSelectedProject(null);
+      if (e.key === "Escape") closeProjectModal();
     };
     if (selectedProject) {
       window.addEventListener("keydown", handleEsc);
@@ -188,7 +321,8 @@ const Project = () => {
               key={index}
               index={index}
               {...project}
-              onSelect={() => setSelectedProject(project)}
+              repoStats={project.githubRepo ? repoMetrics[project.githubRepo] : undefined}
+              onSelect={() => openProjectModal(project)}
             />
           ))
         )}
@@ -197,7 +331,7 @@ const Project = () => {
       {selectedProject && (
         <div
           className="project-modal-overlay"
-          onClick={() => setSelectedProject(null)}
+          onClick={closeProjectModal}
           role="dialog"
           aria-modal="true"
           aria-label={selectedProject.title}
@@ -206,7 +340,7 @@ const Project = () => {
             <button
               type="button"
               className="project-modal-close"
-              onClick={() => setSelectedProject(null)}
+              onClick={closeProjectModal}
               aria-label="Close project details"
             >
               <FaTimes />
@@ -219,9 +353,27 @@ const Project = () => {
               />
             </div>
             <div className="project-modal-body">
-              <span className="project-modal-category">{selectedProject.category}</span>
+              <div className="project-modal-meta-row">
+                <span className="project-modal-category">{selectedProject.category}</span>
+                {selectedProject.badge && (
+                  <span className={`project-badge-inline${selectedProject.playStore ? " project-badge--playstore" : ""}`}>
+                    {selectedProject.playStore && <FaGooglePlay />}
+                    <span>{selectedProject.badge}</span>
+                  </span>
+                )}
+              </div>
               <h2 className="project-modal-title">{selectedProject.title}</h2>
               <p className="project-modal-desc">{selectedProject.description}</p>
+              {selectedProject.highlights && selectedProject.highlights.length > 0 && (
+                <ul className="project-modal-highlights">
+                  {selectedProject.highlights.map((item, idx) => (
+                    <li key={idx}>
+                      <FaCheckCircle />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
               <div className="project-tags">
                 {selectedProject.tags.map((tag, idx) => (
                   <span
@@ -240,7 +392,18 @@ const Project = () => {
                     rel="noopener noreferrer"
                     className="project-modal-btn project-modal-btn--primary"
                   >
-                    <FaExternalLinkAlt /> View Live
+                    {selectedProject.playStore ? <FaGooglePlay /> : <FaExternalLinkAlt />}
+                    {selectedProject.actionLabel || "View Live"}
+                  </a>
+                )}
+                {selectedProject.apkLink && (
+                  <a
+                    href={selectedProject.apkLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-modal-btn project-modal-btn--secondary"
+                  >
+                    <FaDownload /> Download APK
                   </a>
                 )}
                 {selectedProject.githubLink && selectedProject.githubLink !== "#" && (
@@ -253,6 +416,18 @@ const Project = () => {
                     <FaGithub /> Source Code
                   </a>
                 )}
+                <button
+                  type="button"
+                  className="project-modal-btn project-modal-btn--secondary"
+                  onClick={() => {
+                    navigator.clipboard?.writeText(window.location.href);
+                    setCopiedProjectLink(true);
+                    setTimeout(() => setCopiedProjectLink(false), 1800);
+                  }}
+                >
+                  {copiedProjectLink ? <FaCheck /> : <FaLink />}
+                  {copiedProjectLink ? "Copied Link" : "Share"}
+                </button>
               </div>
             </div>
           </div>

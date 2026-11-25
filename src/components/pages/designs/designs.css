@@ -180,6 +180,33 @@
   color: var(--accent-primary);
 }
 
+.design-lightbox-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.design-lightbox-share {
+  height: 32px;
+  padding: 0 10px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-raised);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.design-lightbox-share:hover {
+  color: var(--text-main);
+  border-color: var(--border-hover);
+}
+
 .design-lightbox-close {
   width: 32px;
   height: 32px;

@@ -5,7 +5,7 @@ import "../home/home.css";
 import { Analytics } from '@vercel/analytics/react';
 import Skills from "./Skills";
 import { FaGooglePlay, FaEye, FaDownload, FaBriefcase, FaTimes, FaExternalLinkAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const PHRASES = [
   "Web Developer",
@@ -77,7 +77,30 @@ function useTypewriter(phrases) {
 
 const Home = () => {
   const { displayed, erasing } = useTypewriter(PHRASES);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [resumeOpen, setResumeOpen] = useState(false);
+
+  const openResumeModal = () => {
+    setResumeOpen(true);
+    const next = new URLSearchParams(searchParams);
+    next.set("resume", "1");
+    setSearchParams(next, { replace: true });
+  };
+
+  const closeResumeModal = () => {
+    setResumeOpen(false);
+    if (searchParams.has("resume")) {
+      const next = new URLSearchParams(searchParams);
+      next.delete("resume");
+      setSearchParams(next, { replace: true });
+    }
+  };
+
+  useEffect(() => {
+    if (searchParams.get("resume") === "1") {
+      setResumeOpen(true);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     if (!resumeOpen) {
@@ -87,7 +110,7 @@ const Home = () => {
 
     document.body.style.overflow = "hidden";
     const handleEsc = (e) => {
-      if (e.key === "Escape") setResumeOpen(false);
+      if (e.key === "Escape") closeResumeModal();
     };
     window.addEventListener("keydown", handleEsc);
     return () => {
@@ -153,7 +176,7 @@ const Home = () => {
             <div className="resume-btn-group">
               <button
                 type="button"
-                onClick={() => setResumeOpen(true)}
+                onClick={openResumeModal}
                 className="resume-btn-main"
                 title="Preview Resume"
               >
@@ -193,7 +216,7 @@ const Home = () => {
       {resumeOpen && (
         <div
           className="resume-modal-overlay"
-          onClick={() => setResumeOpen(false)}
+          onClick={closeResumeModal}
           role="dialog"
           aria-modal="true"
           aria-label="Resume Preview"
@@ -223,7 +246,7 @@ const Home = () => {
                 <button
                   type="button"
                   className="resume-modal-close"
-                  onClick={() => setResumeOpen(false)}
+                  onClick={closeResumeModal}
                   aria-label="Close resume preview"
                 >
                   <FaTimes />

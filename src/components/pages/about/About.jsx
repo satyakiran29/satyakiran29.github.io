@@ -132,12 +132,12 @@ const App = () => {
   const internships = [
     {
       id: 1,
-      title: "Full Stack Internship (FSI) — GuardianAI",
+      title: "Full Stack Internship (FSI) — GuardianAI (Demo Prototype)",
       subtitle: "B.Tech Internship (FSI)",
       date: "2026",
-      description: "Developed GuardianAI as the B.Tech Full Stack Internship (FSI) project — an autonomous emergency safety and incident command ecosystem combining a native Android app (Java & XML) with a Django & Supabase cloud command center, featuring multi-modal panic detection, live GPS telemetry, guardian-ward radar, and real-time safety chat.",
+      description: "Developed GuardianAI as a B.Tech Full Stack Internship (FSI) demo prototype (not for public release) — exploring an emergency safety workflow combining a prototype Android app (Java & XML) with a Django & Supabase dashboard for panic triggers, GPS telemetry, and safety chat.",
       link: "https://gai.psatyakiran.in/",
-      linkLabel: "View Project"
+      linkLabel: "View Demo"
     },
     {
       id: 2,

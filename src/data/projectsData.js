@@ -16,6 +16,14 @@ export const projects = [
       description:
         "Give your phone a complete makeover with Anify, the ultimate personalization app for Android. Get access to ready-to-use widgets, HD wallpapers, and trending ringtones—all in one app, with no KWGT required.",
       tags: ["Android App", "Widgets", "Wallpapers", "Ringtones", "Published on Play Store"],
+      badge: "Google Play",
+      playStore: true,
+      actionLabel: "Get on Google Play",
+      highlights: [
+        "No KWGT required — native widgets out of the box",
+        "Curated HD wallpapers and trending ringtones",
+        "Production Android release on Google Play Store"
+      ],
       image: anify_bg,
       projectLink: "https://play.google.com/store/apps/details?id=com.skdev.anify",
       category: "Mobile",
@@ -25,6 +33,14 @@ export const projects = [
       description:
         "Transform your Android Home Screen with Aniset - Anime KWGT Widgets & KLWP! Elevate your device customization to a whole new level with anime-inspired widgets and themes.",
       tags: ["Android App", "Kotlin", "JSON", "Firebase", "UI/UX", "Published on Play Store"],
+      badge: "Google Play",
+      playStore: true,
+      actionLabel: "Get on Google Play",
+      highlights: [
+        "Kotlin client with Firebase cloud asset sync",
+        "Anime-inspired KWGT widgets & KLWP setups",
+        "Production Android release on Google Play Store"
+      ],
       image: "https://play-lh.googleusercontent.com/X5-j_gJq-zNoshCO96DwKVjh6Y6XNIOWFtFlip3EtWLJ-W5gctNo_Y-Qg1dk-98x00s=w526-h296-rw",
       projectLink: "https://play.google.com/store/apps/details?id=com.skdev.aniset",
       category: "Mobile",
@@ -34,6 +50,14 @@ export const projects = [
       description:
         "A modern, responsive web application serving as a centralized hub to showcase Android applications published on the Google Play Store. It also features news updates, FAQs, and a support/donation platform.",
       tags: ["React", "Vite", "React Router", "UI/UX"],
+      badge: "App Hub",
+      actionLabel: "Visit Showcase",
+      githubRepo: "satyakiran29/skdev-web",
+      highlights: [
+        "Centralized showcase for published Google Play apps",
+        "Release updates, FAQs, and community support links",
+        "Responsive React + Vite single-page web app"
+      ],
       image: skdevWebImg,
       projectLink: "https://skdev.psatyakiran.in/",
       githubLink: "https://github.com/satyakiran29/skdev-web",
@@ -42,8 +66,16 @@ export const projects = [
     {
       title: "GuardianAI",
       description:
-        "Built as a B.Tech Full Stack Internship (FSI) project — an autonomous emergency safety and incident command ecosystem combining a native Android app (Java & XML) with a Django & Supabase cloud command center. Features multi-modal panic detection (shake & voice triggers), live GPS telemetry, guardian-ward radar, and real-time safety chat.",
-      tags: ["FSI Project", "Android", "Java", "Django", "Supabase", "REST API"],
+        "A B.Tech Full Stack Internship (FSI) demo prototype (not intended for public release) demonstrating an emergency safety and incident command workflow—combining an Android client (Java & XML) with a Django & Supabase prototype dashboard for panic triggers, GPS telemetry, and safety chat.",
+      tags: ["Demo Prototype", "FSI Project", "Android", "Java", "Django", "Supabase"],
+      badge: "Demo Prototype • FSI",
+      actionLabel: "View Demo",
+      githubRepo: "satyakiran29/GuardianAI",
+      highlights: [
+        "Academic B.Tech FSI demo prototype (not a public release)",
+        "Android prototype client (Java & XML) + Django & Supabase backend",
+        "Demonstrates shake/voice triggers, GPS telemetry, and safety chat"
+      ],
       image: guardianaiimg,
       projectLink: "https://gai.psatyakiran.in/",
       githubLink: "https://github.com/satyakiran29/GuardianAI",
