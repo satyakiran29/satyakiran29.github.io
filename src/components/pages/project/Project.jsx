@@ -104,11 +104,25 @@ const Project = () => {
     };
   }, [selectedProject]);
 
-  // Filter projects by category AND search term
+  useEffect(() => {
+    const handleSkillFilter = (e) => {
+      const nextQuery = e.detail?.query || "";
+      setSelectedCategory("All");
+      setSearchTerm(nextQuery);
+    };
+    window.addEventListener("filter-projects-by-skill", handleSkillFilter);
+    return () => window.removeEventListener("filter-projects-by-skill", handleSkillFilter);
+  }, []);
+
+  // Filter projects by category AND search term (title, description, or tags)
+  const normalizedSearch = searchTerm.trim().toLowerCase();
   const filteredProjects = projects.filter(p => {
     const matchesCategory = selectedCategory === "All" || p.category === selectedCategory;
-    const matchesSearch = p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      p.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch =
+      !normalizedSearch ||
+      p.title.toLowerCase().includes(normalizedSearch) ||
+      p.description.toLowerCase().includes(normalizedSearch) ||
+      p.tags.some(tag => tag.toLowerCase().includes(normalizedSearch));
     return matchesCategory && matchesSearch;
   });
 
@@ -123,11 +137,21 @@ const Project = () => {
           <FaSearch className="search-icon" />
           <input
             type="text"
-            placeholder="Search projects..."
+            placeholder="Search projects or tech (e.g., React, Django, Java)..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="search-input"
           />
+          {searchTerm && (
+            <button
+              type="button"
+              className="search-clear-btn"
+              onClick={() => setSearchTerm("")}
+              aria-label="Clear search filter"
+            >
+              <FaTimes />
+            </button>
+          )}
         </div>
 
         {/* Category Filter Buttons */}
@@ -144,14 +168,30 @@ const Project = () => {
         </div>
       </div>
       <div className="projects-container">
-        {filteredProjects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            index={index}
-            {...project}
-            onSelect={() => setSelectedProject(project)}
-          />
-        ))}
+        {filteredProjects.length === 0 ? (
+          <div className="projects-empty">
+            <p>No projects match "{searchTerm}".</p>
+            <button
+              type="button"
+              className="category-btn active"
+              onClick={() => {
+                setSearchTerm("");
+                setSelectedCategory("All");
+              }}
+            >
+              Reset Filters
+            </button>
+          </div>
+        ) : (
+          filteredProjects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              index={index}
+              {...project}
+              onSelect={() => setSelectedProject(project)}
+            />
+          ))
+        )}
       </div>
 
       {selectedProject && (
