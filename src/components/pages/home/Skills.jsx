@@ -44,24 +44,24 @@ const skillCategories = [
     {
         category: "Backend",
         skills: [
-            { name: "Django", icon: <SiDjango color="#092E20" />, percentage: 80 },
+            { name: "Django", icon: <SiDjango color="#44B78B" />, percentage: 80 },
             { name: "Node.js", icon: <FaNodeJs color="#3C873A" />, percentage: 75 },
-            { name: "Express.js", icon: <SiExpress color="#FFFFFF" />, percentage: 75 },
+            { name: "Express.js", icon: <SiExpress color="currentColor" />, percentage: 75 },
         ],
     },
     {
         category: "Databases",
         skills: [
             { name: "MongoDB", icon: <SiMongodb color="#47A248" />, percentage: 80 },
-            { name: "SQLite", icon: <SiSqlite color="#003B57" />, percentage: 85 },
+            { name: "SQLite", icon: <SiSqlite color="#3897D3" />, percentage: 85 },
         ],
     },
     {
         category: "Tools",
         skills: [
             { name: "Git", icon: <FaGitAlt color="#F1502F" />, percentage: 90 },
-            { name: "GitHub", icon: <FaGithub color="#FFFFFF" />, percentage: 95 },
-            { name: "Vercel", icon: <SiVercel color="#FFFFFF" />, percentage: 80 },
+            { name: "GitHub", icon: <FaGithub color="currentColor" />, percentage: 95 },
+            { name: "Vercel", icon: <SiVercel color="currentColor" />, percentage: 80 },
             { name: "Figma", icon: <FaFigma color="#F24E1E" />, percentage: 75 },
             { name: "Linux", icon: <FaLinux color="#FCC624" />, percentage: 85 },
             { name: "n8n", icon: <SiN8N color="#FF6D5A" />, percentage: 70 },

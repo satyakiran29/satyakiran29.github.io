@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import "../nav/Navbar.css";
 import { HamburgetMenuClose } from "./Icons";
+import { useTheme } from "../../../context/ThemeContext";
 import {
   FaHome,
   FaThLarge,
@@ -16,13 +17,16 @@ import {
   FaInstagram,
   FaEnvelope,
   FaGithub,
-  FaBriefcase
+  FaBriefcase,
+  FaSun,
+  FaMoon
 } from "react-icons/fa";
 
 function NavBar() {
   const [click, setClick] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
@@ -173,20 +177,42 @@ function NavBar() {
                 <kbd>Ctrl K</kbd>
               </button>
             </li>
+            <li className="nav-item">
+              <button
+                type="button"
+                className="nav-theme-btn"
+                onClick={toggleTheme}
+                title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+                aria-label={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              >
+                {theme === "dark" ? <FaSun /> : <FaMoon />}
+              </button>
+            </li>
           </ul>
 
-          {/* Hamburger trigger for mobile */}
-          <div
-            className="nav-icon"
-            onClick={handleClick}
-            role="button"
-            tabIndex="0"
-            aria-label="Toggle navigation menu"
-            onKeyDown={(e) => { if (e.key === "Enter") handleClick(); }}
-          >
-            <span className="icon">
-              <HamburgetMenuClose />
-            </span>
+          {/* Mobile Controls: Theme Toggle + Hamburger trigger */}
+          <div className="mobile-nav-controls">
+            <button
+              type="button"
+              className="nav-theme-btn nav-theme-btn--mobile"
+              onClick={toggleTheme}
+              title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+              aria-label={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              {theme === "dark" ? <FaSun /> : <FaMoon />}
+            </button>
+            <div
+              className="nav-icon"
+              onClick={handleClick}
+              role="button"
+              tabIndex="0"
+              aria-label="Toggle navigation menu"
+              onKeyDown={(e) => { if (e.key === "Enter") handleClick(); }}
+            >
+              <span className="icon">
+                <HamburgetMenuClose />
+              </span>
+            </div>
           </div>
         </div>
       </nav>

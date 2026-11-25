@@ -1,6 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import "../bio/bio.css"; // Import the CSS file
+import { useTheme } from "../../../context/ThemeContext";
 import {
   FaSteam,
   FaInstagram,
@@ -15,7 +16,9 @@ import {
   FaFileAlt,
   FaEye,
   FaDownload,
-  FaBriefcase
+  FaBriefcase,
+  FaSun,
+  FaMoon
 } from "react-icons/fa";
 
 const CodingBackground = () => {
@@ -57,6 +60,7 @@ const CodingBackground = () => {
 };
 
 const ProfileCard = () => {
+  const { theme, toggleTheme } = useTheme();
   const [showSteamCard, setShowSteamCard] = React.useState(false);
   const [steamStatus, setSteamStatus] = React.useState({
     state: "loading",
@@ -175,6 +179,15 @@ const ProfileCard = () => {
       <div className="b_container">
         <CodingBackground />
         <div className="b_card">
+          <button
+            type="button"
+            className="b_theme-toggle"
+            onClick={toggleTheme}
+            title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            aria-label={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {theme === "dark" ? <FaSun /> : <FaMoon />}
+          </button>
           <div className="b_profile-image-container">
             <div className="b_glow-ring"></div>
             <img

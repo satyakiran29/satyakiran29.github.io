@@ -111,8 +111,8 @@
 }
 
 .btn-primary-glow:hover {
-  background: #ffffff;
-  color: #000000;
+  background: var(--btn-primary-hover-bg);
+  color: var(--btn-primary-hover-text);
 }
 
 .btn-secondary-glass {
@@ -365,7 +365,7 @@
 .panel-subheading {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
   margin-bottom: 14px;
 }
 
@@ -376,8 +376,8 @@
 }
 
 .scope-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
   border-radius: 12px;
   padding: 16px;
   position: relative;
@@ -385,7 +385,7 @@
 }
 
 .scope-card:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-raised);
   border-color: rgba(127, 90, 240, 0.3);
   transform: translateY(-2px);
 }
@@ -402,7 +402,7 @@
   font-size: 0.95rem;
   font-weight: 700;
   margin-bottom: 5px;
-  color: #e2e8f0;
+  color: var(--text-main);
 }
 
 .scope-card-desc {
@@ -430,9 +430,9 @@
   align-items: flex-start;
   gap: 10px;
   font-size: 0.92rem;
-  color: #e2e8f0;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
   padding: 9px 12px;
   border-radius: 10px;
   line-height: 1.45;
@@ -452,12 +452,12 @@
 }
 
 .tech-tag {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
   border-radius: 8px;
   padding: 4px 11px;
   font-size: 0.8rem;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
@@ -502,7 +502,7 @@
 .proof-title {
   font-size: 1rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
   margin-top: 2px;
 }
 
@@ -587,7 +587,7 @@
 
 .cta-box-text strong {
   font-size: 0.98rem;
-  color: #fff;
+  color: var(--text-main);
 }
 
 .cta-box-text span {
@@ -617,8 +617,8 @@
 }
 
 .filter-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
   color: var(--text-muted);
   padding: 9px 18px;
   border-radius: 9999px;
@@ -632,15 +632,15 @@
 }
 
 .filter-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--bg-raised);
   color: var(--text-main);
 }
 
 .filter-btn.active {
   background: rgba(56, 189, 248, 0.15);
   border-color: #38bdf8;
-  color: #fff;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+  color: var(--text-main);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
 }
 
 .apps-grid {
@@ -736,7 +736,7 @@
   align-items: center;
   gap: 9px;
   font-size: 0.88rem;
-  color: #e2e8f0;
+  color: var(--text-secondary);
   margin-bottom: 7px;
 }
 
@@ -1018,7 +1018,7 @@
 }
 
 .step-nav-btn.active .step-btn-text {
-  color: #fff;
+  color: var(--text-main);
 }
 
 .active-step-card {
@@ -1064,7 +1064,7 @@
 .step-heading {
   font-size: 1.45rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-main);
 }
 
 .step-paragraph {
@@ -1076,8 +1076,8 @@
 }
 
 .step-deliverables-box {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
   border-radius: 12px;
   padding: 16px 18px;
 }
@@ -1087,7 +1087,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.8px;
-  color: #2cb67d;
+  color: var(--accent-positive);
   margin-bottom: 10px;
 }
 
@@ -1102,7 +1102,7 @@
   align-items: flex-start;
   gap: 8px;
   font-size: 0.88rem;
-  color: #e2e8f0;
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
@@ -1234,8 +1234,8 @@
 }
 
 .plan-btn.primary:hover {
-  background: #ffffff;
-  color: #000000;
+  background: var(--btn-primary-hover-bg);
+  color: var(--btn-primary-hover-text);
 }
 
 .plan-btn.outline {
@@ -1375,8 +1375,8 @@
 }
 
 .btn-action-telegram:hover {
-  background: #ffffff;
-  color: #000000;
+  background: var(--btn-primary-hover-bg);
+  color: var(--btn-primary-hover-text);
 }
 
 .btn-action-email {
@@ -1871,4 +1871,43 @@
     justify-content: center;
     box-sizing: border-box;
   }
+}
+
+/* Light Mode Overrides for Freelance */
+:root[data-theme="light"] .experience-spotlight-card {
+  background: linear-gradient(135deg, #ffffff, #f3f6fc);
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: var(--shadow-card);
+}
+
+:root[data-theme="light"] .spotlight-title-group h4,
+:root[data-theme="light"] .takeaway-title,
+:root[data-theme="light"] .tech-category-header h4 {
+  color: var(--text-main);
+}
+
+:root[data-theme="light"] .spotlight-content {
+  color: var(--text-secondary);
+}
+
+:root[data-theme="light"] .takeaway-item,
+:root[data-theme="light"] .trust-bar,
+:root[data-theme="light"] .service-card,
+:root[data-theme="light"] .step-item,
+:root[data-theme="light"] .tech-stack-chip,
+:root[data-theme="light"] .faq-item,
+:root[data-theme="light"] .budget-pill,
+:root[data-theme="light"] .chip-btn,
+:root[data-theme="light"] .summary-box {
+  border-color: var(--border-hairline);
+}
+
+:root[data-theme="light"] .takeaway-item {
+  background: rgba(17, 17, 19, 0.03);
+}
+
+:root[data-theme="light"] .step-number,
+:root[data-theme="light"] .faq-question,
+:root[data-theme="light"] .estimate-value {
+  color: var(--text-main);
 }

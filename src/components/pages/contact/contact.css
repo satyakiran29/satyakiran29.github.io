@@ -58,9 +58,9 @@
 }
 
 .contact-btn:hover {
-    background-color: #ffffff;
-    color: #000000;
-    border-color: #ffffff;
+    background-color: var(--btn-primary-hover-bg);
+    color: var(--btn-primary-hover-text);
+    border-color: var(--btn-primary-hover-bg);
 }
 
 .contact-copy-btn {

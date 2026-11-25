@@ -16,9 +16,12 @@ import {
   FaGithub,
   FaGooglePlay,
   FaExternalLinkAlt,
-  FaTimes
+  FaTimes,
+  FaSun,
+  FaMoon
 } from "react-icons/fa";
 import { projects } from "../../../data/projectsData";
+import { useTheme } from "../../../context/ThemeContext";
 import "./CommandPalette.css";
 
 const CommandPalette = () => {
@@ -29,6 +32,7 @@ const CommandPalette = () => {
   const inputRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -146,6 +150,17 @@ const CommandPalette = () => {
 
     const quickActions = [
       {
+        id: "act-theme",
+        group: "Actions",
+        label: theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode",
+        hint: "Theme",
+        icon: theme === "dark" ? <FaSun /> : <FaMoon />,
+        action: () => {
+          toggleTheme();
+          setOpen(false);
+        },
+      },
+      {
         id: "act-resume-view",
         group: "Actions",
         label: "View Resume PDF",
@@ -229,7 +244,7 @@ const CommandPalette = () => {
     }));
 
     return [...navItems, ...quickActions, ...projectItems];
-  }, [copiedEmail, location.pathname]);
+  }, [copiedEmail, location.pathname, theme]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();

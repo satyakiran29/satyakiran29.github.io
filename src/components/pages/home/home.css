@@ -189,8 +189,8 @@
 }
 
 .btn-primary:hover {
-    background: #ffffff;
-    color: #000000;
+    background: var(--btn-primary-hover-bg);
+    color: var(--btn-primary-hover-text);
 }
 
 .btn-freelance {
@@ -202,8 +202,8 @@
 }
 
 .btn-freelance:hover {
-    background: #ffffff;
-    color: #000000;
+    background: var(--btn-primary-hover-bg);
+    color: var(--btn-primary-hover-text);
 }
 
 /* Split Resume Button Group */
@@ -233,7 +233,7 @@
 }
 
 .resume-btn-main:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-subtle);
 }
 
 .resume-btn-divider {
@@ -256,7 +256,7 @@
 
 .resume-btn-dl:hover {
     color: var(--text-main);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--bg-subtle);
 }
 
 .btn-secondary {

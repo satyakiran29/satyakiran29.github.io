@@ -11,6 +11,7 @@ import CommandPalette from "./components/src/command/CommandPalette";
 import LoaderComponent from "./components/loader/Loader";
 import ExternalRedirect from './components/pages/ExternalRedirect';
 import NotFound from "./components/pages/notfound/NotFound";
+import { ThemeProvider } from "./context/ThemeContext";
 
 const Bio = lazy(() => import("./components/pages/bio/Bio"));
 const Freelance = lazy(() => import("./components/pages/freelance/Freelance"));
@@ -27,7 +28,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <ThemeProvider>
       {Loading ? (
         <LoaderComponent />
       ) : (
@@ -35,7 +36,7 @@ function App() {
           <AppContent />
         </Router>
       )}
-    </>
+    </ThemeProvider>
   );
 }
 

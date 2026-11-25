@@ -14,7 +14,7 @@
   width: 100%;
   z-index: 50;
   transition: background var(--transition-normal);
-  background: rgba(20, 20, 21, 0.85);
+  background: var(--bg-navbar);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border-hairline);
@@ -151,6 +151,42 @@
   color: var(--text-main);
 }
 
+.nav-theme-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-sm);
+  width: 30px;
+  height: 30px;
+  margin-left: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-theme-btn:hover {
+  background: var(--bg-raised);
+  border-color: var(--border-hover);
+  color: var(--text-main);
+}
+
+.mobile-nav-controls {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-theme-btn--mobile {
+  width: 40px;
+  height: 40px;
+  margin-left: 0;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
 /* Hamburger trigger */
 .nav-icon {
   display: none;
@@ -175,7 +211,7 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--bg-overlay);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   display: flex;
@@ -199,7 +235,7 @@
   max-width: 380px;
   background: var(--bg-card);
   border: 1px solid var(--border-hairline);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-card);
   border-radius: var(--radius-panel);
   padding: 20px 16px 16px;
   display: flex;
@@ -403,6 +439,10 @@
     font-size: 1.08rem;
   }
 
+  .mobile-nav-controls {
+    display: flex;
+  }
+
   .nav-icon {
     display: flex;
     align-items: center;
@@ -411,14 +451,15 @@
     width: 44px;
     height: 44px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--glass-border);
-    transition: background 0.2s ease;
+    background: var(--bg-card);
+    border: 1px solid var(--border-hairline);
+    transition: background var(--transition-fast), border-color var(--transition-fast);
   }
 
   .nav-icon:hover,
   .nav-icon:active {
-    background: rgba(255, 255, 255, 0.12);
+    background: var(--bg-raised);
+    border-color: var(--border-hover);
   }
 }
 
